@@ -1,24 +1,30 @@
 ---
 layout: post
-title: "Learn Css"
+title: "Transferring between scss and css"
 date: 2014-01-23 21:07:30 +0800
 comments: true
 categories:
 ---
 
-### scss to css
-
 To run Sass from the command line, just use
 
+```
 sass input.scss output.css
+```
+
 You can also tell Sass to watch the file and update the CSS every time the Sass file changes:
 
+```
 sass --watch input.scss:output.css
+```
+
 If you have a directory with many Sass files, you can also tell Sass to watch the entire directory:
 
+```
 sass --watch app/sass:public/stylesheets
+```
 
-### scss
+transfer css file to scss, just use
 
 ```
 sass-convert -F css -T sass original_file.css converted_file.sass
