@@ -4,6 +4,7 @@ title: "Transferring between scss and css"
 date: 2014-01-23 21:07:30 +0800
 comments: true
 categories:
+- tech
 - css
 - sass
 ---
