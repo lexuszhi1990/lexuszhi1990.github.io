@@ -3,7 +3,7 @@ layout: post
 title: "expose you rasbarry pi"
 date: 2014-02-07 21:38:24 +0800
 comments: true
-categories: [tech, rasbarry pi]
+categories: [tech, raspberry pi]
 ---
 
 ### use VPS and ssh
@@ -71,6 +71,7 @@ $ curl rpi.lingzhi.me
 
 references
 ----------
+- [sshd_config](http://unixhelp.ed.ac.uk/CGI/man-cgi?sshd_config+5)
 - [Using a VPS and SSH to expose your local machine's ports](http://bafford.us/2011/08/31/67745483-using-a-vps-and-ssh-to-expose-your-local-mach/)
 - [Reverse SSH tunneling: easier than port forwarding!](http://bbrinck.com/post/2318562750/reverse-ssh-tunneling-easier-than-port-forwarding)
 - [ssh+nginx反向代理访问内网Web Service](http://logit.me/blog/2013/05/31/reverse-proxy/)
