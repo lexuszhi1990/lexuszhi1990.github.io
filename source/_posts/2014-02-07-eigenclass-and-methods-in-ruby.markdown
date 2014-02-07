@@ -8,7 +8,6 @@ categories:
 - tech
 ---
 
-### Ruby eigenclass and methods
 首先创建一个MyClass类，和它的对象 my_object
 ```
 class MyClass
@@ -20,12 +19,14 @@ class MyClass
     "a singleton method"
   end
 end
-my_object = MyClass.new
+
+my_object = MyClass.new # create a instance object
+
 ```
 
 Ruby有一种特殊的基础Class关键字的语法，它可以让你进入该eigenclass的作用域
 ```
-class << an_object
+class << my_object
   // your code here.
 end
 ```
