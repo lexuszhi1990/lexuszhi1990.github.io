@@ -3,8 +3,8 @@ layout: post
 title: "usefull alias"
 date: 2014-02-07 20:39:47 +0800
 comments: true
-draft: true
-categories: [tech, bash ]
+published: false
+categories: [tech, bash]
 ---
 
 ### Git Alias
