@@ -15,6 +15,8 @@ categories:
 ### 优点
 一个Web页面能适应各种显屏；较大的缩短了开发者开发网站的周期；具有良好的SEO功能，易于google搜索；给用户更好的体验。
 
+<!-- more -->
+
 ### 媒体查询支持和功能
 width、height、device-width、device-height、aspect-ratio和orientation 都是很有用的。width和height指浏览器视区的尺寸，可通过`$(window).width()`和`$(window).height()`取得，而device-width和device-height指显示器的尺寸。
 

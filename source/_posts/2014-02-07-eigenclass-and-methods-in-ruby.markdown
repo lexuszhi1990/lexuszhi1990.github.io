@@ -24,6 +24,8 @@ my_object = MyClass.new # create a instance object
 
 ```
 
+<!-- more -->
+
 Ruby有一种特殊的基础Class关键字的语法，它可以让你进入该eigenclass的作用域
 ```
 class << my_object

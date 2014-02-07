@@ -13,6 +13,7 @@ headers is a hash of HTTP headers for the response.
 body is the actual body of the response (e.g. the HTML you want to
 display). The body must also respond to each.
 
+<!-- more -->
 
 ```
 # gems/rack-1.5.2/lib/rack/lint.rb

@@ -22,6 +22,8 @@ then make sure your raspi has ssh key, and copy it to VPS server.
 ssh-copy-id user@host
 ```
 
+<!-- more -->
+
 second, binding the remote port forwarding to local port.
 ```
 ssh -f -N -R 12345:127.0.0.1:3000 user@host

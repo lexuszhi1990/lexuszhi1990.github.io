@@ -22,6 +22,8 @@ vi /etc/ssh/sshd_config
 Port 8888               //以前这个前面是有 # 号的，而且默认是 22 ，修改一下就ok了
 ```
 
+<!-- more -->
+
 add ssh port
 ```
 sudo /usr/sbin/sshd -p 8888

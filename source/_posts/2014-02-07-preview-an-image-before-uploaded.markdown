@@ -14,6 +14,8 @@ use `simple_form` to upload a avatar
 %img{id: "avatar_preview", src: "#", alt: "your avatar"}
 ```
 
+<!-- more -->
+
 custom the upload avatar photo function, preview the uploaded image
 
 ```
