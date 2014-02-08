@@ -331,16 +331,16 @@ has_many([:squirrels]) called
 ```
 [11] pry(main)> MyClass.singleton_class.ancestors
 => [Class,
- StateMachine::MacroMethods,
- Module,
- ActiveSupport::Dependencies::ModuleConstMissing,
- Object,
- PP::ObjectMixin,
- ActiveSupport::Dependencies::Loadable,
- JSON::Ext::Generator::GeneratorMethods::Object,
- Kernel,
- BasicObject]
- ```
+    StateMachine::MacroMethods,
+    Module,
+    ActiveSupport::Dependencies::ModuleConstMissing,
+    Object,
+    PP::ObjectMixin,
+    ActiveSupport::Dependencies::Loadable,
+    JSON::Ext::Generator::GeneratorMethods::Object,
+    Kernel,
+    BasicObject]
+```
 
 ### conlusion
 
@@ -356,8 +356,8 @@ While I’ve used ActiveSupport::Concern to build actual Concerns, I’ve also u
 
 Modules, mixins and ActiveSupport::Concern are just tools in your toolbox to accomplish the task at hand. It’s up to you to know how the tools work and when to use them.
 
-
 ### 看一个实际的例子
+
 如果项目中不少module都需要有有`is_active`字段，并且都是有相同的逻辑。
 这可以用`ActiveSupport::Concern`来重构。
 ```
