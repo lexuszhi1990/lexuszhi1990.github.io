@@ -8,41 +8,46 @@ categories: [tech, raspberry pi]
 
 ### use VPS and ssh
 
-first, make sure there is a http server running on your rasbarry.
+first, make sure there is a http server running on your rasbarry pi.
 e.g. it runs on 3000 port.
 ```
+# on raspi
 $ curl http://127.0.0.1:3000
-#=> here is David's rasbarry pi. powered by Nodejs.
+#=> Hello, this is Daivd's raspberry pi. powered by node.
 ```
 
 then make sure your raspi has ssh key, and copy it to VPS server.
 
 ```
+# add your raspi ssh key to VPS server
 # user@host is your vps
 ssh-copy-id user@host
 ```
 
 <!-- more -->
 
-second, binding the remote port forwarding to local port.
+second, binding the remote port forwarding to local port. [more information](http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html)
 ```
+# on raspi
 ssh -f -N -R 12345:127.0.0.1:3000 user@host
 ```
+
 then, ssh to the vps server, and check out it.
-e.g.
 
 ```
+# on VPS server
+$ ssh user@host
 $ curl http://127.0.0.1:12345
-#=> here is David's rasbarry pi. powered by Nodejs.
+#=> Hello, this is Daivd's raspberry pi. powered by node.
 ```
 
 last, use nginx server to power it.
 ``` bash
-# raspi server.
+# raspi config on VPS server
 # /opt/nginx/conf/sites-enabled/rasberry-pi.conf
 server {
   listen       80;
-  server_name  rpi.lingzhi.me;
+  server_name  raspi.lingzhi.me;
   location / {
     proxy_pass  http://127.0.0.1:12345;
     proxy_set_header   Host             $host:80;
@@ -53,23 +58,23 @@ server {
 }
 ```
 
-fix the GatewayPorts
+fix the GatewayPorts by edit the file `/etc/sshd_config`
 ```
 # http://unixhelp.ed.ac.uk/CGI/man-cgi
 # set GatewayPorts
-# /etc/sshd_config
 
 GatewayPorts clientspecified
-
 ```
 
 then `sudo service ssh restart` and reload the nginx server, it will run successfully:
 ```
-$ curl rpi.lingzhi.me
-#=> here is David's rasbarry pi. powered by Nodejs.
+$ curl raspi.lingzhi.me
+#=> Hello, this is Daivd's raspberry pi. powered by node.
 ```
 
-### use [ngrok](https://github.com/inconshreveable/ngrok) to create a secure tunnel between from a public endpoint to a locally running web servic
+### One more quickly way to implement it.
+
+use [ngrok](https://github.com/inconshreveable/ngrok) to create a secure tunnel between from a public endpoint to a locally running web servic
 
 references
 ----------
