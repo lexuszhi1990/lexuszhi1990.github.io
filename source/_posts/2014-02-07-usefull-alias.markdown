@@ -3,7 +3,7 @@ layout: post
 title: "usefull alias"
 date: 2014-02-07 20:39:47 +0800
 comments: true
-published: false
+published: true
 categories: [tech, bash]
 ---
 
@@ -73,4 +73,3 @@ alias ruby-httpd='open http://localhost:5000; ruby -run -e httpd . -p 5000'
 alias 'chrome'='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias 'chrome-unsafe'='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security &'
 ```
-
