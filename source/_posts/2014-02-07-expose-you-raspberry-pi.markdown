@@ -1,10 +1,12 @@
 ---
 layout: post
-title: "expose you rasbarry pi"
+title: "expose your rasbarry pi"
 date: 2014-02-07 21:38:24 +0800
 comments: true
 categories: [tech, raspberry pi]
 ---
+
+there are many ways to expose raspbarry pi to Public Intenet.
 
 ### use VPS and ssh
 
