@@ -403,7 +403,7 @@ Advertisement.ancestors
  .....
 ```
 
-###  ActiveSupport::Concern 源码
+###  ActiveSupport::Concern source code
 
 ```
 # lib/active_support/concern.rb
@@ -435,8 +435,100 @@ module Concern
 end
 ```
 
+hack it and pust some debugger message
+```ruby
+module ActiveSupport
+  module Concern
+    def self.extended(base) #:nodoc:
+      base.instance_variable_set("@_dependencies", [])
+      puts "extended in #{base.to_s}"
+    end
+
+    def included(base = nil, &block)
+      unless base.nil?
+        puts "included in #{base.to_s}"
+        super
+      end
+    end
+
+    def append_features(base)
+      if base.instance_variable_defined?("@_dependencies")
+        puts "Creating @_dependencies on - #{base.to_s}"
+        base.instance_variable_get("@_dependencies") << self
+        return false
+      else
+        if base < self
+          puts "Nothing additional for - #{base.to_s}"
+          return false
+        else
+          puts "Including dependencies #{@_dependencies.inspect} to - #{base.to_s}"
+        end
+        binding.pry
+        @_dependencies.each { |dep| base.send(:include, dep) }
+        super
+        puts "in #{self.to_s}Checking for ClassMethods and blocks in - #{base.to_s}"
+        base.extend const_get("ClassMethods") if const_defined?("ClassMethods")
+        base.class_eval(&@_included_block) if instance_variable_defined?("@_included_block")
+      end
+    end
+  end
+end
+```
+
+``` test code
+
+module Baz
+  extend ActiveSupport::Concern
+  def baz
+    puts "baz!"
+  end
+end
+
+module Bar
+  extend ActiveSupport::Concern
+  include Baz
+  def bar
+    puts "bar!"
+  end
+end
+
+module Foo
+  extend ActiveSupport::Concern
+  include Bar
+end
+
+class Zoo
+  include Foo
+end
+
+# =>
+Including dependencies [Bar] to - Zoo
+Including dependencies [Baz] to - Zoo
+Including dependencies [] to - Zoo
+Checking for ClassMethods and blocks in - Zoo
+included in Zoo
+Checking for ClassMethods and blocks in - Zoo
+included in Zoo
+Checking for ClassMethods and blocks in - Zoo
+included in Zoo
+```
+
+`append_features` matz:
+
+"I wanted hooks in both ways, i.e. redefining "include" makes a hook
+from the destination, and redefining "append_feature" makes a hook
+from the source. "included" is more handy for the purpose, but I am
+not sure I am going to remove "append_feature", since it has more
+control flexibility of hook timing.
+
+matz."
+http://www.velocityreviews.com/forums/t834205-append_features-vs-include.html
+
 ---------
 - [ruby-mixins-activesupportconcern/](http://engineering.appfolio.com/2013/06/17/ruby-mixins-activesupportconcern/)
 - [exploring-concerns-for-rails-4](http://blog.andywaite.com/2012/12/23/exploring-concerns-for-rails-4/)
 - [include](http://www.ruby-doc.org/core-2.0.0/Module.html#method-i-included)
 - [extent](http://www.ruby-doc.org/core-2.0.0/Module.html#method-i-extended)
+- [activesupport-concern-digression](http://www.zhubert.com/blog/2013/06/13/activesupport-concern-digression/)
+- [ruby-method-append_features](http://ruby-doc.org/core-2.1.0/Module.html#method-i-append_features)
+- [apidock-append_featuies](http://apidock.com/ruby/Module/append_features)
