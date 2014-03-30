@@ -475,7 +475,7 @@ module ActiveSupport
 end
 ```
 
-``` test code
+```ruby test code
 
 module Baz
   extend ActiveSupport::Concern
