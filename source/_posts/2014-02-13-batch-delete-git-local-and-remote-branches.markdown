@@ -18,6 +18,8 @@ alias 'git-delete-all-branches'='git branch | grep -v "\*" | grep -v "master"| g
 
 ### delete the remote braches use ruby
 
+<!-- more -->
+
 in `irb` or `pry`
 
 ```

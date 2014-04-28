@@ -50,6 +50,8 @@ Unmount all FUSE filesystems and then unload the kernel extension:
 ```
 follow the guides then this issue will be fixed.
 
+<!-- more -->
+
 ### umount for sshfs
 
 `umount -f <absolute pathname to the mount point>`

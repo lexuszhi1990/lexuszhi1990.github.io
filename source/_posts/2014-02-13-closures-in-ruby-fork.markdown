@@ -11,6 +11,8 @@ published: false
 
 ```
 
+<!-- more -->
+
 # CLOSURES IN RUBY     Paul Cantrell    http://innig.net
 # Email: username "cantrell", domain name "pobox.com"
  
