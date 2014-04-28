@@ -4,7 +4,7 @@ title: "node setup on Ubuntu 12.04"
 date: 2014-04-28 09:42:00 +0800
 comments: true
 categories: true
-published: false
+published: true
 ---
 
 env: ubuntu 12.04
