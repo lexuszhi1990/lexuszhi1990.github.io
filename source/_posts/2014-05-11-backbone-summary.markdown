@@ -166,17 +166,22 @@ class Ezitask.Views.PrivateResourceCategories.NewView extends Backbone.View
 - 个人建议 `url` 这个属性放在 `collection` 上面。 `model` 的创建用 `collection` 的create方法
   这样能触发 `add` 事件。 `model` 的保存用 `save` 即可。
 - 使用 grape 的 Entity 方法暴露 model，不用 methods 这个方法。 e.g.
-  good:
-  ```
-  window.router = new Ezitask.Routers.TasksRouter({tasks: <%= raw Entities::Task.represent(@tasks).to_json -%>});
-  ```
 
-  bad:
-  ```
-  window.router = new Ezitask.Routers.ProductServicesRouter({
-    product_services: <%= @product_services.to_json(:methods => [:resource_category, :medium_icon_url, :private_list]).html_safe -%>
-  });
-  ```
+```js
+
+# good example
+window.router = new Ezitask.Routers.TasksRouter({
+  tasks: <%= raw Entities::Task.represent(@tasks).to_json -%>
+});
+```
+
+```js
+
+# bad example
+window.router = new Ezitask.Routers.ProductServicesRouter({
+  product_services: <%= @product_services.to_json(:methods => [:resource_category, :medium_icon_url, :private_list]).html_safe -%>
+});
+```
 
 ### referenecs
 - [a-comparison-of-angular-backbone-canjs-and-ember](http://www.csdn.net/article/2013-04-25/2815032-a-comparison-of-angular-backbone-canjs-and-ember)
