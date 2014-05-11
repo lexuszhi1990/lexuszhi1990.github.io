@@ -48,7 +48,7 @@ Backbone Scaffold $ rails g backbone:scaffold
 负责提取数据的调用，数据的逻辑都应该放到`model`里面去，所以有**fatter model thinner controller**
 的说法。也看到过是 `controller` 里面的代码不应该超过10行的说法。
 
-```coffee
+```js
 # backbone/views/tasks/index_view.js.coffee
 
 class Ezitask.Views.Tasks.IndexView extends Backbone.View
@@ -92,7 +92,7 @@ the DOM element all the time.
 而`$("#tasks_content tbody")`则是普通的JQuery 查找。
 然后返回当前这个view。
 
-```coffee
+```js
 # backbone/views/tasks/index_view.js.coffee
 
   index: ->
