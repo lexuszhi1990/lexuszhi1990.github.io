@@ -1,1 +1,1 @@
-### [david blog](www.lingzhi.me)
+### [my blog](http:://lingzhi.me)
