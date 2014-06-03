@@ -4,7 +4,7 @@ title: "use-raspi-to-setup-a-toy"
 date: 2014-04-16 21:55:04 +0800
 comments: true
 published: false
-categories: [raspi, node]
+categories: [raspi, node, tech]
 ---
 
 

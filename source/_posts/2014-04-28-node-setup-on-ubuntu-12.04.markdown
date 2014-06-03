@@ -3,7 +3,7 @@ layout: post
 title: "node setup on Ubuntu 12.04"
 date: 2014-04-28 09:42:00 +0800
 comments: true
-categories: true
+categories: [ubuntu, node, tech]
 published: true
 ---
 
