@@ -3,7 +3,7 @@ layout: post
 title: "backbone Summary"
 date: 2014-05-11 21:03:37 +0800
 comments: true
-categories: [backbone, frontend]
+categories: [tech, backbone, frontend]
 published: true
 ---
 
