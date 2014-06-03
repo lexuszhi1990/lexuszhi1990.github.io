@@ -31,7 +31,11 @@ export PS1="\u \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $"
 
 ### Capistrano Alias
 
-{% include_code lang:bash rails-alias.sh  %}
+{% include_code lang:bash capistrano-alias.sh  %}
+
+### Heroku Alias
+
+{% include_code lang:bash heroku-alias.sh %}
 
 ### file direction
 ```
@@ -72,4 +76,10 @@ alias ruby-httpd='open http://localhost:5000; ruby -run -e httpd . -p 5000'
 ```
 alias 'chrome'='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias 'chrome-unsafe'='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security &'
+```
+
+# octopress deploy
+
+```
+alias 'octopress-deploy'='git push origin source && rake gen_deploy'
 ```
