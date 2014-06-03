@@ -1,1 +1,1 @@
-### [my blog](http:://lingzhi.me)
+### [my blog](http://lingzhi.me)
