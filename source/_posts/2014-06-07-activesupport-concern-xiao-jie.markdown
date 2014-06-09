@@ -37,7 +37,6 @@ class Post < ActiveRecord::Base
   ...
 end
 
-
 class Advertisement < ActiveRecord::Base
 
   # scopes
@@ -111,7 +110,7 @@ end
 
 ### ActiveSupport::Concern 用来规范model代码逻辑。
 
-虽然我们主张 `fatter model, thinner controller`, 但如果`model`的代码太多，可读性和维护性则会大大下降。一个好的解决办法是把相关的逻辑代码放到 对应的 `ActiveSupport::Concern` 里面去。
+虽然我们主张 `fatter model, thinner controller`, 但如果`model`的代码太多，可读性和维护性则会大大下降。一个好的解决办法是把相关的逻辑代码放到 对应的 `ActiveSupport::Concern` 里面去。以提高代码的高内聚，低耦合。
 
 ```
 #encoding: utf-8
@@ -121,12 +120,18 @@ class Event < ActiveRecord::Base
   include ApprovalRequired
   include OptionalChinese
   include TrackActivities # tracked the event action
-
   ...
 ```
 
-一句话总结就是，使用 `ActiveSupport::Concern` 会使 model 代码简洁又好用。再次感谢[rain](http://hi.baidu.com/rainchen/item/ef36c917a23a9117e2f986f4) 悉心指导。
+`Event` 这个model就引入 `ApprovalRequired`, `OptionalChinese`, `TrackActivities` 这个三个concern，model的代码就清晰而且易于维护。
 
+一句话总结就是，使用 `ActiveSupport::Concern` 会使 model 代码简洁又可读，中看更中用。
+
+如果用这个大神[rainchen](http://hi.baidu.com/rainchen/item/ef36c917a23a9117e2f986f4) 的总结就是
+
+1. concern将部分可重用的功能抽出来，然后多个model可以共用
+2. model的代码太多，将其相关的逻辑代码放到不同的concern里
+3. 规定使用ActiveSupport::Concern的代码风格，是希望形成开发规约定，就如controller和model的写法。
 
 ### ActiveSupport::Concern 由来
 
