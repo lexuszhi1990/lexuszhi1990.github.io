@@ -8,6 +8,8 @@ categories: [tech, postgres]
 
 ### Install pg on Mac os x
 
+<!-- more -->
+
 ```bash
   brew update
   brew install postgresql
