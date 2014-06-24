@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "postgres"
+title: "postgres 小结"
 date: 2014-06-24 17:29:05 +0800
 comments: true
 categories: [tech, postgres]
