@@ -1,0 +1,64 @@
+---
+layout: post
+title: "postgres"
+date: 2014-06-24 17:29:05 +0800
+comments: true
+categories: [tech, postgres]
+---
+
+### Install pg on Mac os x
+
+```bash
+  brew update
+  brew install postgresql
+  initdb /usr/local/var/postgres
+  cp /usr/local/Cellar/postgresql/9.1.4/homebrew.mxcl.postgresql.plist  ~/Library/LaunchAgents/
+  launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+  pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+
+  gem install pg
+```
+
+### install pg on ubuntu
+[offical guide](https://help.ubuntu.com/community/PostgreSQL)
+
+`gem install pg ` occurs as
+
+ERROR: Failed to build gem native extension.
+/home/pcr/.rvm/rubies/ruby-1.9.3-p0/bin/ruby extconf.rb checking for pg_config
+原因是因为没有安装libpg-dev。
+solution: `sudo apt-get install libpg-dev`
+
+当出现 PG Peer authentication failed的时候，需要修改pg的配置。参考
+http://stackoverflow.com/questions/15306770/pg-peer-authentication-failed
+
+### some issues
+
+1. `psql`
+
+  createuser: could not connect to database postgres: could not connect to server: Permission denied
+    Is the server running locally and accepting
+    connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+
+puts `PATH=$PATH:/usr/local/Cellar/` in `.bash_profile`
+
+2. FATAL:  role "postgres" does not exist
+
+  `createuser -s -r postgres`
+
+
+### usage
+
+*restart*     :   `brew services restart postgresql` or `pg_ctl -D /usr/local/var/postgres -l logfile start`
+
+*collect to db* :   `psql -d postgres [USER];`
+
+*create user*   :   `create user user3  with superuser createdb createrole  password 'root';`
+*edit password* : ` alter user user3 with password 'your password';
+
+------
+- [pg install on osx](http://hlee.iteye.com/blog/1699119)
+- [pg tips](http://hlee.iteye.com/blog/1689304)
+- [pg guide](http://www.cnblogs.com/tzp_8/archive/2012/11/08/2760746.html)
+- [pg cmd](http://www.chnlanker.com/postgresql/556.html)
+- [pg offical doc](http://www.php100.com/manual/PostgreSQL8/app-createuser.html)
