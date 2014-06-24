@@ -64,3 +64,4 @@ puts `PATH=$PATH:/usr/local/Cellar/` in `.bash_profile`
 - [pg guide](http://www.cnblogs.com/tzp_8/archive/2012/11/08/2760746.html)
 - [pg cmd](http://www.chnlanker.com/postgresql/556.html)
 - [pg offical doc](http://www.php100.com/manual/PostgreSQL8/app-createuser.html)
+- [install pg on ubuntu 12.04](http://railskey.wordpress.com/2012/05/19/postgresql-installation-in-ubuntu-12-04/)
