@@ -10,6 +10,8 @@ categories: [tech, logrotate]
 
 ### Create new rotate config file for application log
 
+<!-- more -->
+
 `$ sudo vim /etc/logrotate.d/example_application_log`
 
 Type following contents, and save
