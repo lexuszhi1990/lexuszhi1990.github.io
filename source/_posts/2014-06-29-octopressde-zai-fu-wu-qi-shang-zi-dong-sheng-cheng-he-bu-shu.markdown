@@ -4,7 +4,7 @@ title: "Octopress的在服务器上自动生成和部署"
 date: 2014-06-29 15:36:52 +0800
 comments: true
 categories: [tech, octopress, deploy, git]
-published: false
+published: true
 ---
 
 我的blog开始是用github page做的，但是天朝网络无规则抽风，访问太慢，经常10s无反应。所以觉得还是把blog部署到我的vps上面去。
@@ -30,12 +30,17 @@ git remote add vps username@myvps.com:/home/deploy/blog.git
 然后push的时候，就会触发post-receice这个hook。它会做如下的事情，
 
 ```
-bundle install
-bundle exec rake generate
-cp -r -f ./public/* $BLOG_DIR/octopress
+remote: Your bundle is complete!
+remote: Use `bundle show [gemname]` to see where a bundled gem is installed.
+remote: ## Generating Site with Jekyll
+remote: unchanged sass/screen.scss
+remote: Configuration from /home/deploy/DAVID_BLOG/work-dir/_config.yml
+remote: Building site: source -> public
+remote: Successfully generated site: source -> public
+To deploy@162.243.130.113:/home/deploy/DAVID_BLOG/blog.git
+   f8648aa..4fe5f78  source -> source
 ```
-
-bundle install，然后 generate 新的页面，然后将它cp到ocpress目录下去。
+也就是 bundle install，然后 generate 新的页面，然后将他们cp到ocpress目录下去。
 关于git的hook具体就是参考[这篇文章](http://gitbook.liuhui998.com/5_8.html)
 
 nginx的配置就是如下
