@@ -27,6 +27,27 @@ bash | curl https://gist.githubusercontent.com/lexuszhi1990/e572a2614b7d610295ad
 git remote add vps username@myvps.com:/home/timothy/blog.git
 ```
 
-然后push的时候，就会触发hook。
+然后push的时候，就会触发post-receice这个hook。它会做如下的事情，
+
+```
+bundle install
+bundle exec rake generate
+cp -r -f ./public/* $BLOG_DIR/octopress
+```
+
+bundle install，然后 generate 新的页面，然后将它cp到ocpress目录下去。
+
+nginx的配置就是如下
+
+```
+server {
+        listen 80;
+
+        root /home/deploy/DAVID_BLOG/octopress;
+        index index.html index.htm;
+
+        server_name blog.lingzhi.me www.blog.lingzhi.me;
+}
+```
 
 关于git的hook具体就是参考[这篇文章](http://gitbook.liuhui998.com/5_8.html)
