@@ -30,6 +30,3 @@ git config core.bare false
 git config core.worktree /home/timothy/work-dir
 git config receive.denyCurrentBranch ignore
 ```
-
-
-
