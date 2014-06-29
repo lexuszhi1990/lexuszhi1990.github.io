@@ -13,7 +13,7 @@ published: false
 
 ### 服务器上面的配置
 
-首先 ssh到server上面去
+<!-- more -->
 
 ```sh
 
