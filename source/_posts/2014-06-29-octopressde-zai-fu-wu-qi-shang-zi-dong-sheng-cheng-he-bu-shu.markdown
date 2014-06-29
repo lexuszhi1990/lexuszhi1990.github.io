@@ -36,6 +36,7 @@ cp -r -f ./public/* $BLOG_DIR/octopress
 ```
 
 bundle install，然后 generate 新的页面，然后将它cp到ocpress目录下去。
+关于git的hook具体就是参考[这篇文章](http://gitbook.liuhui998.com/5_8.html)
 
 nginx的配置就是如下
 
@@ -49,5 +50,3 @@ server {
         server_name blog.lingzhi.me www.blog.lingzhi.me;
 }
 ```
-
-关于git的hook具体就是参考[这篇文章](http://gitbook.liuhui998.com/5_8.html)
