@@ -55,3 +55,4 @@ server {
         server_name blog.lingzhi.me www.blog.lingzhi.me;
 }
 ```
+
