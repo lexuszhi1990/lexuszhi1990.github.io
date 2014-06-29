@@ -24,7 +24,7 @@ bash | curl https://gist.githubusercontent.com/lexuszhi1990/e572a2614b7d610295ad
 然后回到的本地，将vps的裸创库加到本地的remote list当中
 
 ```
-git remote add vps username@myvps.com:/home/timothy/blog.git
+git remote add vps username@myvps.com:/home/deploy/blog.git
 ```
 
 然后push的时候，就会触发post-receice这个hook。它会做如下的事情，
