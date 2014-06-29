@@ -15,29 +15,18 @@ published: false
 
 <!-- more -->
 
-```sh
+首先登入vps 服务器，然后执行
 
-BLOG_DIR="$HOME/DAVID_BLOG"
-mkdir $BLOG_DIR && cd $BLOG_DIR
-mkdir blog.git work-dir  octopress
-
-cd blog.git
-git init --bare
-git config core.bare false
-git config core.worktree $BLOG_DIR/work-dir
-git config receive.denyCurrentBranch ignore
-
-cd hooks/
-
-cat << EOF > post-receive
-#!/bin/bash
-GIT_WORK_TREE=$BLOG_DIR/work-dir git checkout -source
-cd $BLOG_DIR/work-dir
-source /etc/profile
-rake generate
-cp -r -f ./public/* $BLOG_DIR/octopress
-EOF
-
-chmod 755 post-receive
+```
+bash | curl https://gist.githubusercontent.com/lexuszhi1990/e572a2614b7d610295ad/raw/077b0abdf6479d06bfa3ecabb846f3d9e57e33a6/octopress_setup.sh
 ```
 
+然后回到的本地，将vps的裸创库加到本地的remote list当中
+
+```
+git remote add vps username@myvps.com:/home/timothy/blog.git
+```
+
+然后push的时候，就会触发hook。
+
+关于git的hook具体就是参考[这篇文章](http://gitbook.liuhui998.com/5_8.html)
