@@ -52,6 +52,12 @@ server {
         root /home/deploy/DAVID_BLOG/octopress;
         index index.html index.htm;
 
+        location ~ ^/(assets)/  {
+          root /path/to/public;
+          gzip_static on; # to serve pre-gzipped version
+          expires max;
+          add_header Cache-Control public;
+        }
         server_name blog.lingzhi.me www.blog.lingzhi.me;
 }
 ```
