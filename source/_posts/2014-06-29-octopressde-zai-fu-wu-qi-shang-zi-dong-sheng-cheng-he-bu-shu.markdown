@@ -16,17 +16,27 @@ published: false
 首先 ssh到server上面去
 
 ```sh
-cd
-mkdir blog.git
+
+BLOG_DIR="$HOME/DAVID_BLOG"
+mkdir $BLOG_DIR && cd $BLOG_DIR
+mkdir blog.git work-dir  octopress
+
 cd blog.git
 git init --bare
-ls
-# => branches  config  description  HEAD  hooks  info  objects  refs
-
-
-
-cd /home/timothy/blog.git
 git config core.bare false
-git config core.worktree /home/timothy/work-dir
+git config core.worktree $BLOG_DIR/work-dir
 git config receive.denyCurrentBranch ignore
+
+cd hooks/
+
+cat << EOF > post-receive
+#!/bin/bash
+GIT_WORK_TREE=$BLOG_DIR/work-dir git checkout -source
+cd $BLOG_DIR/work-dir
+source /etc/profile
+rake generate
+cp -r -f ./public/* $BLOG_DIR/octopress
+EOF
+
+chmod 755 post-receive
 ```
