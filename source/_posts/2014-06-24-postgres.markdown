@@ -55,13 +55,46 @@ puts `PATH=$PATH:/usr/local/Cellar/` in `.bash_profile`
 
 *collect to db* :   `psql -d postgres [USER];`
 
-*create user*   :   `create user user3  with superuser createdb createrole  password 'root';`
+*create user*   :   `create user user3  with superuser createdb createrole encrypted password 'root';`
 *edit password* : ` alter user user3 with password 'your password';
+
+### on unbuntu 14.04
+
+修改 `/etc/postgresql/9.3/main/pg_hba.conf`，让本地登入需要密码。
+
+```
+local   all             all                                     md5
+local   replication     postgres                               md5
+```
+
+以postgres用户登入，创建新的用户，
+
+```
+sudo -u postgres psql
+
+# create a user named deploy1 and password is `password`
+postgres=# create user deploy1 with superuser createdb encrypted password 'passord';
+# => CREATE ROLE
+
+# select the roles
+postgres=# select rolname from pg_roles;
+=>  rolname
+    ----------
+    ...
+    deploy1
+    ...
+
+# edit password
+postgres=# alter user deploy1 with encrypted password 'yourpassword';
+=> ALTER ROLE
+
+# drop user
+postgres=# drop user deploy1;
+=> DROP ROLE
+```
 
 ------
 - [pg install on osx](http://hlee.iteye.com/blog/1699119)
-- [pg tips](http://hlee.iteye.com/blog/1689304)
-- [pg guide](http://www.cnblogs.com/tzp_8/archive/2012/11/08/2760746.html)
-- [pg cmd](http://www.chnlanker.com/postgresql/556.html)
-- [pg offical doc](http://www.php100.com/manual/PostgreSQL8/app-createuser.html)
-- [install pg on ubuntu 12.04](http://railskey.wordpress.com/2012/05/19/postgresql-installation-in-ubuntu-12-04/)
+- [pg cmd list](http://www.cnblogs.com/tzp_8/archive/2012/11/08/2760746.html)
+- [pg 8.1 offical doc zn](http://www.php100.com/manual/PostgreSQL8/app-createuser.html)
+- [install pg on ubuntu 12.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-12-04)
