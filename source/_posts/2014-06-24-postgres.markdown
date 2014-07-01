@@ -24,6 +24,10 @@ categories: [tech, postgres]
 ### install pg on ubuntu
 [offical guide](https://help.ubuntu.com/community/PostgreSQL)
 
+Install PostgreSQL
+
+`sudo apt-get install -y postgresql libpq-dev`
+
 `gem install pg ` occurs as
 
 ERROR: Failed to build gem native extension.
