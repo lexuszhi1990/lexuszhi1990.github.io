@@ -8,6 +8,8 @@ categories: [tech, sublime]
 
 ### official web: [Sublime](http://www.sublimetext.com)
 
+<!-- mode -->
+
 ### Keyboard Shortcuts for OSX
 
 - [Keyboard Shortcuts](http://docs.sublimetext.info/en/latest/reference/keyboard_shortcuts_osx.html#keyboard-shortcuts-osx)
