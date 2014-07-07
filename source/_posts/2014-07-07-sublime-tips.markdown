@@ -8,7 +8,7 @@ categories: [tech, sublime]
 
 ### official web: [Sublime](http://www.sublimetext.com)
 
-<!-- mode -->
+<!-- more -->
 
 ### Keyboard Shortcuts for OSX
 
