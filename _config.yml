@@ -9,9 +9,13 @@ github_username:  lexuszhi1990
 
 # Build settings
 markdown: redcarpet
-permalink: /:year/:month/:day/:title
+# permalink: /:year/:month/:day/:title
 
 paginate: 10
-paginate_path: "page/:num"
+paginate_path: "/blog/page/:num"
 
 google_analytics_tracking_id: UA-47869605-1
+
+# http://jekyllrb.com/docs/configuration/#kramdown
+kramdown:
+  input: GFM
