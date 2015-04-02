@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Understand mixin and activesupport better</title>
+  <meta name="description" content="mixin 是把一个模块Mixin到某个对象中，以实现实现多重继承。">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://yourdomain.com/ruby/rails/tech/2014/02/07/understand-activesupport-better.html">
+  <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="http://yourdomain.com/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Your awesome title</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Understand mixin and activesupport better</h1>
+    <p class="post-meta">Feb 7, 2014</p>
+  </header>
+
+  <article class="post-content">
+    <h3 id="mixin-mixin">mixin 是把一个模块Mixin到某个对象中，以实现实现多重继承。</h3>
+
+<p><code>include</code> 方法在Module对象中定义。
+<code>
+Module.private_methods.grep /inc/
+=&gt; [:included, :include]
+</code></p>
+
+<p>使用的ruby version
+<code>
+$ruby -v
+ =&gt; ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
+</code></p>
+
+<!-- more -->
+
+<h3 id="mixin-example">mixin example</h3>
+
+<p>```
+class Base; end</p>
+
+<p>class MyModule &lt; Base; end</p>
+
+<p>class Child &lt; MyModule; end</p>
+
+<h1 id="irb-childancestors">irb&gt; Child.ancestors</h1>
+<p>#  =&gt; [Child, MyModule, Base, Object, Kernel, BasicObject]
+```</p>
+
+<p>如果使用include实现：
+```
+module MyModule
+end</p>
+
+<p>class Base
+end</p>
+
+<p>class Child &lt; Base
+  include MyModule
+end</p>
+
+<h1 id="irb-childancestors-1">irb&gt; Child.ancestors</h1>
+<p>#  =&gt; [Child, MyModule, Base, Object, Kernel, BasicObject]
+```</p>
+
+<p>当类去包含一个module时，该module会被插入到祖先链当中，并且位于该类的正上方。</p>
+
+<p>但如果MyModule中有一个方法，当类去包含这个模块的时候，它获得的是该模块的实例方法(instance methods)，而不是类方法(class methods)。类方法存在于eigenclass之中。
+```
+module MyModule
+  def my_method; ‘hello world!’; end
+end</p>
+
+<p>class MyClass
+  include MyModule
+end</p>
+
+<p>MyClass.my_method
+ =&gt; NoMethodError: undefined method <code>my_method' for MyClass:Class
+    from (irb):9
+    from /Users/david/.rvm/rubies/ruby-2.0.0-p247/bin/irb:16:in </code><main>'</main></p>
+
+<p>MyClass.new.my_method
+ =&gt; “hello world!”
+<code>
+解决的办法是
+</code>
+class MyClass
+  class « self
+    include MyMod
+  end
+end
+<code>
+或者是用`class_eval`方法
+</code>
+MyClass.singleton_class.class_eval do
+  include MyModule
+end
+<code>
+这样MyModule就被添加到Myclass得eigenclass的祖先链之中。这种技术叫做类扩展(class extension)
+</code>
+MyClass.singleton_class.ancestors
+  =&gt; [MyModule, Class, Module, Object, Kernel, BasicObject]
+MyClass.my_method
+  =&gt; “hello world!”
+```</p>
+
+<h3 id="modulesextend-object">Modules也可以被用于extend object</h3>
+<p>```
+module MyMod; end</p>
+
+<p>my_obj = Object.new
+my_obj.extend MyMod
+my_obj.singleton_class.ancestors
+ =&gt; [MyMod, Object, Kernel, BasicObject]
+```</p>
+
+<p>在ruby中，每个object都有一个singleten class，Object#extend 跟Module#include类似，但是在一个object的singleton class上面作用。
+```
+class MyClass
+  extend MyModule
+end</p>
+
+<p>MyClass.singleton_class.ancestors
+ =&gt; [MyModule, Class, Module, Object, Kernel, BasicObject]
+MyClass.my_method
+ =&gt; “hello world!”
+```</p>
+
+<p>这样把模块通过混入(mixin)到类的eigenclass 中来定义类方法，这样技术叫做对象扩展。
+<code>
+Object.methods.grep /extend/
+ =&gt; [:extend]
+Object.private_methods.grep /extend/
+ =&gt; [:extended]
+</code></p>
+
+<p>下面来看一个完整的例子</p>
+
+<p>```
+module MyMod
+  def self.included(target)
+    puts “included into #{target}”
+  end</p>
+
+<p>def self.extended(target)
+    puts “extended into #{target}”
+  end
+end
+```</p>
+
+<p>```
+class MyIncludeClass
+  include MyMod
+end</p>
+
+<p>irb&gt; included into MyIncludeClass</p>
+
+<p>irb&gt; MyIncludeClass.ancestors
+ =&gt; [MyIncludeClass, MyMod, Object, Kernel, BasicObject]
+irb&gt; MyIncludeClass.singleton_class.ancestors
+ =&gt; [Class, Module, Object, Kernel, BasicObject]
+```</p>
+
+<p>```
+class MyExtendClass
+  extend MyMod
+end</p>
+
+<p>irb&gt; extended into MyExtendClass</p>
+
+<p>irb&gt; MyExtendClass.ancestors
+ =&gt; [MyExtendClass, Object, Kernel, BasicObject]
+irb&gt; MyExtendClass.singleton_class.ancestors
+ =&gt; [MyMod, Class, Module, Object, Kernel, BasicObject]
+```</p>
+
+<h3 id="activesupportconcern">ActiveSupport::Concern</h3>
+<p>这样久而久之，像这样创建为了mixin的module渐渐变成一个common pattern ：
+```ruby
+module MyMod
+  def self.included(base)
+    base.send(:include, InstanceMethods)
+    base.extend ClassMethods
+    base.class_eval do
+      a_class_method
+    end
+  end</p>
+
+<p>module InstanceMethods
+    def an_instance_method
+    end
+  end</p>
+
+<p>module ClassMethods
+    def a_class_method
+      puts “a_class_method called”
+    end
+  end
+end</p>
+
+<p>class MyClass
+  include MyMod
+end</p>
+
+<p>2.0.0p247 :045 &gt;
+a_class_method called
+ =&gt; MyClass</p>
+
+<p>2.0.0p247 :046 &gt; MyClass.ancestors
+ =&gt; [MyClass, MyMod::InstanceMethods, MyMod, Object, Kernel, BasicObject]
+2.0.0p247 :047 &gt; MyClass.singleton_class.ancestors
+ =&gt; [MyMod::ClassMethods, Class, Module, Object, Kernel, BasicObject]
+```</p>
+
+<p>可以看到，这个但单独的module添加了 instance methods, class methods, 并且直接调用了一个 <code>a_class_method</code>。
+<code>ActiveSupport::Concern</code> 概况了这个模式。下面是如何用<code>ActiveSupport::Concern</code>重写这个module。</p>
+
+<p>```
+module MyMod
+  extend ActiveSupport::Concern</p>
+
+<p>included do
+    a_class_method
+  end</p>
+
+<p>def an_instance_method
+  end</p>
+
+<p>module ClassMethods
+    def a_class_method
+      puts “a_class_method called”
+    end
+  end
+end
+```</p>
+
+<p>然后
+```
+class MyClass
+  include MyMod
+end</p>
+
+<p>pry(main)&gt; MyClass.ancestors
+=&gt; [MyClass,
+ MyMod,
+ Object,
+ PP::ObjectMixin,
+ ActiveSupport::Dependencies::Loadable,
+ JSON::Ext::Generator::GeneratorMethods::Object,
+ Kernel,
+ BasicObject]
+```</p>
+
+<p>这样 nested InstanceMethods 被移除了，而且instence method被直接定义在module之中,这是因为MyMod已经在 ancestor chain 中。
+<code>ActiveSupport::Concern</code> 去除了在模式中得一些 <strong>boilerplate code</strong>。不需要去定义included hook。不需要去<code>extend SomeTargetClass</code>，不需要用<code>class_eval</code>去打开一个类。</p>
+
+<h3 id="activesupportconcern-does-a-lazy-evaluation">ActiveSupport::Concern does a lazy evaluation</h3>
+<p>如果MyModA在被included到一个Class的适合有一些其他的操作，
+```
+module MyModA
+  def self.included(target)
+    target.class_eval do
+      has_many :squirrels
+    end
+  end
+end</p>
+
+<p>module MyModB
+  include MyModA
+end</p>
+
+<p>class MyClass
+  include MyModB
+end</p>
+
+<p>```
+那么当MyModA被include进MyModB，<code>self.included()</code>会执行，但如果<code>has_many()</code> 在MyModB中没有定义，则会出错…</p>
+
+<p><code>
+2.0.0-p247 :019 &gt; module MyModB
+2.0.0-p247 :020?&gt;     include MyModA
+2.0.0-p247 :021?&gt;   end
+NoMethodError: undefined method `has_many' for MyModB:Module
+  from (irb):15:in `block in included'
+  from (irb):14:in `class_eval'
+  from (irb):14:in `included'
+  from (irb):20:in `include'
+  from (irb):20:in `&lt;module:MyModB&gt;'
+  from (irb):19
+</code></p>
+
+<p><code>ActiveSupport::Concern</code>会推迟这些included hooks，直到一个module没有被included进<code>ActiveSupport::Concern</code>，并以此回避了这个问题。</p>
+
+<p>```
+module MyModA
+  extend ActiveSupport::Concern</p>
+
+<p>included do
+    has_many :squirrels
+  end
+end</p>
+
+<p>module MyModB
+  extend ActiveSupport::Concern
+  include MyModA
+end</p>
+
+<p>class MyClass
+  def self.has_many(*args)
+    puts “has_many(#{args.inspect}) called”
+  end</p>
+
+<p>include MyModB
+end
+<code>
+这样会输出
+</code>
+has_many([:squirrels]) called
+=&gt; MyClass
+```</p>
+
+<p>然后再探究一下MyClass的结构
+<code>
+[10] pry(main)&gt; MyClass.ancestors
+=&gt; [MyClass,
+ MyModB,
+ MyModA,
+ Object,
+ PP::ObjectMixin,
+ ActiveSupport::Dependencies::Loadable,
+ JSON::Ext::Generator::GeneratorMethods::Object,
+ Kernel,
+ BasicObject]
+</code>
+这样 MyModA 和MyModB 都被包含到MyClass得祖先链当中。</p>
+
+<p><code>
+[11] pry(main)&gt; MyClass.singleton_class.ancestors
+=&gt; [Class,
+    StateMachine::MacroMethods,
+    Module,
+    ActiveSupport::Dependencies::ModuleConstMissing,
+    Object,
+    PP::ObjectMixin,
+    ActiveSupport::Dependencies::Loadable,
+    JSON::Ext::Generator::GeneratorMethods::Object,
+    Kernel,
+    BasicObject]
+</code></p>
+
+<h3 id="conlusion">conlusion</h3>
+
+<p>But why is ActiveSupport::Concern called “Concern”? The name Concern comes from AOP (http://en.wikipedia.org/wiki/Aspect-oriented_programming). Concerns in AOP encapsulate a “cohesive area of functionality”. Mixins act as Concerns when they provide cohesive chunks of functionality to the target class. Turns out using mixins in this fashion is a very common practice.</p>
+
+<p>ActiveSupport::Concern provides the mechanics to encapsulate a cohesive chunk of functionality into a mixin that can extend the behavior of the target class by annotating the class’ ancestor chain, annotating the class’ singleton class’ ancestor chain, and directly manipulating the target class through the included() hook.</p>
+
+<p>So….</p>
+
+<p>Is every mixin a Concern? No. Is every ActiveSupport::Concern a Concern? No.</p>
+
+<p>While I’ve used ActiveSupport::Concern to build actual Concerns, I’ve also used it to avoid writing out the boilerplate code mentioned above. If I just need to share some instance methods and nothing else, then I’ll use a bare module.</p>
+
+<p>Modules, mixins and ActiveSupport::Concern are just tools in your toolbox to accomplish the task at hand. It’s up to you to know how the tools work and when to use them.</p>
+
+<h3 id="section">看一个实际的例子</h3>
+
+<p>如果项目中不少module都需要有有<code>is_active</code>字段，并且都是有相同的逻辑。
+这可以用<code>ActiveSupport::Concern</code>来重构。
+```
+# app/models/has_is_active.rb
+# for models with field :is_active
+module HasIsActive
+  extend ActiveSupport::Concern</p>
+
+<p>included do |base|
+    scope :active, where(is_active: true)
+  end</p>
+
+<p>module ClassMethods
+    def all_active(reload = false)
+      @all_active = nil if reload
+      @all_active ||= active.all
+    end
+  end</p>
+
+<p>def active?
+    is_active
+  end
+end
+```</p>
+
+<p>然后在需要的module中
+```
+# app/models/advertisements.rb
+class Advertisement &lt; ActiveRecord::Base
+  include HasIsActive
+end</p>
+
+<p>Advertisement.active.count
+  =&gt; 2
+Advertisement.all_active.count
+  =&gt; 2
+Advertisement.first.active?
+  =&gt; false
+Advertisement.ancestors
+=&gt; [Advertisement(id: integer, is_active: boolean)
+ …..
+ HasIsActive,
+ …..
+```</p>
+
+<h3 id="activesupportconcern-source-code">ActiveSupport::Concern source code</h3>
+
+<p>```
+# lib/active_support/concern.rb
+module Concern
+  def self.extended(base) #:nodoc:
+    base.instance_variable_set(“@_dependencies”, [])
+  end</p>
+
+<p>def append_features(base)
+    if base.instance_variable_defined?(“@_dependencies”)
+      base.instance_variable_get(“@_dependencies”) « self
+      return false
+    else
+      return false if base &lt; self
+      @_dependencies.each { |dep| base.send(:include, dep) }
+      super
+      base.extend const_get(“ClassMethods”) if const_defined?(“ClassMethods”)
+      base.class_eval(&amp;@_included_block) if instance_variable_defined?(“@_included_block”)
+    end
+  end</p>
+
+<p>def included(base = nil, &amp;block)
+    if base.nil?
+      @_included_block = block
+    else
+      super
+    end
+  end
+end
+```</p>
+
+<p>hack it and pust some debugger message
+```ruby
+module ActiveSupport
+  module Concern
+    def self.extended(base) #:nodoc:
+      base.instance_variable_set(“@_dependencies”, [])
+      puts “extended in #{base.to_s}”
+    end</p>
+
+<pre><code>def included(base = nil, &amp;block)
+  unless base.nil?
+    puts "included in #{base.to_s}"
+    super
+  end
+end
+
+def append_features(base)
+  if base.instance_variable_defined?("@_dependencies")
+    puts "Creating @_dependencies on - #{base.to_s}"
+    base.instance_variable_get("@_dependencies") &lt;&lt; self
+    return false
+  else
+    if base &lt; self
+      puts "Nothing additional for - #{base.to_s}"
+      return false
+    else
+      puts "Including dependencies #{@_dependencies.inspect} to - #{base.to_s}"
+    end
+    binding.pry
+    @_dependencies.each { |dep| base.send(:include, dep) }
+    super
+    puts "in #{self.to_s}Checking for ClassMethods and blocks in - #{base.to_s}"
+    base.extend const_get("ClassMethods") if const_defined?("ClassMethods")
+    base.class_eval(&amp;@_included_block) if instance_variable_defined?("@_included_block")
+  end
+end   end end ```
+</code></pre>
+
+<p>```ruby test code</p>
+
+<p>module Baz
+  extend ActiveSupport::Concern
+  def baz
+    puts “baz!”
+  end
+end</p>
+
+<p>module Bar
+  extend ActiveSupport::Concern
+  include Baz
+  def bar
+    puts “bar!”
+  end
+end</p>
+
+<p>module Foo
+  extend ActiveSupport::Concern
+  include Bar
+end</p>
+
+<p>class Zoo
+  include Foo
+end</p>
+
+<h1 id="section-1">=&gt;</h1>
+<p>Including dependencies [Bar] to - Zoo
+Including dependencies [Baz] to - Zoo
+Including dependencies [] to - Zoo
+Checking for ClassMethods and blocks in - Zoo
+included in Zoo
+Checking for ClassMethods and blocks in - Zoo
+included in Zoo
+Checking for ClassMethods and blocks in - Zoo
+included in Zoo
+```</p>
+
+<p><code>append_features</code> matz:</p>
+
+<p>“I wanted hooks in both ways, i.e. redefining “include” makes a hook
+from the destination, and redefining “append_feature” makes a hook
+from the source. “included” is more handy for the purpose, but I am
+not sure I am going to remove “append_feature”, since it has more
+control flexibility of hook timing.</p>
+
+<p>matz.”
+http://www.velocityreviews.com/forums/t834205-append_features-vs-include.html</p>
+
+<hr />
+<ul>
+  <li><a href="http://engineering.appfolio.com/2013/06/17/ruby-mixins-activesupportconcern/">ruby-mixins-activesupportconcern/</a></li>
+  <li><a href="http://blog.andywaite.com/2012/12/23/exploring-concerns-for-rails-4/">exploring-concerns-for-rails-4</a></li>
+  <li><a href="http://www.ruby-doc.org/core-2.0.0/Module.html#method-i-included">include</a></li>
+  <li><a href="http://www.ruby-doc.org/core-2.0.0/Module.html#method-i-extended">extent</a></li>
+  <li><a href="http://www.zhubert.com/blog/2013/06/13/activesupport-concern-digression/">activesupport-concern-digression</a></li>
+  <li><a href="http://ruby-doc.org/core-2.1.0/Module.html#method-i-append_features">ruby-method-append_features</a></li>
+  <li><a href="http://apidock.com/ruby/Module/append_features">apidock-append_featuies</a></li>
+</ul>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Your awesome title</li>
+          <li><a href="mailto:your-email@domain.com">your-email@domain.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/jekyll">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">jekyll</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/jekyllrb">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">jekyllrb</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
