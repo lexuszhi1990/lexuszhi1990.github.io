@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>About</title>
-  <meta name="description" content="blog">
+  <title>apache access and user agent</title>
+  <meta name="description" content="config access for for apache 2.2if we want to deny the user which ip is 183.60.244.33, and use the agent of Python-urllib, wo can config like this">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/about/">
+  <link rel="canonical" href="/blog/2014/02/08/apache-access-and-user-agent">
   <link rel="alternate" type="application/rss+xml" title="Tide-Hunter" href="/feed.xml" />
 </head>
 
@@ -61,15 +61,54 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">About</h1>
+    <h1 class="post-title">apache access and user agent</h1>
+    <p class="post-meta">Feb 8, 2014</p>
   </header>
 
   <article class="post-content">
-    <p>This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at <a href="http://jekyllrb.com/">jekyllrb.com</a></p>
+    <h3>config access for for apache 2.2</h3>
 
-<p>You can find the source code for the Jekyll new theme at: <a href="https://github.com/jglovier/jekyll-new">github.com/jglovier/jekyll-new</a></p>
+<p>if we want to deny the user which ip is 183.60.244.33, and use the agent of Python-urllib, wo can config like this</p>
 
-<p>You can find the source code for Jekyll at <a href="https://github.com/jekyll/jekyll">github.com/jekyll/jekyll</a></p>
+<!-- more -->
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;Directory /&gt;
+  SetEnvIf User-Agent Python-urllib GoAway=1
+  Order allow,deny
+  Allow from all
+  Deny from 183.60.244.33
+  Deny from env=GoAway
+&lt;/Directory&gt;
+</code></pre></div>
+<h3>User Agent</h3>
+
+<p>User Agent字段 这个字段是用来表示客户端的设备信息。服务器有时会根据这个字段，针对不同设备，返回不同格式的网页，比如手机版和桌面版。 iPhone4的User Agent是
+<code>
+Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7
+</code></p>
+
+<p>其他的User Agent还有
+<code>
+Python-urllib/2.7
+Opera/9.80 (X11; U; Linux i686; en-US; rv:1.9.2.3) Presto/2.2.15 Version/10.10
+Mozilla/4.0 (compatib1e; MSIE 6.1; Windows NT)
+Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:0.9.2) Gecko/20020508 Netscape6/6.1
+</code></p>
+
+<p>curl可以这样模拟user agent：
+```
+curl --user-agent &quot;[User Agent]&quot; [URL]</p>
+
+<p>curl --user-agent Python-urllib/2.7 http://google.com/
+```</p>
+
+<h2>references</h2>
+
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2011/09/curl.html">ruanyifeng-curl</a></li>
+<li><a href="http://curl.haxx.se/docs/manpage.html">rurl-docs</a></li>
+<li><a href="http://httpd.apache.org/docs/2.2/howto/access.html">apache2.2-access</a></li>
+<li><a href="http://httpd.apache.org/docs/current/howto/access.html">apache2.4-access</a></li>
+</ul>
 
   </article>
 

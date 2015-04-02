@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Your awesome title</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</description>
-    <link>http://yourdomain.com/</link>
-    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Apr 2015 19:59:02 +0800</pubDate>
-    <lastBuildDate>Thu, 02 Apr 2015 19:59:02 +0800</lastBuildDate>
+    <title>Tide-Hunter</title>
+    <description>blog</description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 02 Apr 2015 20:23:20 +0800</pubDate>
+    <lastBuildDate>Thu, 02 Apr 2015 20:23:20 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -25,11 +24,10 @@
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
-
 </description>
         <pubDate>Fri, 03 Apr 2015 03:43:54 +0800</pubDate>
-        <link>http://yourdomain.com/jekyll/update/2015/04/03/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/jekyll/update/2015/04/03/welcome-to-jekyll.html</guid>
+        <link>/blog/2015/04/03/welcome-to-jekyll</link>
+        <guid isPermaLink="true">/blog/2015/04/03/welcome-to-jekyll</guid>
         
         
         <category>jekyll</category>
@@ -40,142 +38,136 @@
     
       <item>
         <title>sublime tips</title>
-        <description>&lt;h3 id=&quot;official-web-sublimehttpwwwsublimetextcom&quot;&gt;official web: &lt;a href=&quot;http://www.sublimetext.com&quot;&gt;Sublime&lt;/a&gt;&lt;/h3&gt;
+        <description>&lt;h3&gt;official web: &lt;a href=&quot;http://www.sublimetext.com&quot;&gt;Sublime&lt;/a&gt;&lt;/h3&gt;
 
 &lt;!-- more --&gt;
 
-&lt;h3 id=&quot;keyboard-shortcuts-for-osx&quot;&gt;Keyboard Shortcuts for OSX&lt;/h3&gt;
+&lt;h3&gt;Keyboard Shortcuts for OSX&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://docs.sublimetext.info/en/latest/reference/keyboard_shortcuts_osx.html#keyboard-shortcuts-osx&quot;&gt;Keyboard Shortcuts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://lucifr.com/2011/09/10/sublime-text-2-useful-shortcuts/&quot;&gt;Lucifr ShortCuts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.sublimetext.info/en/latest/reference/keyboard_shortcuts_osx.html#keyboard-shortcuts-osx&quot;&gt;Keyboard Shortcuts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://lucifr.com/2011/09/10/sublime-text-2-useful-shortcuts/&quot;&gt;Lucifr ShortCuts&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;打开&lt;code&gt;Preferences - Keybindings-User&lt;/code&gt;，即可编辑自己的快捷键
-&lt;code&gt;{ &quot;keys&quot;: [&quot;super+=&quot;], &quot;command&quot;: &quot;reindent&quot; }&lt;/code&gt;&lt;/p&gt;
+&lt;code&gt;{ &amp;quot;keys&amp;quot;: [&amp;quot;super+=&amp;quot;], &amp;quot;command&amp;quot;: &amp;quot;reindent&amp;quot; }&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;All Shortcuts都在&lt;code&gt;Preferences - Keybindings-Default&lt;/code&gt;中找到。&lt;/p&gt;
 
-&lt;h4 id=&quot;section&quot;&gt;打开/前往&lt;/h4&gt;
+&lt;h4&gt;打开/前往&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;⌘T   前往文件&lt;/li&gt;
-  &lt;li&gt;⌘⌃P  前往项目&lt;/li&gt;
-  &lt;li&gt;⌘R   前往 method&lt;/li&gt;
-  &lt;li&gt;⌘⇧P  命令提示&lt;/li&gt;
-  &lt;li&gt;⌃G   前往行&lt;/li&gt;
-  &lt;li&gt;⌘KB  开关侧栏&lt;/li&gt;
-  &lt;li&gt;⌃ `  python 控制台&lt;/li&gt;
-  &lt;li&gt;^ B  执行脚本结果，并在控制preprew台输出&lt;/li&gt;
-  &lt;li&gt;⌘⇧N  新建窗口&lt;/li&gt;
+&lt;li&gt;⌘T   前往文件&lt;/li&gt;
+&lt;li&gt;⌘⌃P  前往项目&lt;/li&gt;
+&lt;li&gt;⌘R   前往 method&lt;/li&gt;
+&lt;li&gt;⌘⇧P  命令提示&lt;/li&gt;
+&lt;li&gt;⌃G   前往行&lt;/li&gt;
+&lt;li&gt;⌘KB  开关侧栏&lt;/li&gt;
+&lt;li&gt;⌃ `  python 控制台&lt;/li&gt;
+&lt;li&gt;^ B  执行脚本结果，并在控制preprew台输出&lt;/li&gt;
+&lt;li&gt;⌘⇧N  新建窗口&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;section-1&quot;&gt;编辑&lt;/h4&gt;
+&lt;h4&gt;编辑&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;⌘L   选择行 (重复按下将下一行加入选择)&lt;/li&gt;
-  &lt;li&gt;⌘D   选择词 (重复按下时多重选择相同的词进行多重编辑)&lt;/li&gt;
-  &lt;li&gt;⌃⇧M  选择括号内的内容&lt;/li&gt;
-  &lt;li&gt;⌘⇧↩  在当前行前插入新行&lt;/li&gt;
-  &lt;li&gt;⌘↩   在当前行后插入新行&lt;/li&gt;
-  &lt;li&gt;⌃⇧K  删除行&lt;/li&gt;
-  &lt;li&gt;⌘KK  从光标处删除至行尾&lt;/li&gt;
-  &lt;li&gt;⌘K⌫  从光标处删除至行首&lt;/li&gt;
-  &lt;li&gt;⌘⇧D  复制(多)行&lt;/li&gt;
-  &lt;li&gt;⌘J   合并(多)行&lt;/li&gt;
-  &lt;li&gt;⌘KU  改为大写&lt;/li&gt;
-  &lt;li&gt;⌘KL  改为小写&lt;/li&gt;
-  &lt;li&gt;⌘ /  注释&lt;/li&gt;
-  &lt;li&gt;⌘⌥ /   块注释&lt;/li&gt;
-  &lt;li&gt;⌘Y   恢复或重复&lt;/li&gt;
-  &lt;li&gt;⌘⇧V  粘贴并自动缩进&lt;/li&gt;
-  &lt;li&gt;⌃ space  自动完成(重复按下选择下一个提示)&lt;/li&gt;
-  &lt;li&gt;⌃M   跳转至对应的括号&lt;/li&gt;
-  &lt;li&gt;⌘U   软撤销（可撤销光标移动）&lt;/li&gt;
-  &lt;li&gt;⌘⇧U  软重做（可重做光标移动）-&lt;/li&gt;
-  &lt;li&gt;⌘⇧A  选择标签内的内容&lt;/li&gt;
-  &lt;li&gt;⌘⌥ .   闭合当前标签&lt;/li&gt;
+&lt;li&gt;⌘L   选择行 (重复按下将下一行加入选择)&lt;/li&gt;
+&lt;li&gt;⌘D   选择词 (重复按下时多重选择相同的词进行多重编辑)&lt;/li&gt;
+&lt;li&gt;⌃⇧M  选择括号内的内容&lt;/li&gt;
+&lt;li&gt;⌘⇧↩  在当前行前插入新行&lt;/li&gt;
+&lt;li&gt;⌘↩   在当前行后插入新行&lt;/li&gt;
+&lt;li&gt;⌃⇧K  删除行&lt;/li&gt;
+&lt;li&gt;⌘KK  从光标处删除至行尾&lt;/li&gt;
+&lt;li&gt;⌘K⌫  从光标处删除至行首&lt;/li&gt;
+&lt;li&gt;⌘⇧D  复制(多)行&lt;/li&gt;
+&lt;li&gt;⌘J   合并(多)行&lt;/li&gt;
+&lt;li&gt;⌘KU  改为大写&lt;/li&gt;
+&lt;li&gt;⌘KL  改为小写&lt;/li&gt;
+&lt;li&gt;⌘ /  注释&lt;/li&gt;
+&lt;li&gt;⌘⌥ /   块注释&lt;/li&gt;
+&lt;li&gt;⌘Y   恢复或重复&lt;/li&gt;
+&lt;li&gt;⌘⇧V  粘贴并自动缩进&lt;/li&gt;
+&lt;li&gt;⌃ space  自动完成(重复按下选择下一个提示)&lt;/li&gt;
+&lt;li&gt;⌃M   跳转至对应的括号&lt;/li&gt;
+&lt;li&gt;⌘U   软撤销（可撤销光标移动）&lt;/li&gt;
+&lt;li&gt;⌘⇧U  软重做（可重做光标移动）-&lt;/li&gt;
+&lt;li&gt;⌘⇧A  选择标签内的内容&lt;/li&gt;
+&lt;li&gt;⌘⌥ .   闭合当前标签&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;section-2&quot;&gt;查找/替换&lt;/h4&gt;
+&lt;h4&gt;查找/替换&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;⌘F   查找&lt;/li&gt;
-  &lt;li&gt;⌘⌥F  替换&lt;/li&gt;
-  &lt;li&gt;⌘⌥G  查找下一个符合当前所选的内容&lt;/li&gt;
-  &lt;li&gt;⌘⌃G  查找所有符合当前所选的内容进行多重编辑&lt;/li&gt;
-  &lt;li&gt;⌘⇧F  在所有打开的文件中进行查找&lt;/li&gt;
-  &lt;li&gt;拆分窗口/标签页&lt;/li&gt;
-  &lt;li&gt;⌘⌥1  单列&lt;/li&gt;
-  &lt;li&gt;⌘⌥2  双列&lt;/li&gt;
-  &lt;li&gt;⌘⌥5  网格 (4组)&lt;/li&gt;
-  &lt;li&gt;⌃[1,2,3,4]   焦点移动至相应组&lt;/li&gt;
-  &lt;li&gt;⌃⇧[1,2,3,4]  将当前文件移动至相应组&lt;/li&gt;
-  &lt;li&gt;⌘[1,2,3…]  选择相应标签页&lt;/li&gt;
-  &lt;li&gt;书签&lt;/li&gt;
-  &lt;li&gt;⌘F2  添加/去除书签&lt;/li&gt;
-  &lt;li&gt;F2   下一个书签&lt;/li&gt;
-  &lt;li&gt;⇧F2  前一个书签&lt;/li&gt;
-  &lt;li&gt;⌘⇧F2   清除书签&lt;/li&gt;
+&lt;li&gt;⌘F   查找&lt;/li&gt;
+&lt;li&gt;⌘⌥F  替换&lt;/li&gt;
+&lt;li&gt;⌘⌥G  查找下一个符合当前所选的内容&lt;/li&gt;
+&lt;li&gt;⌘⌃G  查找所有符合当前所选的内容进行多重编辑&lt;/li&gt;
+&lt;li&gt;⌘⇧F  在所有打开的文件中进行查找&lt;/li&gt;
+&lt;li&gt;拆分窗口/标签页&lt;/li&gt;
+&lt;li&gt;⌘⌥1  单列&lt;/li&gt;
+&lt;li&gt;⌘⌥2  双列&lt;/li&gt;
+&lt;li&gt;⌘⌥5  网格 (4组)&lt;/li&gt;
+&lt;li&gt;⌃[1,2,3,4]   焦点移动至相应组&lt;/li&gt;
+&lt;li&gt;⌃⇧[1,2,3,4]  将当前文件移动至相应组&lt;/li&gt;
+&lt;li&gt;⌘[1,2,3…]  选择相应标签页&lt;/li&gt;
+&lt;li&gt;书签&lt;/li&gt;
+&lt;li&gt;⌘F2  添加/去除书签&lt;/li&gt;
+&lt;li&gt;F2   下一个书签&lt;/li&gt;
+&lt;li&gt;⇧F2  前一个书签&lt;/li&gt;
+&lt;li&gt;⌘⇧F2   清除书签&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;section-3&quot;&gt;标记&lt;/h4&gt;
+&lt;h4&gt;标记&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;⌘K space   设置标记&lt;/li&gt;
-  &lt;li&gt;⌘KW  从光标位置删除至标记&lt;/li&gt;
-  &lt;li&gt;⌘KA  从光标位置选择至标记&lt;/li&gt;
-  &lt;li&gt;⌘KG  清除标记&lt;/li&gt;
+&lt;li&gt;⌘K space   设置标记&lt;/li&gt;
+&lt;li&gt;⌘KW  从光标位置删除至标记&lt;/li&gt;
+&lt;li&gt;⌘KA  从光标位置选择至标记&lt;/li&gt;
+&lt;li&gt;⌘KG  清除标记&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;package-control&quot;&gt;Package Control&lt;/h3&gt;
+&lt;h3&gt;Package Control&lt;/h3&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;enter &lt;code&gt;Control + &lt;/code&gt; and output console and input&lt;/li&gt;
+&lt;li&gt;enter &lt;code&gt;Control +&lt;/code&gt; and output console and input&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;code&gt;import urllib2,os; pf=&#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), &#39;wb&#39; ).write( urllib2.urlopen( &#39;http://sublime.wbond.net/&#39; +pf.replace( &#39; &#39;,&#39;%20&#39; )).read()); print( &#39;Please restart Sublime Text to finish installation&#39;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;import urllib2,os; pf=&amp;#39;Package Control.sublime-package&amp;#39;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), &amp;#39;wb&amp;#39; ).write( urllib2.urlopen( &amp;#39;http://sublime.wbond.net/&amp;#39; +pf.replace( &amp;#39; &amp;#39;,&amp;#39;%20&amp;#39; )).read()); print( &amp;#39;Please restart Sublime Text to finish installation&amp;#39;)&lt;/code&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;install Packages&lt;/li&gt;
+&lt;li&gt;install Packages&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://lucifr.com/2011/08/31/sublime-text-2-tricks-and-tips/&quot;&gt;Basic usage&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.henriquebarroso.com/my-top-10sublime-2-plugins/&quot;&gt;10 top packages&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;[Alignment, BeautifyRuby, Emmet, Git, Gitgutter, RailsRelatedFiles, SublimeRailsNav, SublimeLinter]&lt;/p&gt;
-  &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://lucifr.com/2011/08/31/sublime-text-2-tricks-and-tips/&quot;&gt;Basic usage&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.henriquebarroso.com/my-top-10sublime-2-plugins/&quot;&gt;10 top packages&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;[Alignment, BeautifyRuby, Emmet, Git, Gitgutter, RailsRelatedFiles, SublimeRailsNav, SublimeLinter]&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;link-for-mac&quot;&gt;link for mac&lt;/h3&gt;
+&lt;h3&gt;link for mac&lt;/h3&gt;
 
-&lt;p&gt;&lt;code&gt;ln -s &quot;/Applications/Sublime Text app/Contents/SharedSupport/bin/subl&quot; ~/bin/subl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ln -s &amp;quot;/Applications/Sublime Text app/Contents/SharedSupport/bin/subl&amp;quot; ~/bin/subl&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;user-settings&quot;&gt;user settings&lt;/h3&gt;
+&lt;h3&gt;user settings&lt;/h3&gt;
 
 &lt;p&gt;{
-  “color_scheme”: “Packages/Color Scheme - Default/Monokai Bright.tmTheme”,
-  “dictionary”: “Packages/Language - English/en_US.dic”,
-  “ensure_newline_at_eof_on_save”: true,
-  “font_size”: 15.0,
-  “ignored_packages”:
+  &amp;quot;color&lt;em&gt;scheme&amp;quot;: &amp;quot;Packages/Color Scheme - Default/Monokai Bright.tmTheme&amp;quot;,
+  &amp;quot;dictionary&amp;quot;: &amp;quot;Packages/Language - English/en&lt;/em&gt;US.dic&amp;quot;,
+  &amp;quot;ensure&lt;em&gt;newline&lt;/em&gt;at&lt;em&gt;eof&lt;/em&gt;on&lt;em&gt;save&amp;quot;: true,
+  &amp;quot;font&lt;/em&gt;size&amp;quot;: 15.0,
+  &amp;quot;ignored&lt;em&gt;packages&amp;quot;:
   [
-    “Vintage”,
-    “GBK Encoding Support”,
-    “SublimeCodeIntel”
+    &amp;quot;Vintage&amp;quot;,
+    &amp;quot;GBK Encoding Support&amp;quot;,
+    &amp;quot;SublimeCodeIntel&amp;quot;
   ],
-  “spell_check”: true,
-  “tab_size”: 2,
-  “translate_tabs_to_spaces”: true,
-  “word_wrap”: true
+  &amp;quot;spell&lt;/em&gt;check&amp;quot;: true,
+  &amp;quot;tab&lt;em&gt;size&amp;quot;: 2,
+  &amp;quot;translate&lt;/em&gt;tabs&lt;em&gt;to&lt;/em&gt;spaces&amp;quot;: true,
+  &amp;quot;word_wrap&amp;quot;: true
 }&lt;/p&gt;
 
-&lt;h3 id=&quot;section-4&quot;&gt;个人感触&lt;/h3&gt;
+&lt;h3&gt;个人感触&lt;/h3&gt;
 
 &lt;p&gt;我也是用vim开发做了两年，主要是做C开发。用到Macbook之后便开始使用sublime. 比较大的感触就是用sublime开发，尤其是在查找方面顺手了很多。&lt;/p&gt;
 
@@ -189,8 +181,8 @@
 但vim和操作系统的亲缘性是它有着跨平台的优势，随便ssh到一个server上去，操起vi 便可以开始hack了。&lt;/p&gt;
 </description>
         <pubDate>Mon, 07 Jul 2014 14:08:18 +0800</pubDate>
-        <link>http://yourdomain.com/tech/sublime/2014/07/07/sublime-tips.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/tech/sublime/2014/07/07/sublime-tips.html</guid>
+        <link>/blog/2014/07/07/sublime-tips</link>
+        <guid isPermaLink="true">/blog/2014/07/07/sublime-tips</guid>
         
         
         <category>tech</category>
@@ -205,26 +197,18 @@
 
 &lt;p&gt;考虑再三之后决定按照&lt;a href=&quot;http://www.xiaozhou.net/octopress-auto-generate-and-deploy-2013-08-15.html&quot;&gt;这篇文章的方法&lt;/a&gt;，让blog的生产和部署都再服务器上面自动完成。也就是说，我们只要把blog写好psuh到server上面，服务端上的Git Hooks脚本，在检测到客户端push过来的改动后，自动生成静态blog页面文件，并部署到Nginx配置的blog目录中。&lt;/p&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;服务器上面的配置&lt;/h3&gt;
+&lt;h3&gt;服务器上面的配置&lt;/h3&gt;
 
 &lt;!-- more --&gt;
 
 &lt;p&gt;首先登入vps 服务器，然后执行&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;
-bash | curl https://gist.githubusercontent.com/lexuszhi1990/e572a2614b7d610295ad/raw/077b0abdf6479d06bfa3ecabb846f3d9e57e33a6/octopress_setup.sh
-&lt;/code&gt;&lt;/p&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;bash | curl https://gist.githubusercontent.com/lexuszhi1990/e572a2614b7d610295ad/raw/077b0abdf6479d06bfa3ecabb846f3d9e57e33a6/octopress_setup.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;然后回到的本地，将vps的裸创库加到本地的remote list当中&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;
-git remote add vps username@myvps.com:/home/deploy/blog.git
-&lt;/code&gt;&lt;/p&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git remote add vps username@myvps.com:/home/deploy/blog.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;然后push的时候，就会触发post-receice这个hook。它会做如下的事情，&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;
-remote: Your bundle is complete!
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;remote: Your bundle is complete!
 remote: Use `bundle show [gemname]` to see where a bundled gem is installed.
 remote: ## Generating Site with Jekyll
 remote: unchanged sass/screen.scss
@@ -233,32 +217,29 @@ remote: Building site: source -&amp;gt; public
 remote: Successfully generated site: source -&amp;gt; public
 To deploy@162.243.130.113:/home/deploy/DAVID_BLOG/blog.git
    f8648aa..4fe5f78  source -&amp;gt; source
-&lt;/code&gt;
-也就是 bundle install，然后 generate 新的页面，然后将他们cp到ocpress目录下去。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;也就是 bundle install，然后 generate 新的页面，然后将他们cp到ocpress目录下去。
 关于git的hook具体就是参考&lt;a href=&quot;http://gitbook.liuhui998.com/5_8.html&quot;&gt;这篇文章&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;nginx的配置就是如下&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;server {
+        listen 80;
 
-&lt;p&gt;```
-server {
-        listen 80;&lt;/p&gt;
+        root /home/deploy/DAVID_BLOG/octopress;
+        index index.html index.htm;
 
-&lt;pre&gt;&lt;code&gt;    root /home/deploy/DAVID_BLOG/octopress;
-    index index.html index.htm;
-
-    location ~ ^/(assets)/  {
-      root /path/to/public;
-      gzip_static on; # to serve pre-gzipped version
-      expires max;
-      add_header Cache-Control public;
-    }
-    server_name blog.lingzhi.me www.blog.lingzhi.me; } ```
-&lt;/code&gt;&lt;/pre&gt;
-
-</description>
+        location ~ ^/(assets)/  {
+          root /path/to/public;
+          gzip_static on; # to serve pre-gzipped version
+          expires max;
+          add_header Cache-Control public;
+        }
+        server_name blog.lingzhi.me www.blog.lingzhi.me;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         <pubDate>Sun, 29 Jun 2014 15:36:52 +0800</pubDate>
-        <link>http://yourdomain.com/tech/octopress/deploy/git/2014/06/29/octopressde-zai-fu-wu-qi-shang-zi-dong-sheng-cheng-he-bu-shu.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/tech/octopress/deploy/git/2014/06/29/octopressde-zai-fu-wu-qi-shang-zi-dong-sheng-cheng-he-bu-shu.html</guid>
+        <link>/blog/2014/06/29/octopressde-zai-fu-wu-qi-shang-zi-dong-sheng-cheng-he-bu-shu</link>
+        <guid isPermaLink="true">/blog/2014/06/29/octopressde-zai-fu-wu-qi-shang-zi-dong-sheng-cheng-he-bu-shu</guid>
         
         
         <category>tech</category>
@@ -273,18 +254,16 @@ server {
     
       <item>
         <title>useage for logrotate</title>
-        <description>&lt;h2 id=&quot;ogrotate-usage&quot;&gt;ogrotate usage&lt;/h2&gt;
+        <description>&lt;h2&gt;ogrotate usage&lt;/h2&gt;
 
-&lt;h3 id=&quot;create-new-rotate-config-file-for-application-log&quot;&gt;Create new rotate config file for application log&lt;/h3&gt;
+&lt;h3&gt;Create new rotate config file for application log&lt;/h3&gt;
 
 &lt;!-- more --&gt;
 
 &lt;p&gt;&lt;code&gt;$ sudo vim /etc/logrotate.d/example_application_log&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Type following contents, and save&lt;/p&gt;
-
-&lt;p&gt;```
-/var/www/tidehunter/shared/log/*.log {
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;/var/www/tidehunter/shared/log/*.log {
   daily
   missingok
   rotate 7
@@ -293,10 +272,8 @@ server {
   notifempty
   create 664 deploy deploy
   # copytruncate
-}&lt;/p&gt;
-
-&lt;p&gt;```&lt;/p&gt;
-
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;其中 daily 表示每天整理，也可以改成 weekly 或 monthly
 missingok 表示如果找不到 log 檔也沒關係
 rotate 7 表示保留七份
@@ -305,55 +282,45 @@ delaycompress 表示延後壓縮直到下一次 rotate
 notifempty 表示如果 log 檔是空的，就不 rotate
 copytruncate 先複製 log 檔的內容後，在清空的作法，因為有些程式一定 log 在本來的檔名，例如 rails。另一種方法是 create。&lt;/p&gt;
 
-&lt;h3 id=&quot;create-new-rotate-config-file-for-server-log&quot;&gt;Create new rotate config file for server log:&lt;/h3&gt;
+&lt;h3&gt;Create new rotate config file for server log:&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ sudo vim /etc/logrotate.d/nginx-log-for-example
 
-&lt;p&gt;```
-$ sudo vim /etc/logrotate.d/nginx-log-for-example&lt;/p&gt;
+Type following contents, and save.
+/var/www/example/logs/*.log {
 
-&lt;p&gt;Type following contents, and save.
-/var/www/example/logs/*.log {&lt;/p&gt;
+  daily
 
-&lt;p&gt;daily&lt;/p&gt;
+  missingok
 
-&lt;p&gt;missingok&lt;/p&gt;
+  rotate 30
 
-&lt;p&gt;rotate 30&lt;/p&gt;
+  notifempty
 
-&lt;p&gt;notifempty&lt;/p&gt;
+  create 664 root root
 
-&lt;p&gt;create 664 root root&lt;/p&gt;
+  sharedscripts
 
-&lt;p&gt;sharedscripts&lt;/p&gt;
+  postrotate
 
-&lt;p&gt;postrotate&lt;/p&gt;
+  # /opt/nginx/conf/nginx.conf
+  # pid /var/run/nginx.pid;
 
-&lt;p&gt;# /opt/nginx/conf/nginx.conf
-  # pid /var/run/nginx.pid;&lt;/p&gt;
+  [ ! -f /var/run/nginx.pid ] || kill -USR1 `cat /var/run/nginx.pid`
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[ ! -f /var/run/nginx.pid ]&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;kill -USR1 &lt;code&gt;cat /var/run/nginx.pid&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+  endscript
 
-&lt;p&gt;endscript&lt;/p&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;references&lt;/h2&gt;
 
-&lt;p&gt;}
-```&lt;/p&gt;
-
-&lt;h2 id=&quot;references&quot;&gt;references&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://linux.vbird.org/linux_basic/0570syslog.php&quot;&gt;syslog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://ihower.tw/blog/archives/3565&quot;&gt;ogrotate 定期整理 Rails Log&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://linux.vbird.org/linux_basic/0570syslog.php&quot;&gt;syslog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://ihower.tw/blog/archives/3565&quot;&gt;ogrotate 定期整理 Rails Log&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Wed, 25 Jun 2014 11:07:13 +0800</pubDate>
-        <link>http://yourdomain.com/tech/logrotate/2014/06/25/useage-for-logrotate.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/tech/logrotate/2014/06/25/useage-for-logrotate.html</guid>
+        <link>/blog/2014/06/25/useage-for-logrotate</link>
+        <guid isPermaLink="true">/blog/2014/06/25/useage-for-logrotate</guid>
         
         
         <category>tech</category>
@@ -364,29 +331,27 @@ $ sudo vim /etc/logrotate.d/nginx-log-for-example&lt;/p&gt;
     
       <item>
         <title>postgres 小结</title>
-        <description>&lt;h3 id=&quot;install-pg-on-mac-os-x&quot;&gt;Install pg on Mac os x&lt;/h3&gt;
+        <description>&lt;h3&gt;Install pg on Mac os x&lt;/h3&gt;
 
 &lt;!-- more --&gt;
-
-&lt;p&gt;```bash
-  brew update
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;  brew update
   brew install postgresql
   initdb /usr/local/var/postgres
   cp /usr/local/Cellar/postgresql/9.1.4/homebrew.mxcl.postgresql.plist  ~/Library/LaunchAgents/
   launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-  pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start&lt;/p&gt;
+  pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 
-&lt;p&gt;gem install pg
-```&lt;/p&gt;
+  gem install pg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;install pg on ubuntu&lt;/h3&gt;
 
-&lt;h3 id=&quot;install-pg-on-ubuntu&quot;&gt;install pg on ubuntu&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;https://help.ubuntu.com/community/PostgreSQL&quot;&gt;offical guide&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Install PostgreSQL&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;sudo apt-get install -y postgresql libpq-dev&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;gem install pg &lt;/code&gt; occurs as&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gem install pg&lt;/code&gt; occurs as&lt;/p&gt;
 
 &lt;p&gt;ERROR: Failed to build gem native extension.
 /home/pcr/.rvm/rubies/ruby-1.9.3-p0/bin/ruby extconf.rb checking for pg_config
@@ -396,79 +361,74 @@ solution: &lt;code&gt;sudo apt-get install libpg-dev&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;当出现 PG Peer authentication failed的时候，需要修改pg的配置。参考
 http://stackoverflow.com/questions/15306770/pg-peer-authentication-failed&lt;/p&gt;
 
-&lt;h3 id=&quot;some-issues&quot;&gt;some issues&lt;/h3&gt;
+&lt;h3&gt;some issues&lt;/h3&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;code&gt;psql&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;psql&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;createuser: could not connect to database postgres: could not connect to server: Permission denied
     Is the server running locally and accepting
-    connections on Unix domain socket “/var/pgsql_socket/.s.PGSQL.5432”?&lt;/p&gt;
+    connections on Unix domain socket &amp;quot;/var/pgsql_socket/.s.PGSQL.5432&amp;quot;?&lt;/p&gt;
 
 &lt;p&gt;puts &lt;code&gt;PATH=$PATH:/usr/local/Cellar/&lt;/code&gt; in &lt;code&gt;.bash_profile&lt;/code&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;FATAL:  role “postgres” does not exist&lt;/li&gt;
+&lt;li&gt;FATAL:  role &amp;quot;postgres&amp;quot; does not exist&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;code&gt;createuser -s -r postgres&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;usage&quot;&gt;usage&lt;/h3&gt;
+&lt;h3&gt;usage&lt;/h3&gt;
 
 &lt;p&gt;&lt;em&gt;restart&lt;/em&gt;     :   &lt;code&gt;brew services restart postgresql&lt;/code&gt; or &lt;code&gt;pg_ctl -D /usr/local/var/postgres -l logfile start&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;collect to db&lt;/em&gt; :   &lt;code&gt;psql -d postgres [USER];&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;create user&lt;/em&gt;   :   &lt;code&gt;create user user3  with superuser createdb createrole encrypted password &#39;root&#39;;&lt;/code&gt;
-&lt;em&gt;edit password&lt;/em&gt; : ` alter user user3 with password ‘your password’;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;create user&lt;/em&gt;   :   &lt;code&gt;create user user3  with superuser createdb createrole encrypted password &amp;#39;root&amp;#39;;&lt;/code&gt;
+&lt;em&gt;edit password&lt;/em&gt; : ` alter user user3 with password &amp;#39;your password&amp;#39;;&lt;/p&gt;
 
-&lt;h3 id=&quot;on-unbuntu-1404&quot;&gt;on unbuntu 14.04&lt;/h3&gt;
+&lt;h3&gt;on unbuntu 14.04&lt;/h3&gt;
 
 &lt;p&gt;修改 &lt;code&gt;/etc/postgresql/9.3/main/pg_hba.conf&lt;/code&gt;，让本地登入需要密码。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;
-local   all             all                                     md5
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;local   all             all                                     md5
 local   replication     postgres                               md5
-&lt;/code&gt;&lt;/p&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;以postgres用户登入，创建新的用户，&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo -u postgres psql
 
-&lt;p&gt;```
-sudo -u postgres psql&lt;/p&gt;
+# create a user named deploy1 and password is `password`
+postgres=# create user deploy1 with superuser createdb encrypted password &amp;#39;passord&amp;#39;;
+# =&amp;gt; CREATE ROLE
 
-&lt;h1 id=&quot;create-a-user-named-deploy1-and-password-is-password&quot;&gt;create a user named deploy1 and password is &lt;code&gt;password&lt;/code&gt;&lt;/h1&gt;
-&lt;p&gt;postgres=# create user deploy1 with superuser createdb encrypted password ‘passord’;
-# =&amp;gt; CREATE ROLE&lt;/p&gt;
-
-&lt;h1 id=&quot;select-the-roles&quot;&gt;select the roles&lt;/h1&gt;
-&lt;p&gt;postgres=# select rolname from pg_roles;
+# select the roles
+postgres=# select rolname from pg_roles;
 =&amp;gt;  rolname
-    ———-
-    …
+    ----------
+    ...
     deploy1
-    …&lt;/p&gt;
+    ...
 
-&lt;h1 id=&quot;edit-password&quot;&gt;edit password&lt;/h1&gt;
-&lt;p&gt;postgres=# alter user deploy1 with encrypted password ‘yourpassword’;
-=&amp;gt; ALTER ROLE&lt;/p&gt;
+# edit password
+postgres=# alter user deploy1 with encrypted password &amp;#39;yourpassword&amp;#39;;
+=&amp;gt; ALTER ROLE
 
-&lt;h1 id=&quot;drop-user&quot;&gt;drop user&lt;/h1&gt;
-&lt;p&gt;postgres=# drop user deploy1;
+# drop user
+postgres=# drop user deploy1;
 =&amp;gt; DROP ROLE
-```&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
 
-&lt;hr /&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://hlee.iteye.com/blog/1699119&quot;&gt;pg install on osx&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/tzp_8/archive/2012/11/08/2760746.html&quot;&gt;pg cmd list&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.php100.com/manual/PostgreSQL8/app-createuser.html&quot;&gt;pg 8.1 offical doc zn&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-12-04&quot;&gt;install pg on ubuntu 12.04&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://hlee.iteye.com/blog/1699119&quot;&gt;pg install on osx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/tzp_8/archive/2012/11/08/2760746.html&quot;&gt;pg cmd list&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.php100.com/manual/PostgreSQL8/app-createuser.html&quot;&gt;pg 8.1 offical doc zn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-12-04&quot;&gt;install pg on ubuntu 12.04&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Tue, 24 Jun 2014 17:29:05 +0800</pubDate>
-        <link>http://yourdomain.com/tech/postgres/2014/06/24/postgres.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/tech/postgres/2014/06/24/postgres.html</guid>
+        <link>/blog/2014/06/24/postgres</link>
+        <guid isPermaLink="true">/blog/2014/06/24/postgres</guid>
         
         
         <category>tech</category>
@@ -479,7 +439,7 @@ sudo -u postgres psql&lt;/p&gt;
     
       <item>
         <title>ActiveSupport::Concern 小结</title>
-        <description>&lt;h3 id=&quot;activesupportconcern--rails&quot;&gt;ActiveSupport::Concern 被引入到 rails&lt;/h3&gt;
+        <description>&lt;h3&gt;ActiveSupport::Concern 被引入到 rails&lt;/h3&gt;
 
 &lt;p&gt;根据这篇文章 &lt;a href=&quot;http://signalvnoise.com/posts/3372-put-chubby-models-on-a-diet-with-concerns&quot;&gt;put-chubby-models-on-a-diet-with-concerns&lt;/a&gt; 中这样一段话把它的意思说的很明白了：&lt;/p&gt;
 
@@ -490,108 +450,94 @@ sudo -u postgres psql&lt;/p&gt;
 &lt;!-- more --&gt;
 
 &lt;p&gt;举一个简单的例子，比如一个项目中有很多model都需要有有判断这个 &lt;code&gt;model&lt;/code&gt; 是否是 &lt;code&gt;active&lt;/code&gt; 的。我们一般会给这个model加上一个&lt;code&gt;is_active&lt;/code&gt;字段，然后再相应的model里面会有如下的方法。比如&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;class Post &amp;lt; ActiveRecord::Base
 
-&lt;p&gt;```
-class Post &amp;lt; ActiveRecord::Base&lt;/p&gt;
+  # scopes
+  scope :active, -&amp;gt; {where(is_active: true)}
 
-&lt;p&gt;# scopes
-  scope :active, -&amp;gt; {where(is_active: true)}&lt;/p&gt;
+  ...
 
-&lt;p&gt;…&lt;/p&gt;
-
-&lt;p&gt;# instances methods
-  def active?
-    is_active
-  end&lt;/p&gt;
-
-&lt;p&gt;…
-end&lt;/p&gt;
-
-&lt;p&gt;class Advertisement &amp;lt; ActiveRecord::Base&lt;/p&gt;
-
-&lt;p&gt;# scopes
-  scope :active, -&amp;gt; {where(is_active: true)}&lt;/p&gt;
-
-&lt;p&gt;…&lt;/p&gt;
-
-&lt;p&gt;# instances methods
-  def active?
-    is_active
-  end&lt;/p&gt;
-
-&lt;p&gt;…
-end&lt;/p&gt;
-
-&lt;p&gt;```&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Post&lt;/code&gt; 和 &lt;code&gt;Advertisement&lt;/code&gt; 都需要判断这个model 是不是 &lt;code&gt;active&lt;/code&gt; 状态的，是否&lt;code&gt;active&lt;/code&gt;这个逻辑属性在各个model里面的表现又是一致的，这样我们就可以通过 &lt;code&gt;ActiveSupport::Concern&lt;/code&gt; 简化代码。&lt;/p&gt;
-
-&lt;p&gt;首先把相同的逻辑放到一个 &lt;code&gt;model&lt;/code&gt; 里面去。定义scope，然后定义 &lt;code&gt;ClassMethods&lt;/code&gt; 和 &lt;code&gt;instanceMethods&lt;/code&gt;。&lt;/p&gt;
-
-&lt;p&gt;```ruby
-# app/models/has_is_active.rb or app/modeles/concerns/has_is_active.rb
-# for models with field :is_active&lt;/p&gt;
-
-&lt;p&gt;module HasIsActive
-  extend ActiveSupport::Concern&lt;/p&gt;
-
-&lt;p&gt;included do |base|
-    scope :active, -&amp;gt; {where(is_active: true)}
-  end&lt;/p&gt;
-
-&lt;p&gt;module ClassMethods
-    def all_active(reload = false)
-      @all_active = nil if reload
-      @all_active ||= active.all
-    end
-  end&lt;/p&gt;
-
-&lt;p&gt;# instance methods
+  # instances methods
   def active?
     is_active
   end
-end&lt;/p&gt;
 
-&lt;p&gt;```&lt;/p&gt;
+  ...
+end
 
+class Advertisement &amp;lt; ActiveRecord::Base
+
+  # scopes
+  scope :active, -&amp;gt; {where(is_active: true)}
+
+  ...
+
+  # instances methods
+  def active?
+    is_active
+  end
+
+  ...
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;Post&lt;/code&gt; 和 &lt;code&gt;Advertisement&lt;/code&gt; 都需要判断这个model 是不是 &lt;code&gt;active&lt;/code&gt; 状态的，是否&lt;code&gt;active&lt;/code&gt;这个逻辑属性在各个model里面的表现又是一致的，这样我们就可以通过 &lt;code&gt;ActiveSupport::Concern&lt;/code&gt; 简化代码。&lt;/p&gt;
+
+&lt;p&gt;首先把相同的逻辑放到一个 &lt;code&gt;model&lt;/code&gt; 里面去。定义scope，然后定义 &lt;code&gt;ClassMethods&lt;/code&gt; 和 &lt;code&gt;instanceMethods&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/has_is_active.rb or app/modeles/concerns/has_is_active.rb&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# for models with field :is_active&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;HasIsActive&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;extend&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveSupport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Concern&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;included&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;scope&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:active&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;is_active&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ClassMethods&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;all_active&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@all_active&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reload&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@all_active&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;active&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;all&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# instance methods&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;active?&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;is_active&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;然后我们把这个&lt;code&gt;model&lt;/code&gt; &lt;code&gt;indclude&lt;/code&gt; 到需要的model 里面去。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Post&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
 
-&lt;p&gt;```ruby
-class Post &amp;lt; ActiveRecord::Base&lt;/p&gt;
+  &lt;span class=&quot;c1&quot;&gt;# concerns&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;HasIsActive&lt;/span&gt;
 
-&lt;p&gt;# concerns
-  include HasIsActive&lt;/p&gt;
+  &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
-&lt;p&gt;…
-end&lt;/p&gt;
 
-&lt;p&gt;class Advertisement &amp;lt; ActiveRecord::Base&lt;/p&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Advertisement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
 
-&lt;p&gt;# concerns
-  include HasIsActive&lt;/p&gt;
+  &lt;span class=&quot;c1&quot;&gt;# concerns&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;HasIsActive&lt;/span&gt;
 
-&lt;p&gt;…
-end&lt;/p&gt;
-
-&lt;p&gt;```&lt;/p&gt;
-
+  &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;这里我们将 &lt;code&gt;has_is_active&lt;/code&gt; 这个可重用的功能抽出来，然后多个model可以共用。这样就有遵循了&lt;code&gt;DRY&lt;/code&gt;原则啦。&lt;/p&gt;
 
-&lt;h3 id=&quot;activesupportconcern-model&quot;&gt;ActiveSupport::Concern 用来规范model代码逻辑。&lt;/h3&gt;
+&lt;h3&gt;ActiveSupport::Concern 用来规范model代码逻辑。&lt;/h3&gt;
 
 &lt;p&gt;虽然我们主张 &lt;code&gt;fatter model, thinner controller&lt;/code&gt;, 但如果&lt;code&gt;model&lt;/code&gt;的代码太多，可读性和维护性则会大大下降。一个好的解决办法是把相关的逻辑代码放到 对应的 &lt;code&gt;ActiveSupport::Concern&lt;/code&gt; 里面去。以提高代码的高内聚，低耦合。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;#encoding: utf-8
+class Event &amp;lt; ActiveRecord::Base
 
-&lt;p&gt;```
-#encoding: utf-8
-class Event &amp;lt; ActiveRecord::Base&lt;/p&gt;
-
-&lt;p&gt;# concerns
+  # concerns
   include ApprovalRequired
   include OptionalChinese
   include TrackActivities # tracked the event action
-  …
-```&lt;/p&gt;
-
+  ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code&gt;Event&lt;/code&gt; 这个model就引入 &lt;code&gt;ApprovalRequired&lt;/code&gt;, &lt;code&gt;OptionalChinese&lt;/code&gt;, &lt;code&gt;TrackActivities&lt;/code&gt; 这个三个concern，model的代码就清晰而且易于维护。&lt;/p&gt;
 
 &lt;p&gt;一句话总结就是，使用 &lt;code&gt;ActiveSupport::Concern&lt;/code&gt; 会使 model 代码简洁又可读，中看更中用。&lt;/p&gt;
@@ -599,63 +545,62 @@ class Event &amp;lt; ActiveRecord::Base&lt;/p&gt;
 &lt;p&gt;如果用这个大神&lt;a href=&quot;http://hi.baidu.com/rainchen/item/ef36c917a23a9117e2f986f4&quot;&gt;rainchen&lt;/a&gt; 的总结就是&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;concern将部分可重用的功能抽出来，然后多个model可以共用&lt;/li&gt;
-  &lt;li&gt;model的代码太多，将其相关的逻辑代码放到不同的concern里&lt;/li&gt;
-  &lt;li&gt;规定使用ActiveSupport::Concern的代码风格，是希望形成开发规约定，就如controller和model的写法。&lt;/li&gt;
+&lt;li&gt;concern将部分可重用的功能抽出来，然后多个model可以共用&lt;/li&gt;
+&lt;li&gt;model的代码太多，将其相关的逻辑代码放到不同的concern里&lt;/li&gt;
+&lt;li&gt;规定使用ActiveSupport::Concern的代码风格，是希望形成开发规约定，就如controller和model的写法。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;activesupportconcern-&quot;&gt;ActiveSupport::Concern 由来&lt;/h3&gt;
+&lt;h3&gt;ActiveSupport::Concern 由来&lt;/h3&gt;
 
 &lt;p&gt;&lt;code&gt;mixin&lt;/code&gt; 是把一个模块(Module)Mixin到某个对象中，以实现实现多重继承。那如果不用 &lt;code&gt;concern&lt;/code&gt;, &lt;code&gt;HasIsActive&lt;/code&gt; 这个model会写成怎么样呢？&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/has_is_active.rb or app/modeles/concerns/has_is_active.rb&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# for models with field :is_active&lt;/span&gt;
 
-&lt;p&gt;```ruby
-# app/models/has_is_active.rb or app/modeles/concerns/has_is_active.rb
-# for models with field :is_active&lt;/p&gt;
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;HasIsActive&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;included&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;InstanceMethods&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extend&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ClassMethods&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;class_eval&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;scope&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:active&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;is_active&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
-&lt;p&gt;module HasIsActive
-  def self.included(base)
-    base.send(:include, InstanceMethods)
-    base.extend ClassMethods
-    base.class_eval do
-      scope :active, where(is_active: true)
-    end
-  end&lt;/p&gt;
+  &lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;InstanceMethods&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;active?&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;is_active&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
-&lt;p&gt;module InstanceMethods
-    def active?
-      is_active
-    end
-  end&lt;/p&gt;
-
-&lt;p&gt;module ClassMethods
-    def all_active(reload = false)
-      @all_active = nil if reload
-      @all_active ||= active.all
-    end
-  end
-end
-```&lt;/p&gt;
-
+  &lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ClassMethods&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;all_active&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@all_active&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reload&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@all_active&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;active&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;all&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;这算是长久以来形成的一个 &lt;code&gt;common pattern&lt;/code&gt;。使用这个钩子 &lt;code&gt;self.included&lt;/code&gt; 让里面的代码在被 &lt;code&gt;include&lt;/code&gt; 的时候调用。&lt;code&gt;base.send(:include, InstanceMethods)&lt;/code&gt;, 用 &lt;code&gt;send&lt;/code&gt; 方法 &lt;code&gt;include&lt;/code&gt; &lt;code&gt;InstanceMethods&lt;/code&gt;, 然后 &lt;code&gt;extend&lt;/code&gt; &lt;code&gt;ClassMethods&lt;/code&gt;, 就是把这些方法放到 &lt;code&gt;base&lt;/code&gt; 的 &lt;code&gt;eigenclass&lt;/code&gt; 里面。最后用 &lt;code&gt;class_eval&lt;/code&gt; 打开这个类写 scope.&lt;/p&gt;
 
 &lt;p&gt;这个 &lt;code&gt;common pattern&lt;/code&gt; 在不用 concern 的gem里面还是比较常见的。&lt;/p&gt;
 
-&lt;h3 id=&quot;todo-activesupportconcern-&quot;&gt;TODO: ActiveSupport::Concern 源码&lt;/h3&gt;
+&lt;h3&gt;TODO: ActiveSupport::Concern 源码&lt;/h3&gt;
 
-&lt;h5 id=&quot;section&quot;&gt;根据下面这篇文章研究下 源码&lt;/h5&gt;
+&lt;h5&gt;根据下面这篇文章研究下 源码&lt;/h5&gt;
+
 &lt;p&gt;&lt;a href=&quot;http://www.zhubert.com/blog/2013/06/13/activesupport-concern-digression/&quot;&gt;activesupport-concern-digression&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;references&quot;&gt;references:&lt;/h2&gt;
+&lt;h2&gt;references:&lt;/h2&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://api.rubyonrails.org/classes/ActiveSupport/Concern.html&quot;&gt;rails 4.1 ActiveSupport::Concern&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://ihower.tw/blog/archives/3949&quot;&gt;ihower rails 3 ActiveSupport::Concern&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://engineering.appfolio.com/2013/06/17/ruby-mixins-activesupportconcern/&quot;&gt;ruby-mixins-activesupportconcern/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://blog.andywaite.com/2012/12/23/exploring-concerns-for-rails-4/&quot;&gt;exploring-concerns-for-rails-4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://api.rubyonrails.org/classes/ActiveSupport/Concern.html&quot;&gt;rails 4.1 ActiveSupport::Concern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://ihower.tw/blog/archives/3949&quot;&gt;ihower rails 3 ActiveSupport::Concern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://engineering.appfolio.com/2013/06/17/ruby-mixins-activesupportconcern/&quot;&gt;ruby-mixins-activesupportconcern/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.andywaite.com/2012/12/23/exploring-concerns-for-rails-4/&quot;&gt;exploring-concerns-for-rails-4&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 07 Jun 2014 22:23:58 +0800</pubDate>
-        <link>http://yourdomain.com/tech/rails/concern/2014/06/07/activesupport-concern-xiao-jie.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/tech/rails/concern/2014/06/07/activesupport-concern-xiao-jie.html</guid>
+        <link>/blog/2014/06/07/activesupport-concern-xiao-jie</link>
+        <guid isPermaLink="true">/blog/2014/06/07/activesupport-concern-xiao-jie</guid>
         
         
         <category>tech</category>
@@ -668,7 +613,7 @@ end
     
       <item>
         <title>backbone Summary</title>
-        <description>&lt;h3 id=&quot;backbonejs-mvc&quot;&gt;Backbone.js MVC&lt;/h3&gt;
+        <description>&lt;h3&gt;Backbone.js MVC&lt;/h3&gt;
 
 &lt;p&gt;Backbone.js gives structure to web applications by providing models with key-value
 binding and custom events, collections with a rich API of enumerable functions, views
@@ -677,11 +622,11 @@ with declarative event handling, and connects it all to your existing API over a
 &lt;p&gt;所以backbone的特点可有由一下几点概况： MVC， EVENTS， RESTFUL。&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;View 的划分将页面上的视图元素解耦，粒度细化。View 间通过事件（EVENT）和 Model 通讯，避免了 DOM 事件的滥用。&lt;/li&gt;
-  &lt;li&gt;Model 和 Restful 的通讯方式对于后端人员非常友好。&lt;/li&gt;
-  &lt;li&gt;MVC 架构清晰。可定制性较高&lt;/li&gt;
-  &lt;li&gt;Collection/Model 抽象了以前杂乱的 AJAX 请求，CRUD 请求变得非常非常方便。&lt;/li&gt;
-  &lt;li&gt;View -&amp;gt; Model 单向依赖&lt;/li&gt;
+&lt;li&gt;View 的划分将页面上的视图元素解耦，粒度细化。View 间通过事件（EVENT）和 Model 通讯，避免了 DOM 事件的滥用。&lt;/li&gt;
+&lt;li&gt;Model 和 Restful 的通讯方式对于后端人员非常友好。&lt;/li&gt;
+&lt;li&gt;MVC 架构清晰。可定制性较高&lt;/li&gt;
+&lt;li&gt;Collection/Model 抽象了以前杂乱的 AJAX 请求，CRUD 请求变得非常非常方便。&lt;/li&gt;
+&lt;li&gt;View -&amp;gt; Model 单向依赖&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;!-- more --&gt;
@@ -690,54 +635,48 @@ with declarative event handling, and connects it all to your existing API over a
 Backbone 其实并不是框架，而且 Backbone 特意不愿意把自己做成一个框架。建议用 Marionette 替换列
 表上的 Backbone，至少 Marionette 基于 Backbone，且看起来像一个框架。&lt;a href=&quot;http://ruby-china.org/topics/14415&quot;&gt;lgn21st 的意思&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;rails-backbone&quot;&gt;RAILS BACKBONE&lt;/h3&gt;
+&lt;h3&gt;RAILS BACKBONE&lt;/h3&gt;
 
 &lt;p&gt;GEM:
 目前用得是这个&lt;a href=&quot;https://github.com/westonplatter/railsy_backbone&quot;&gt;railsy_backbone gem&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;它封装了一些方法,跟rails 的generate 很像。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;js
-Backbone Model $ rails g backbone:model
-Backbone Router $ rails g backbone:router
-Backbone Scaffold $ rails g backbone:scaffold
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;backbobe-render-function&quot;&gt;BACKBOBE &lt;code&gt;Render&lt;/code&gt; FUNCTION&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Backbone&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Model&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rails&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;backbone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;model&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;Backbone&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rails&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;backbone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;router&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;Backbone&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Scaffold&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rails&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;backbone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scaffold&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;BACKBOBE &lt;code&gt;Render&lt;/code&gt; FUNCTION&lt;/h3&gt;
 
 &lt;p&gt;首先我们先说下rails 的MVC框架，&lt;code&gt;controller&lt;/code&gt; 中获取数据，&lt;code&gt;model&lt;/code&gt;中处理
 数据逻辑，&lt;code&gt;view&lt;/code&gt;负责渲染html。 其中&lt;code&gt;view&lt;/code&gt;的页面逻辑清楚， &lt;code&gt;controller&lt;/code&gt;
 负责提取数据的调用，数据的逻辑都应该放到&lt;code&gt;model&lt;/code&gt;里面去，所以有&lt;strong&gt;fatter model thinner controller&lt;/strong&gt;
 的说法。也看到过是 &lt;code&gt;controller&lt;/code&gt; 里面的代码不应该超过10行的说法。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;backbone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;index_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;coffee&lt;/span&gt;
 
-&lt;p&gt;```js
-# backbone/views/tasks/index_view.js.coffee&lt;/p&gt;
+&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Ezitask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;IndexView&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Backbone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;View&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;backbone/templates/tasks/index&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 
-&lt;p&gt;class Ezitask.Views.Tasks.IndexView extends Backbone.View
-  template: JST[“backbone/templates/tasks/index”]&lt;/p&gt;
+  &lt;span class=&quot;nx&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;container task_list&amp;quot;&lt;/span&gt;
 
-&lt;p&gt;className: “container task_list”&lt;/p&gt;
+  &lt;span class=&quot;nx&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;click .setting_option&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;optionView&amp;quot;&lt;/span&gt;
 
-&lt;p&gt;events:
-    “click .setting_option” : “optionView”&lt;/p&gt;
+  &lt;span class=&quot;nx&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;here&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;add&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addOneTask&lt;/span&gt;
 
-&lt;p&gt;initialize: (options) =&amp;gt;
-    # your local here before &lt;code&gt;render()&lt;/code&gt;
-    @collection.on “add”, @addOneTask&lt;/p&gt;
+  &lt;span class=&quot;nx&quot;&gt;addAllTasks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;each&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addOneTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;p&gt;addAllTasks: () =&amp;gt;
-    @collection.each(@addOneTask)&lt;/p&gt;
+  &lt;span class=&quot;nx&quot;&gt;addOneTask&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;task_view&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Ezitask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;TaskView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#tasks_content tbody&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prepend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;task_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;p&gt;addOneTask: (task) =&amp;gt;
-    @task_view = new Ezitask.Views.Tasks.TaskView({model : task})
-    @$(“#tasks_content tbody”).prepend(@task_view.render().el)&lt;/p&gt;
-
-&lt;p&gt;render: =&amp;gt;
-    @$el.html(@template(@collection.toJSON() ))
-    @addAllTasks()
-    @
-```&lt;/p&gt;
-
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toJSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addAllTasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;这是backbone的典型的一个VIEW，当在router中定义这个view，然后render出来。它在router被实例化，&lt;/p&gt;
 
 &lt;p&gt;分析下&lt;code&gt;render&lt;/code&gt; 这个方法。
@@ -745,44 +684,42 @@ Backbone Scaffold $ rails g backbone:scaffold
 渲染成html的String。&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;$elview.$el&lt;/code&gt;  的官方解释：
-A cached jQuery object for the view’s element. A handy reference instead of re-wrapping
+A cached jQuery object for the view&amp;#39;s element. A handy reference instead of re-wrapping
 the DOM element all the time.&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;@$el&lt;/code&gt; 得到的是这个view的html element。 然后通过JQuery &lt;code&gt;html&lt;/code&gt;。
 这样el就已经有了html element框架，然后才能执行添加所以task的操作。
-&lt;code&gt;@$(&quot;#tasks_content tbody&quot;)&lt;/code&gt;  前面的&lt;code&gt;@&lt;/code&gt;是保证元素的查找是在当前view,或者说是template里面，
-而&lt;code&gt;$(&quot;#tasks_content tbody&quot;)&lt;/code&gt;则是普通的JQuery 查找。
+&lt;code&gt;@$(&amp;quot;#tasks_content tbody&amp;quot;)&lt;/code&gt;  前面的&lt;code&gt;@&lt;/code&gt;是保证元素的查找是在当前view,或者说是template里面，
+而&lt;code&gt;$(&amp;quot;#tasks_content tbody&amp;quot;)&lt;/code&gt;则是普通的JQuery 查找。
 然后返回当前这个view。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;backbone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;index_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;coffee&lt;/span&gt;
 
-&lt;p&gt;```js
-# backbone/views/tasks/index_view.js.coffee&lt;/p&gt;
-
-&lt;p&gt;index: -&amp;gt;
-    @indexView = new Ezitask.Views.Tasks.IndexView(collection: @tasks)
-    $(“#tasks_page”).html(@indexView.render().el)
-```&lt;/p&gt;
-
+  &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;indexView&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Ezitask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;IndexView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#tasks_page&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;indexView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;这是Router里面 &lt;code&gt;index action&lt;/code&gt; 的方法，就是new一个 &lt;code&gt;IndexView&lt;/code&gt;, 传进 &lt;code&gt;collection&lt;/code&gt;,
 &lt;code&gt;@indexView.render()&lt;/code&gt; 这个方法会渲染好这个 &lt;code&gt;view&lt;/code&gt; 的数据。&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;$(&quot;#tasks_page&quot;).html(@indexView.render().el)&lt;/code&gt; 就是直接获取已经渲染好了得View的el，然后
+&lt;p&gt;&lt;code&gt;$(&amp;quot;#tasks_page&amp;quot;).html(@indexView.render().el)&lt;/code&gt; 就是直接获取已经渲染好了得View的el，然后
 直接html出来。&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;View.el&lt;/code&gt; 的官方解释：
-All views have a DOM element at all times (the el property), whether they’ve already been inserted into the page or not. In this fashion, views can be rendered at any time, and inserted into the DOM all at once, in order to get high-performance UI rendering with as few reflows and repaints as possible. this.el is created from the view’s &lt;code&gt;tagName&lt;/code&gt;, &lt;code&gt;className&lt;/code&gt;, &lt;code&gt;id&lt;/code&gt; and &lt;code&gt;attributes&lt;/code&gt; properties, if specified. If not, el is an empty &lt;code&gt;div&lt;/code&gt;.&lt;/p&gt;
+All views have a DOM element at all times (the el property), whether they&amp;#39;ve already been inserted into the page or not. In this fashion, views can be rendered at any time, and inserted into the DOM all at once, in order to get high-performance UI rendering with as few reflows and repaints as possible. this.el is created from the view&amp;#39;s &lt;code&gt;tagName&lt;/code&gt;, &lt;code&gt;className&lt;/code&gt;, &lt;code&gt;id&lt;/code&gt; and &lt;code&gt;attributes&lt;/code&gt; properties, if specified. If not, el is an empty &lt;code&gt;div&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h3 id=&quot;use-grape-for-restful-api&quot;&gt;USE GRAPE FOR RESTFUL API&lt;/h3&gt;
+&lt;h3&gt;USE GRAPE FOR RESTFUL API&lt;/h3&gt;
 
 &lt;p&gt;grape guide: https://github.com/intridea/grape
 grape-entity: https://github.com/intridea/grape-entity&lt;/p&gt;
 
 &lt;p&gt;EXAMPLE MODEL:&lt;/p&gt;
 
-&lt;p&gt;```js task.js
-# backbone/models/tasks/task.js.coffee&lt;/p&gt;
+&lt;p&gt;```js task.js&lt;/p&gt;
+
+&lt;h1&gt;backbone/models/tasks/task.js.coffee&lt;/h1&gt;
 
 &lt;p&gt;class Ezitask.Models.Task extends Backbone.Model
-  paramRoot: ‘task’&lt;/p&gt;
+  paramRoot: &amp;#39;task&amp;#39;&lt;/p&gt;
 
 &lt;p&gt;initialize: -&amp;gt;
     @tracks= new Ezitask.Collections.TracksCollection(task: @)&lt;/p&gt;
@@ -790,12 +727,12 @@ grape-entity: https://github.com/intridea/grape-entity&lt;/p&gt;
 &lt;p&gt;defaults:
     name: null
     description: null
-    start_at: null
-    end_at: null&lt;/p&gt;
+    start&lt;em&gt;at: null
+    end&lt;/em&gt;at: null&lt;/p&gt;
 
 &lt;p&gt;class Ezitask.Collections.TasksCollection extends Backbone.Collection
   model: Ezitask.Models.Task
-  url: ‘/api/v1/tasks’
+  url: &amp;#39;/api/v1/tasks&amp;#39;
 ```&lt;/p&gt;
 
 &lt;p&gt;collection = new Ezitask.Collections.TasksCollection
@@ -803,57 +740,46 @@ collection.fetch() # 通过api 抓取task&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;Backbone.Collection&lt;/code&gt; 跟数据相关的 api 有 &lt;code&gt;add&lt;/code&gt;, &lt;code&gt;reset&lt;/code&gt;, &lt;code&gt;remove&lt;/code&gt; 等。&lt;/p&gt;
 
-&lt;h3 id=&quot;extend-funtions-for-backbone&quot;&gt;EXTEND FUNTIONS FOR BACKBONE&lt;/h3&gt;
+&lt;h3&gt;EXTEND FUNTIONS FOR BACKBONE&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;backbone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_shared&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;calidation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;Ezitask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Shared&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Validation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;showValidationErrors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;logic&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;here&lt;/span&gt;
 
-&lt;p&gt;```js&lt;/p&gt;
-
-&lt;h1 id=&quot;backboneviewssharedcalidationjs&quot;&gt;backbone/views/_shared/calidation.js&lt;/h1&gt;
-&lt;p&gt;Ezitask.Views.Shared.Validation =
-  showValidationErrors: (errors) -&amp;gt;
-    # your logic code here&lt;/p&gt;
-
-&lt;h1 id=&quot;backboneviewssharedprivateresourcerategoriesjs&quot;&gt;backbone/views/_shared/private_resource_rategories.js&lt;/h1&gt;
-&lt;p&gt;class Ezitask.Views.PrivateResourceCategories.NewView extends Backbone.View
-  # mixin
-  _.extend(@prototype, Ezitask.Views.Shared.Validation)
-```&lt;/p&gt;
-
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;backbone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_shared&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;private_resource_rategories&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Ezitask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PrivateResourceCategories&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;NewView&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Backbone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;View&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mixin&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Ezitask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Shared&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Validation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;当我们想要统一全站 view 的 validation 的时候，可以用 &lt;strong&gt;_.extend()&lt;/strong&gt; 这种方法。
-&lt;a href=&quot;http://hi.baidu.com/rainchen/item/a5111d01d4c58fc32e4c6b97&quot;&gt;more infos here…&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;http://hi.baidu.com/rainchen/item/a5111d01d4c58fc32e4c6b97&quot;&gt;more infos here...&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;useful-tips&quot;&gt;useful tips&lt;/h3&gt;
+&lt;h3&gt;useful tips&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;backbone 的 model 功能应该和 rails 里面的 model 保持一致。&lt;/li&gt;
-  &lt;li&gt;个人建议 &lt;code&gt;url&lt;/code&gt; 这个属性放在 &lt;code&gt;collection&lt;/code&gt; 上面。 &lt;code&gt;model&lt;/code&gt; 的创建用 &lt;code&gt;collection&lt;/code&gt; 的create方法
+&lt;li&gt;backbone 的 model 功能应该和 rails 里面的 model 保持一致。&lt;/li&gt;
+&lt;li&gt;个人建议 &lt;code&gt;url&lt;/code&gt; 这个属性放在 &lt;code&gt;collection&lt;/code&gt; 上面。 &lt;code&gt;model&lt;/code&gt; 的创建用 &lt;code&gt;collection&lt;/code&gt; 的create方法
 这样能触发 &lt;code&gt;add&lt;/code&gt; 事件。 &lt;code&gt;model&lt;/code&gt; 的保存用 &lt;code&gt;save&lt;/code&gt; 即可。&lt;/li&gt;
-  &lt;li&gt;使用 grape 的 Entity 方法暴露 model，不用 methods 这个方法。 e.g.&lt;/li&gt;
+&lt;li&gt;使用 grape 的 Entity 方法暴露 model，不用 methods 这个方法。 e.g.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;good&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;example&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;router&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Ezitask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Routers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;TasksRouter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;raw&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Entities&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;represent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;to_json&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-%&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bad&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;example&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;router&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Ezitask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Routers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ProductServicesRouter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;product_services&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;product_services&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;to_json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;methods&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resource_category&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;medium_icon_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;private_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;html_safe&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-%&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;referenecs&lt;/h3&gt;
 
-&lt;p&gt;```js&lt;/p&gt;
-
-&lt;h1 id=&quot;good-example&quot;&gt;good example&lt;/h1&gt;
-&lt;p&gt;window.router = new Ezitask.Routers.TasksRouter({
-  tasks: &amp;lt;%= raw Entities::Task.represent(@tasks).to_json -%&amp;gt;
-});
-```&lt;/p&gt;
-
-&lt;p&gt;```js&lt;/p&gt;
-
-&lt;h1 id=&quot;bad-example&quot;&gt;bad example&lt;/h1&gt;
-&lt;p&gt;window.router = new Ezitask.Routers.ProductServicesRouter({
-  product_services: &amp;lt;%= @product_services.to_json(:methods =&amp;gt; [:resource_category, :medium_icon_url, :private_list]).html_safe -%&amp;gt;
-});
-```&lt;/p&gt;
-
-&lt;h3 id=&quot;referenecs&quot;&gt;referenecs&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.csdn.net/article/2013-04-25/2815032-a-comparison-of-angular-backbone-canjs-and-ember&quot;&gt;a-comparison-of-angular-backbone-canjs-and-ember&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.csdn.net/article/2013-04-25/2815032-a-comparison-of-angular-backbone-canjs-and-ember&quot;&gt;a-comparison-of-angular-backbone-canjs-and-ember&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 11 May 2014 21:03:37 +0800</pubDate>
-        <link>http://yourdomain.com/tech/backbone/frontend/2014/05/11/backbone-summary.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/tech/backbone/frontend/2014/05/11/backbone-summary.html</guid>
+        <link>/blog/2014/05/11/backbone-summary</link>
+        <guid isPermaLink="true">/blog/2014/05/11/backbone-summary</guid>
         
         
         <category>tech</category>
@@ -867,45 +793,36 @@ collection.fetch() # 通过api 抓取task&lt;/p&gt;
       <item>
         <title>node setup on Ubuntu 12.04</title>
         <description>&lt;p&gt;env: ubuntu 12.04&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# after install nodejs
+sudo apt-get install nodejs
 
-&lt;p&gt;```
-# after install nodejs
-sudo apt-get install nodejs&lt;/p&gt;
+node -v # http://stackoverflow.com/questions/14914715/express-js-no-such-file-or-directory
+-bash: /usr/sbin/node: No such file or directory
 
-&lt;p&gt;node -v # http://stackoverflow.com/questions/14914715/express-js-no-such-file-or-directory
--bash: /usr/sbin/node: No such file or directory&lt;/p&gt;
-
-&lt;h1 id=&quot;solution&quot;&gt;solution&lt;/h1&gt;
-&lt;p&gt;bash -r
-```&lt;/p&gt;
-
+# solution
+bash -r
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;!-- more --&gt;
 
-&lt;h3 id=&quot;install-npm&quot;&gt;install npm&lt;/h3&gt;
+&lt;h3&gt;install npm&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo apt-get install npm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;socket.io install&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;npm install socket.io
 
-&lt;p&gt;&lt;code&gt;
-sudo apt-get install npm
-&lt;/code&gt;&lt;/p&gt;
+[office website](https://www.npmjs.org/package/socket.io)
 
-&lt;h3 id=&quot;socketio-install&quot;&gt;socket.io install&lt;/h3&gt;
+# error:
+npm http GET https://registry.npmjs.org/socket.io
 
-&lt;p&gt;```
-npm install socket.io&lt;/p&gt;
+npm ERR! Error: failed to fetch from registry: socket.io
 
-&lt;p&gt;&lt;a href=&quot;https://www.npmjs.org/package/socket.io&quot;&gt;office website&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;error&quot;&gt;error:&lt;/h1&gt;
-&lt;p&gt;npm http GET https://registry.npmjs.org/socket.io&lt;/p&gt;
-
-&lt;p&gt;npm ERR! Error: failed to fetch from registry: socket.io&lt;/p&gt;
-
-&lt;h1 id=&quot;solution-httpstackoverflowcomquestions12913141installing-from-npm-fails&quot;&gt;solution http://stackoverflow.com/questions/12913141/installing-from-npm-fails&lt;/h1&gt;
-&lt;p&gt;npm config set registry http://registry.npmjs.org/
-```&lt;/p&gt;
-</description>
+# solution http://stackoverflow.com/questions/12913141/installing-from-npm-fails
+npm config set registry http://registry.npmjs.org/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         <pubDate>Mon, 28 Apr 2014 09:42:00 +0800</pubDate>
-        <link>http://yourdomain.com/ubuntu/node/tech/2014/04/28/node-setup-on-ubuntu-12.04.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/ubuntu/node/tech/2014/04/28/node-setup-on-ubuntu-12.04.html</guid>
+        <link>/blog/2014/04/28/node-setup-on-ubuntu-12.04</link>
+        <guid isPermaLink="true">/blog/2014/04/28/node-setup-on-ubuntu-12.04</guid>
         
         
         <category>ubuntu</category>
@@ -918,64 +835,61 @@ npm install socket.io&lt;/p&gt;
     
       <item>
         <title>sshfs on mac osx</title>
-        <description>&lt;h3 id=&quot;install&quot;&gt;install&lt;/h3&gt;
+        <description>&lt;h3&gt;install&lt;/h3&gt;
 
 &lt;p&gt;&lt;code&gt;homebrew install sshfs&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;usage&quot;&gt;usage&lt;/h3&gt;
+&lt;h3&gt;usage&lt;/h3&gt;
 
 &lt;p&gt;&lt;code&gt;sshfs user@root:/dir/sync-files /user/name/sync-files&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;fuse4x-errors&quot;&gt;fuse4x errors&lt;/h3&gt;
+&lt;h3&gt;fuse4x errors&lt;/h3&gt;
 
 &lt;p&gt;when loaded,
 &lt;code&gt;The fuse4x kernel extension was not loaded&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;the way to fixed it.
-` david ~ $ brew info fuse4x-kext `&lt;/p&gt;
-
-&lt;p&gt;```&lt;/p&gt;
-
-&lt;p&gt;fuse4x-kext: stable 0.9.2 (bottled)
+&lt;code&gt;david ~ $ brew info fuse4x-kext&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;fuse4x-kext: stable 0.9.2 (bottled)
 http://fuse4x.github.com
 /usr/local/Cellar/fuse4x-kext/0.9.2 (6 files, 276K) *
   Poured from bottle
 From: https://github.com/mxcl/homebrew/commits/master/Library/Formula/fuse4x-kext.rb
 ==&amp;gt; Caveats
 In order for FUSE-based filesystems to work, the fuse4x kernel extension
-must be installed by the root user:&lt;/p&gt;
+must be installed by the root user:
 
-&lt;p&gt;sudo /bin/cp -rfX /usr/local/Cellar/fuse4x-kext/0.9.2/Library/Extensions/fuse4x.kext /Library/Extensions
-  sudo chmod +s /Library/Extensions/fuse4x.kext/Support/load_fuse4x&lt;/p&gt;
+  sudo /bin/cp -rfX /usr/local/Cellar/fuse4x-kext/0.9.2/Library/Extensions/fuse4x.kext /Library/Extensions
+  sudo chmod +s /Library/Extensions/fuse4x.kext/Support/load_fuse4x
 
-&lt;p&gt;If upgrading from a previous version of Fuse4x, the old kernel extension
+If upgrading from a previous version of Fuse4x, the old kernel extension
 will need to be unloaded before performing the steps listed above. First,
-check that no FUSE-based filesystems are running:&lt;/p&gt;
+check that no FUSE-based filesystems are running:
 
-&lt;p&gt;mount -t fuse4x&lt;/p&gt;
+  mount -t fuse4x
 
-&lt;p&gt;Unmount all FUSE filesystems and then unload the kernel extension:&lt;/p&gt;
+Unmount all FUSE filesystems and then unload the kernel extension:
 
-&lt;p&gt;sudo kextunload -b org.fuse4x.kext.fuse4x&lt;/p&gt;
-
-&lt;p&gt;```
-follow the guides then this issue will be fixed.&lt;/p&gt;
+  sudo kextunload -b org.fuse4x.kext.fuse4x
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;follow the guides then this issue will be fixed.&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
-&lt;h3 id=&quot;umount-for-sshfs&quot;&gt;umount for sshfs&lt;/h3&gt;
+&lt;h3&gt;umount for sshfs&lt;/h3&gt;
 
 &lt;p&gt;&lt;code&gt;umount -f &amp;lt;absolute pathname to the mount point&amp;gt;&lt;/code&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;references&quot;&gt;references&lt;/h2&gt;
+&lt;h2&gt;references&lt;/h2&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/SSHFS&quot;&gt;sshfs wiki&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/12910653/fuse4x-sshfs-on-macosx-execution-error&quot;&gt;fuse4x-sshfs-on-macosx-execution-error&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/SSHFS&quot;&gt;sshfs wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/12910653/fuse4x-sshfs-on-macosx-execution-error&quot;&gt;fuse4x-sshfs-on-macosx-execution-error&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Fri, 21 Feb 2014 09:58:41 +0800</pubDate>
-        <link>http://yourdomain.com/tech/sshfs/osx/2014/02/21/sshfs-on-mac-osx.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/tech/sshfs/osx/2014/02/21/sshfs-on-mac-osx.html</guid>
+        <link>/blog/2014/02/21/sshfs-on-mac-osx</link>
+        <guid isPermaLink="true">/blog/2014/02/21/sshfs-on-mac-osx</guid>
         
         
         <category>tech</category>
@@ -988,19 +902,20 @@ follow the guides then this issue will be fixed.&lt;/p&gt;
     
       <item>
         <title>expore the blocks in Ruby</title>
-        <description>&lt;p&gt;these four articles are so good that …&lt;/p&gt;
+        <description>&lt;p&gt;these four articles are so good that ...&lt;/p&gt;
 
-&lt;h2 id=&quot;references&quot;&gt;references&lt;/h2&gt;
+&lt;h2&gt;references&lt;/h2&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://rubyer.me/blog/917/&quot;&gt;理解Ruby的4种闭包：blocks, Procs, lambdas 和 Methods&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.robertsosinski.com/2008/12/21/understanding-ruby-blocks-procs-and-lambdas/&quot;&gt;Understanding Ruby Blocks, Procs and Lambdas&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://innig.net/software/ruby/closures-in-ruby&quot;&gt;Closures in Ruby&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://ruby-hacking-guide.github.io/iterator.html&quot;&gt;ruby hacking guide : blocks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://rubyer.me/blog/917/&quot;&gt;理解Ruby的4种闭包：blocks, Procs, lambdas 和 Methods&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.robertsosinski.com/2008/12/21/understanding-ruby-blocks-procs-and-lambdas/&quot;&gt;Understanding Ruby Blocks, Procs and Lambdas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://innig.net/software/ruby/closures-in-ruby&quot;&gt;Closures in Ruby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://ruby-hacking-guide.github.io/iterator.html&quot;&gt;ruby hacking guide : blocks&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 13 Feb 2014 12:39:09 +0800</pubDate>
-        <link>http://yourdomain.com/tech/ruby/closure/2014/02/13/closures-in-ruby.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/tech/ruby/closure/2014/02/13/closures-in-ruby.html</guid>
+        <link>/blog/2014/02/13/closures-in-ruby</link>
+        <guid isPermaLink="true">/blog/2014/02/13/closures-in-ruby</guid>
         
         
         <category>tech</category>

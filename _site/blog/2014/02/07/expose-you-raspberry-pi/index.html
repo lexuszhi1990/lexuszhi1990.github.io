@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>About</title>
-  <meta name="description" content="blog">
+  <title>expose your rasbarry pi</title>
+  <meta name="description" content="there are many ways to expose raspbarry pi to Public Intenet.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/about/">
+  <link rel="canonical" href="/blog/2014/02/07/expose-you-raspberry-pi">
   <link rel="alternate" type="application/rss+xml" title="Tide-Hunter" href="/feed.xml" />
 </head>
 
@@ -61,16 +61,95 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">About</h1>
+    <h1 class="post-title">expose your rasbarry pi</h1>
+    <p class="post-meta">Feb 7, 2014</p>
   </header>
 
   <article class="post-content">
-    <p>This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at <a href="http://jekyllrb.com/">jekyllrb.com</a></p>
+    <p>there are many ways to expose raspbarry pi to Public Intenet.</p>
 
-<p>You can find the source code for the Jekyll new theme at: <a href="https://github.com/jglovier/jekyll-new">github.com/jglovier/jekyll-new</a></p>
+<h3>use VPS and ssh</h3>
 
-<p>You can find the source code for Jekyll at <a href="https://github.com/jekyll/jekyll">github.com/jekyll/jekyll</a></p>
+<p>first, make sure there is a http server running on your rasbarry pi.
+e.g. it runs on 3000 port.
+```</p>
 
+<h1>on raspi</h1>
+
+<p>$ curl http://127.0.0.1:3000</p>
+
+<h1>=&gt; Hello, this is Daivd&#39;s raspberry pi. powered by node.</h1>
+<div class="highlight"><pre><code class="language-text" data-lang="text">then make sure your raspi has ssh key, and copy it to VPS server.
+</code></pre></div>
+<h1>add your raspi ssh key to VPS server</h1>
+
+<h1>user@host is your vps</h1>
+
+<p>ssh-copy-id user@host
+```</p>
+
+<!-- more -->
+
+<p>second, binding the remote port forwarding to local port. <a href="http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html">more information</a>
+```</p>
+
+<h1>on raspi</h1>
+
+<p>ssh -f -N -R 12345:127.0.0.1:3000 user@host
+```</p>
+
+<p>then, ssh to the vps server, and check out it.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"># on VPS server
+$ ssh user@host
+$ curl http://127.0.0.1:12345
+#=&gt; Hello, this is Daivd&#39;s raspberry pi. powered by node.
+</code></pre></div>
+<p>last, use nginx server to power it.
+``` bash</p>
+
+<h1>raspi config on VPS server</h1>
+
+<h1>/opt/nginx/conf/sites-enabled/rasberry-pi.conf</h1>
+
+<p>server {
+  listen       80;
+  server<em>name  raspi.lingzhi.me;
+  location / {
+    proxy</em>pass  http://127.0.0.1:12345;
+    proxy<em>set</em>header   Host             $host:80;
+    proxy<em>set</em>header   X-Real-IP        $remote<em>addr;
+    proxy</em>set<em>header   X-Forwarded-For  $proxy</em>add<em>x</em>forwarded<em>for;
+    proxy</em>set_header Via    &quot;nginx&quot;;
+  }
+}
+```</p>
+
+<p>fix the GatewayPorts by edit the file <code>/etc/sshd_config</code>
+```</p>
+
+<h1>http://unixhelp.ed.ac.uk/CGI/man-cgi</h1>
+
+<h1>set GatewayPorts</h1>
+
+<p>GatewayPorts clientspecified
+```</p>
+
+<p>then <code>sudo service ssh restart</code> and reload the nginx server, it will run successfully:
+```
+$ curl raspi.lingzhi.me</p>
+
+<h1>=&gt; Hello, this is Daivd&#39;s raspberry pi. powered by node.</h1>
+<div class="highlight"><pre><code class="language-text" data-lang="text">### One more quickly way to implement it.
+
+use [ngrok](https://github.com/inconshreveable/ngrok) to create a secure tunnel between from a public endpoint to a locally running web servic
+
+references
+----------
+- [sshd_config](http://unixhelp.ed.ac.uk/CGI/man-cgi?sshd_config+5)
+- [Using a VPS and SSH to expose your local machine&#39;s ports](http://bafford.us/2011/08/31/67745483-using-a-vps-and-ssh-to-expose-your-local-mach/)
+- [Reverse SSH tunneling: easier than port forwarding!](http://bbrinck.com/post/2318562750/reverse-ssh-tunneling-easier-than-port-forwarding)
+- [ssh+nginx反向代理访问内网Web Service](http://logit.me/blog/2013/05/31/reverse-proxy/)
+</code></pre></div>
   </article>
 
 </div>

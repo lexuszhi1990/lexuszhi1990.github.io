@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>About</title>
-  <meta name="description" content="blog">
+  <title>preview an image before uploaded</title>
+  <meta name="description" content="use simple_form to upload a avatar">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/about/">
+  <link rel="canonical" href="/blog/2014/02/07/preview-an-image-before-uploaded">
   <link rel="alternate" type="application/rss+xml" title="Tide-Hunter" href="/feed.xml" />
 </head>
 
@@ -61,16 +61,47 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">About</h1>
+    <h1 class="post-title">preview an image before uploaded</h1>
+    <p class="post-meta">Feb 7, 2014</p>
   </header>
 
   <article class="post-content">
-    <p>This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at <a href="http://jekyllrb.com/">jekyllrb.com</a></p>
+    <p>use <code>simple_form</code> to upload a avatar</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">= f.input :avatar, :as =&gt; :file, wrapper_html: {id: &#39;user_avatar_upload&#39;}
+= f.label &quot;Upload Profile Photo&quot;, id: &quot;upload_profile_photo&quot;, class: &quot;upload_profile_photo&quot;
+%img{id: &quot;avatar_preview&quot;, src: &quot;#&quot;, alt: &quot;your avatar&quot;}
+</code></pre></div>
+<!-- more -->
 
-<p>You can find the source code for the Jekyll new theme at: <a href="https://github.com/jglovier/jekyll-new">github.com/jglovier/jekyll-new</a></p>
+<p>custom the upload avatar photo function, preview the uploaded image</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">var bindUploadAvatarButton = function () {
+  var userAvatar = $(&#39;form.new_user #user_avatar_upload&#39;);
+  var avatarUploadLabel = $(&#39;form.new_user #upload_profile_photo&#39;);
+  var avatarPreview = $(&#39;form.new_user #avatar_preview&#39;);
 
-<p>You can find the source code for Jekyll at <a href="https://github.com/jekyll/jekyll">github.com/jekyll/jekyll</a></p>
+  avatarUploadLabel.on(&#39;click&#39;,function(event) {
+    event.preventDefault();
+    userAvatar.click();
+  });
 
+  userAvatar.on(&#39;change&#39;, function() {
+    readURL(this);
+  });
+
+  // http://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded
+  function readURL(input) {
+    if (input.files &amp;&amp; input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        avatarPreview.attr(&#39;src&#39;, e.target.result);
+        console.log(e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+};
+</code></pre></div>
   </article>
 
 </div>

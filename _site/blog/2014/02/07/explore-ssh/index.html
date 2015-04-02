@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>About</title>
-  <meta name="description" content="blog">
+  <title>explore ssh</title>
+  <meta name="description" content="ssh config">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/about/">
+  <link rel="canonical" href="/blog/2014/02/07/explore-ssh">
   <link rel="alternate" type="application/rss+xml" title="Tide-Hunter" href="/feed.xml" />
 </head>
 
@@ -61,15 +61,64 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">About</h1>
+    <h1 class="post-title">explore ssh</h1>
+    <p class="post-meta">Feb 7, 2014</p>
   </header>
 
   <article class="post-content">
-    <p>This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at <a href="http://jekyllrb.com/">jekyllrb.com</a></p>
+    <h3>ssh config</h3>
 
-<p>You can find the source code for the Jekyll new theme at: <a href="https://github.com/jglovier/jekyll-new">github.com/jglovier/jekyll-new</a></p>
+<p><code>sh ~/.ssh/config
+Host your-host.com
+  User David
+  Port 443
+  Hostname ssh.github.com
+  identityfile ~/.ssh/id_rsa
+</code></p>
 
-<p>You can find the source code for Jekyll at <a href="https://github.com/jekyll/jekyll">github.com/jekyll/jekyll</a></p>
+<h3>edit ssh port</h3>
+
+<p>vi /etc/ssh/sshd_config
+<code>
+Port 8888               //以前这个前面是有 # 号的，而且默认是 22 ，修改一下就ok了
+</code></p>
+
+<!-- more -->
+
+<p>add ssh port
+```
+sudo /usr/sbin/sshd -p 8888
+netstat -an</p>
+
+<p>Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+  ....
+  tcp        0      0 0.0.0.0:8888            0.0.0.0:*               LISTEN
+  ....
+```</p>
+
+<p>restart ssh service
+<code>
+sudo service ssh restart
+</code></p>
+
+<h3>ssh options</h3>
+
+<p>N参数，表示只连接远程主机，不打开远程shell；T参数，表示不为这个连接分配TTY。这个两个参数可以放在一起用，代表这个SSH连接只用来传数据，不执行远程操作。</p>
+
+<p>f参数，表示SSH连接成功后，转入后台运行。要关闭这个后台连接，就只有用kill命令去杀掉进程。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">　$ ssh -R 2121:host2:21 host1
+</code></pre></div>
+<p>R参数也是接受三个值，分别是&quot;远程主机端口:目标主机:目标主机端口&quot;。这条命令的意思，就是让host1监听它自己的2121端口，然后将所有数据经由host3，转发到host2的21端口。由于对于host3来说，host1是远程主机，所以这种情况就被称为&quot;远程端口绑定&quot;。</p>
+
+<h2>references</h2>
+
+<ul>
+<li><a href="http://wiki.ubuntu.org.cn/IptablesHowTo">iptables</a></li>
+<li><a href="http://www.cnblogs.com/ggjucheng/archive/2012/01/08/2316661.html">netstat</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html">ssh-remote-login</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html">ssh-port-forwarding</a></li>
+</ul>
 
   </article>
 

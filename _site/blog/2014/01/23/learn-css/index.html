@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>About</title>
-  <meta name="description" content="blog">
+  <title>Transferring between scss and css</title>
+  <meta name="description" content="To run Sass from the command line, just use">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/about/">
+  <link rel="canonical" href="/blog/2014/01/23/learn-css">
   <link rel="alternate" type="application/rss+xml" title="Tide-Hunter" href="/feed.xml" />
 </head>
 
@@ -61,15 +61,32 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">About</h1>
+    <h1 class="post-title">Transferring between scss and css</h1>
+    <p class="post-meta">Jan 23, 2014</p>
   </header>
 
   <article class="post-content">
-    <p>This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at <a href="http://jekyllrb.com/">jekyllrb.com</a></p>
+    <p>To run Sass from the command line, just use</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sass input.scss output.css
+</code></pre></div>
+<p>You can also tell Sass to watch the file and update the CSS every time the Sass file changes:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sass --watch input.scss:output.css
+</code></pre></div>
+<p>If you have a directory with many Sass files, you can also tell Sass to watch the entire directory:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sass --watch app/sass:public/stylesheets
+</code></pre></div>
+<!-- more -->
 
-<p>You can find the source code for the Jekyll new theme at: <a href="https://github.com/jglovier/jekyll-new">github.com/jglovier/jekyll-new</a></p>
+<p>transfer css file to scss, just use</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sass-convert -F css -T sass original_file.css converted_file.sass
+</code></pre></div>
+<h2>references</h2>
 
-<p>You can find the source code for Jekyll at <a href="https://github.com/jekyll/jekyll">github.com/jekyll/jekyll</a></p>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html">sass official</a></li>
+<li><a href="http://learn.shayhowe.com/html-css/">shayhowe-html-css</a></li>
+<li><a href="http://learn.shayhowe.com/advanced-html-css">shayhowe-advanced-html-css</a></li>
+</ul>
 
   </article>
 
