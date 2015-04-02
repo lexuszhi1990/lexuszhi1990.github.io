@@ -13,3 +13,5 @@ vendor
 node_modules
 .editorconfig
 .gitattributes
+.DS_Store
+_site
