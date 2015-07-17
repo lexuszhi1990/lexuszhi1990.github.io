@@ -14,10 +14,9 @@ description: "A Clean Blog Theme by Start Bootstrap"
             {{ post.subtitle }}
         </h3>
         {% endif %}
+        <p class="post-meta">on {{ post.date | date: "%B %-d, %Y" }}</p>
     </a>
-    <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
 </div>
-<hr>
 {% endfor %}
 
 <!-- Pager -->
