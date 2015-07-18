@@ -30,7 +30,7 @@
       color: #808080;
       font-style: italic;
       opacity: 0.8;
-      padding-top: 0.1em;
+      padding-top: 0.2em;
     }
   }
 }
@@ -38,14 +38,6 @@
 footer {
   padding: 20px 0 40px;
 }
-
-.navbar-custom .nav li a:hover, .navbar-custom .nav li a {
-  &:focus {
-
-  }
-
-}
-
 
 // custom resposive
 
@@ -55,15 +47,14 @@ footer {
     background: transparent;
     border-bottom: 1px solid transparent;
     .navbar-brand, .nav li a {
-      color: #337ab7;
+      color: white;
       margin: 10px;
       padding: 10px;
       height: auto;
       &:hover, &:focus {
         background-color: #337ab7;
         color: white;
-        transition-duration: .4s;
-        box-shadow: inset 0 1px 3px rgba(0,0,0,.5), 0 1px 0 rgba(255,255,255,.1);
+        transition-duration: .2s;
       }
     }
   }
@@ -87,9 +78,9 @@ footer {
 }
 
 // Pads and larger phones
-@media only screen and (max-device-width: 668px) {
+@media only screen and (max-width: 668px) {
   .blog-content {
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
   }
 }
