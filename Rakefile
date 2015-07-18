@@ -40,7 +40,7 @@ end
 desc 'default task'
 task :default do
     sh 'jekyll build'
-    sh 'open http://127.0.0.1:4001'
+    sh 'open http://127.0.0.1:4000'
 end
 
 desc 'Make a new post'
