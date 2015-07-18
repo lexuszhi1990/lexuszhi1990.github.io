@@ -21,7 +21,7 @@ paginate_path: "/page/:num"
 
 # https://github.com/jekyll-assets/jekyll-assets#how-to-use-jekyll-assets
 assets:
-  # css_compressor: less
+  css_compressor: sass
   # cache: true
   sources:
     - _assets/images
@@ -29,3 +29,6 @@ assets:
     - _assets/stylesheets
 
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+
+sass:
+  sass_dir: _assets/stylesheets/_sass

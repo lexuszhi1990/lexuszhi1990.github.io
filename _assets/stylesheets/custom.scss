@@ -3,13 +3,6 @@
   margin: 0 auto;
 }
 
-.post-preview .post-meta {
-  color: #808080;
-  font-size: 18px;
-  font-style: italic;
-  margin-top: 0;
-}
-
 .intro-header {
   height: 250px;
   margin-bottom: 0px;
@@ -23,9 +16,19 @@
   .intro-header .site-heading, .intro-header .post-heading, .intro-header .page-heading {
     padding: 90px 0 0;
   }
+}
 
-  .post-preview > a > .post-title {
-    font-size: 24px;
-    font-weight: 300;
-  }
+
+
+.post-preview .post-meta {
+  color: #808080;
+  font-size: 18px;
+  font-style: italic;
+  margin-top: 0;
+}
+
+
+.post-preview > a > .post-title {
+  font-size: 24px;
+  font-weight: 300;
 }
