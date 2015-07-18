@@ -13,7 +13,7 @@ safe: true
 lsi: false
 
 # Build settings
-markdown: redcarpet
+markdown: kramdown
 highlighter: pygments
 permalink: pretty
 # permalink: /:year/:month/:day/:title
@@ -23,7 +23,19 @@ paginate_path: "/page/:num"
 
 # google_analytics_tracking_id: UA-47869605-1
 
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+exclude:
+  - CNAME
+  - Gemfile
+  - Rakefile
+  - README.md
+  - .gitignore
+  - .sass-cache
+  - Gemfile.lock
+  - less
+  - node_modules
+  - Gruntfile.js
+  - package.json
+  - README.md
 
 sass:
   sass_dir: assets/stylesheets/_sass
