@@ -22,7 +22,7 @@ paginate_path: "/page/:num"
 # https://github.com/jekyll-assets/jekyll-assets#how-to-use-jekyll-assets
 assets:
   # css_compressor: less
-  cache: true
+  # cache: true
   sources:
     - _assets/images
     - _assets/javascripts
