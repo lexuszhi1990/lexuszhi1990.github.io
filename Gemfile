@@ -1,5 +1,4 @@
-# source 'https://rubygems.org'
-source 'http://ruby.taobao.org'
+source 'https://rubygems.org'
+# source 'http://ruby.taobao.org'
 
-gem 'jekyll'
-gem 'jekyll-assets'
+gem 'github-pages'
