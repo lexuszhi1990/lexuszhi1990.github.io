@@ -16,3 +16,4 @@ node_modules
 .DS_Store
 _site
 .jekyll-assets-cache
+Gemfile.lock
