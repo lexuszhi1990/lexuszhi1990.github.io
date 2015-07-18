@@ -6,8 +6,6 @@ comments: true
 categories: [tech, logrotate]
 ---
 
-## ogrotate usage
-
 ### Create new rotate config file for application log
 
 <!-- more -->
