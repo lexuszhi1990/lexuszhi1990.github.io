@@ -1,5 +1,5 @@
 body {
-  font-family: 'sofia-pro-light', 'Times New Roman', serif;
+  font-family: 'sofia-pro-light', 'SourceSansPro-Regular', 'Times New Roman', serif;
   font-size: 20px;
   color: #404040;
 }
@@ -13,7 +13,6 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'SourceSansPro-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 800;
 }
 
@@ -48,7 +47,6 @@ hr.small {
   left: 0;
   width: 100%;
   z-index: 3;
-  font-family: 'SourceSansPro-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   .navbar-brand {
     font-weight: 800;
   }
@@ -84,7 +82,6 @@ hr.small {
     font-size: 24px;
     line-height: 1.1;
     display: block;
-    font-family: 'SourceSansPro-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 300;
     margin: 10px 0 0;
   }
@@ -97,7 +94,6 @@ hr.small {
       display: block;
     }
     .subheading {
-      font-family: 'SourceSansPro-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 24px;
       margin: 10px 0 30px;
       font-weight: 600;
@@ -109,42 +105,6 @@ hr.small {
       font-size: 20px;
       a {
         color: white;
-      }
-    }
-  }
-}
-
-.post-preview > {
-  a {
-    color: #404040;
-    &:hover, &:focus {
-      text-decoration: none;
-      color: #0085a1;
-    }
-    > {
-      .post-title {
-        font-size: 30px;
-        margin-top: 30px;
-        margin-bottom: 10px;
-      }
-      .post-subtitle {
-        margin: 0;
-        font-weight: 300;
-        margin-bottom: 10px;
-      }
-    }
-  }
-  .post-meta {
-    color: #808080;
-    font-size: 18px;
-    font-style: italic;
-    margin-top: 0;
-    > a {
-      text-decoration: none;
-      color: #404040;
-      &:hover, &:focus {
-        color: #0085a1;
-        text-decoration: underline;
       }
     }
   }
@@ -230,7 +190,6 @@ form .row:first-child .floating-label-form-group {
 }
 
 .btn {
-  font-family: 'SourceSansPro-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 800;
@@ -256,7 +215,6 @@ form .row:first-child .floating-label-form-group {
   margin: 20px 0 0;
   li > {
     a, span {
-      font-family: 'SourceSansPro-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       text-transform: uppercase;
       font-size: 14px;
       font-weight: 800;
