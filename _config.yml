@@ -2,7 +2,7 @@
 title: "Tide-Hunter"
 email: lexuszhi1990@gmail.com
 description: "blog"
-header-img: img/home-bg.jpg
+header-img: home-bg.jpg
 baseurl: "" # the subpath of your site, e.g. /blog/
 # url: "http://yourdomain.com" # the base hostname & protocol for your site
 # twitter_username: jekyllrb
