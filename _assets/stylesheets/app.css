@@ -5,8 +5,7 @@
  *= require_self
  *= require vendor/font-awesome
  *= require vendor/bootstrap
- *= require vendor/lora-fonts
- *= require vendor/open-sans-fonts
+ *= require vendor/fonts
  *= require clean-blog
  *= require syntax
  *= require custom
