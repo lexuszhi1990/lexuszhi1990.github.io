@@ -49,7 +49,7 @@ footer {
 
 // custom resposive
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-device-width: 768px) {
 
   .navbar-custom {
     background: transparent;
@@ -68,37 +68,28 @@ footer {
     }
   }
 
+  .intro-header {
+    .site-heading, .post-heading, .page-heading {
+      padding: 3.5em 0;
+    }
 
-  .intro-header .site-heading h1, .intro-header .page-heading h1 {
-    font-size: 46px;
+    .site-heading h1, .page-heading h1 {
+      font-size: 2em;
+    }
   }
 
-  .intro-header .site-heading, .intro-header .post-heading, .intro-header .page-heading {
-    padding: 90px 0 0;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .intro-header .site-heading h1, .intro-header .page-heading h1 {
-    font-size: 46px;
-  }
-
-  .intro-header .site-heading, .intro-header .post-heading, .intro-header .page-heading {
-    padding: 90px 0 0;
-  }
-}
-
-@media only screen and (min-width: 480px) {
-  .blog-content {
-    width: 80%;
-    margin: 0 auto;
+  .pager li > {
+    a, span {
+      font-size: 14px;
+      padding: 15px 25px;
+    }
   }
 }
 
 // Pads and larger phones
-@media only screen and (min-width: 600px) {
+@media only screen and (max-device-width: 668px) {
   .blog-content {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
   }
 }
