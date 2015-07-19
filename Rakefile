@@ -2,7 +2,6 @@ require "rubygems"
 require "tmpdir"
 require "bundler/setup"
 require "jekyll"
-require "jekyll-assets"
 
 # Change your GitHub reponame
 GITHUB_REPONAME = "lexuszhi1990/lexuszhi1990.github.io"
