@@ -6,18 +6,20 @@ header-img: post-bg-05.jpg
 ---
 
 {% for post in paginator.posts %}
-<div class="post-preview">
-  <a href="{{ post.url | prepend: site.baseurl }}">
-    <div>
-      <span class="title">
-        {{ post.title }}
-      </span>
-      <span class="date">
-        <i class="fa fa-calendar"></i> {{ post.date | date: "%B %-d, %Y" }}
-      </span>
+  {% unless post.published == 'false' %}
+    <div class="post-preview">
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        <div>
+          <span class="title">
+            {{ post.title }}
+          </span>
+          <span class="date">
+            <i class="fa fa-calendar"></i> {{ post.date | date: "%B %-d, %Y" }}
+          </span>
+        </div>
+      </a>
     </div>
-  </a>
-</div>
+  {% endunless %}
 {% endfor %}
 
 <!-- Pager -->
