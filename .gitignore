@@ -17,4 +17,3 @@ node_modules
 _site
 .jekyll-assets-cache
 Gemfile.lock
-CNAME
