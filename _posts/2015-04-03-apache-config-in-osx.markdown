@@ -32,7 +32,7 @@ FLUSH PRIVILEGES;
 
 ### install ngnix
 
-`brew install nginx`, 
+`brew install nginx`,
 
 ```
 Docroot is: /usr/local/var/www
@@ -85,12 +85,4 @@ Now for your new entry to take effect, the DNS cache needs to be flushed.
 
 ```
 dscacheutil -flushcache
-```
-
-
-###
-
-```
-root:david
-developer:passwd
 ```
