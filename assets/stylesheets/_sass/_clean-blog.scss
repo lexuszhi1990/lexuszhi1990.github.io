@@ -160,44 +160,6 @@ form .row:first-child .floating-label-form-group {
   }
 }
 
-.pager {
-  margin: 20px 0 0;
-  li > {
-    a, span {
-      text-transform: uppercase;
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      padding: 10px 5px;
-      background-color: white;
-      border-radius: 0;
-    }
-    a {
-      &:hover, &:focus {
-        color: white;
-        background-color: #0085a1;
-        border: 1px solid #0085a1;
-      }
-    }
-  }
-  .disabled > {
-    a {
-      color: #808080;
-      background-color: #404040;
-      cursor: not-allowed;
-      &:hover, &:focus {
-        color: #808080;
-        background-color: #404040;
-        cursor: not-allowed;
-      }
-    }
-    span {
-      color: #808080;
-      background-color: #404040;
-      cursor: not-allowed;
-    }
-  }
-}
 
 ::-moz-selection, ::selection {
   color: white;
