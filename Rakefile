@@ -38,7 +38,7 @@ end
 
 desc 'default task'
 task :default do
-    sh 'jekyll build'
+    sh 'jekyll server'
     sh 'open http://127.0.0.1:4000'
 end
 
@@ -65,7 +65,7 @@ end
 
 desc 'Build site with Jekyll'
 task :build do
-    sh 'jekyll build'
+  sh 'jekyll build'
 end
 
 desc "list tasks"
