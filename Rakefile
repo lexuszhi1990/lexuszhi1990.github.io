@@ -2,6 +2,7 @@ require "rubygems"
 require "tmpdir"
 require "bundler/setup"
 require "jekyll"
+require 'chinese_pinyin'
 
 # Change your GitHub reponame
 GITHUB_REPONAME = "lexuszhi1990/lexuszhi1990.github.io"
@@ -44,23 +45,34 @@ end
 
 desc 'Make a new post'
 task :post do
-    print 'Enter post title: '
-    title = STDIN.gets.chomp
-    abort 'No title.' unless title.length > 0
+  print 'Enter post title: '
+  title = STDIN.gets.chomp
+  abort 'No title.' unless title.length > 0
 
-    filename = "_posts/#{Time.new.strftime('%Y-%m-%d')}-#{title.downcase.gsub(' ', '-')}.markdown"
-    abort "Error: #{filename} already exists." if File.exist?(filename)
+  print "Enter post categories(default: tech): "
+  categories = STDIN.gets.chomp
+  if categories.length == 0
+    categories = 'tech'
+  end
 
-    puts "Creating new post: #{filename}"
-    open(filename, 'w') do |post|
-        post.puts "---"
-        post.puts "layout: post"
-        post.puts "title: #{title}"
-        post.puts "date: #{Time.new.to_s}"
-        post.puts "---"
-        post.puts ""
-    end
-    sh "open #{filename}"
+  title = Pinyin.t title
+  filename = "_posts/#{Time.new.strftime('%Y-%m-%d')}-#{title.downcase.gsub(' ', '-')}.markdown"
+  if File.exist?(filename)
+    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
+  end
+
+  puts "Creating new post: #{filename}"
+  open(filename, 'w') do |post|
+      post.puts "---"
+      post.puts "layout: post"
+      post.puts "title: #{title}"
+      post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
+      post.puts "categories: [#{categories}]"
+      post.puts "tags: []"
+      post.puts "---"
+      post.puts ""
+  end
+  # sh "open #{filename}"
 end
 
 desc 'Build site with Jekyll'
