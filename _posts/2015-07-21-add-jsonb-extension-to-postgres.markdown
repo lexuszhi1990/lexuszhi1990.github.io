@@ -2,8 +2,7 @@
 layout: post
 title: add jsonb extension to postgres
 date: 2015-07-21 11:23:51 +0800
-category: tech
-tags: [postgres, json]
+categories: [tech, postgres, json]
 ---
 
 http://nandovieira.com/using-postgresql-and-jsonb-with-ruby-on-rails

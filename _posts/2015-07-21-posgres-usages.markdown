@@ -2,8 +2,7 @@
 layout: post
 title: postgres basic usages
 date: 2015-07-21 11:21:22 +0800
-category: tech
-tags: [postgres, usages]
+categories: [tech, postgres, usages]
 ---
 
 ### 启动数据库

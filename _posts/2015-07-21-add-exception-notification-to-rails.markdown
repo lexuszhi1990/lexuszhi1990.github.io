@@ -2,8 +2,7 @@
 layout: post
 title: add exception notification to Rails
 date: 2015-07-21 12:15
-category: tech
-tags: [rails, exceptions]
+categories: [tech, rails, exceptions]
 ---
 
 

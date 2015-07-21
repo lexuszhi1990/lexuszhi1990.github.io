@@ -2,8 +2,7 @@
 layout: post
 title: nginx and unicorn
 date: 2015-07-21 12:14
-category: tech
-tags: [nginx, unicorn]
+categories: [tech, nginx, unicorn]
 ---
 
 ### nginx with unicorn
