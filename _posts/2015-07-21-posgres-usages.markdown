@@ -1,7 +1,9 @@
 ---
 layout: post
-title: pos基本使用方法
+title: postgres basic usages
 date: 2015-07-21 11:21:22 +0800
+category: tech
+tags: [postgres, usages]
 ---
 
 ### 启动数据库
