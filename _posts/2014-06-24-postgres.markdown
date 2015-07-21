@@ -1,21 +1,22 @@
 ---
 layout: post
-title: "postgres 小结"
+title: "postgres小结 : 安装和升级"
 date: 2014-06-24 17:29:05 +0800
 comments: true
 categories: [tech, postgres]
 ---
-
 ### Install pg on Mac os x
-
-<!-- more -->
 
 ```bash
   brew update
   brew install postgresql
   initdb /usr/local/var/postgres
   cp /usr/local/Cellar/postgresql/9.1.4/homebrew.mxcl.postgresql.plist  ~/Library/LaunchAgents/
+  # /usr/local/Cellar/postgresql/9.4.1/homebrew.mxcl.postgresql.plist
   launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+
+
+  # start every time
   pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 
   gem install pg
@@ -53,52 +54,23 @@ puts `PATH=$PATH:/usr/local/Cellar/` in `.bash_profile`
   `createuser -s -r postgres`
 
 
-### usage
+install 9.4
+https://wiki.postgresql.org/wiki/Apt
 
-*restart*     :   `brew services restart postgresql` or `pg_ctl -D /usr/local/var/postgres -l logfile start`
+### 升级
 
-*collect to db* :   `psql -d postgres [USER];`
+[wiki](http://www.postgresql.org/docs/9.4/static/pgupgrade.html)
 
-*create user*   :   `create user user3  with superuser createdb createrole encrypted password 'root';`
-*edit password* : ` alter user user3 with password 'your password';
+upgrade
+https://gist.github.com/dideler/60c9ce184198666e5ab4
+http://nixmash.com/postgresql/upgrading-postgresql-9-1-to-9-3-in-ubuntu/
 
-### on unbuntu 14.04
+locals error
+http://askubuntu.com/questions/104169/i-get-this-error-while-updating-and-installing-software-perl-warning-setting
 
-修改 `/etc/postgresql/9.3/main/pg_hba.conf`，让本地登入需要密码。
 
-```
-local   all             all                                     md5
-local   replication     postgres                               md5
-```
+osx 上面用homebrew按照pg的升级办法
+http://stackoverflow.com/questions/24379373/how-to-upgrade-postgres-from-9-3-to-9-4-without-losing-data
 
-以postgres用户登入，创建新的用户，
+http://dba.stackexchange.com/questions/98144/how-to-upgrade-postgresql-8-4-to-9-4
 
-```
-sudo -u postgres psql
-
-# create a user named deploy1 and password is `password`
-postgres=# create user deploy1 with superuser createdb encrypted password 'passord';
-# => CREATE ROLE
-
-# select the roles
-postgres=# select rolname from pg_roles;
-=>  rolname
-    ----------
-    ...
-    deploy1
-    ...
-
-# edit password
-postgres=# alter user deploy1 with encrypted password 'yourpassword';
-=> ALTER ROLE
-
-# drop user
-postgres=# drop user deploy1;
-=> DROP ROLE
-```
-
-------
-- [pg install on osx](http://hlee.iteye.com/blog/1699119)
-- [pg cmd list](http://www.cnblogs.com/tzp_8/archive/2012/11/08/2760746.html)
-- [pg 8.1 offical doc zn](http://www.php100.com/manual/PostgreSQL8/app-createuser.html)
-- [install pg on ubuntu 12.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-12-04)
