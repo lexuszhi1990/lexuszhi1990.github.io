@@ -69,6 +69,7 @@ task :post do
       post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
       post.puts "categories: [#{categories}]"
       post.puts "tags: []"
+      post.puts "publish: true"
       post.puts "---"
       post.puts ""
   end
