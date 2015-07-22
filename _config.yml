@@ -11,16 +11,16 @@ github_username:  lexuszhi1990
 # https://help.github.com/articles/using-jekyll-with-pages/
 safe: true
 lsi: false
-auto: true
 
 # Build settings
-markdown: kramdown
-kramdown:
-  input: GFM
-# markdown: rdiscount
-# markdown: redcarpet
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "strikethrough", "superscript"]
+
+# markdown: kramdown
+# kramdown:
+#   input: GFM
 highlighter: pygments
-# highlighter: rouge
 gems:
   - jekyll-sitemap
   - jekyll-archives
