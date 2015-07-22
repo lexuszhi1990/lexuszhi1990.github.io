@@ -31,9 +31,10 @@ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
 上面命令的参数含义如下：-U指定用户，-d指定数据库，-h指定服务器，-p指定端口。
 输入上面命令以后，系统会提示输入dbuser用户的密码。输入正确，就可以登录控制台了。
+
 psql命令存在简写形式。如果当前Linux系统用户，同时也是PostgreSQL用户，则可以省略用户名（-U参数的部分）。
 
-举例来说，如果操作系统用户名为user，PostgreSQL数据库存在同名用户user，pg数据库中有user创建的table：template0，可以直接使用下面的命令登录数据库，且不需要密码。
+举例来说，如果操作系统用户名为david，PostgreSQL数据库存在同名用户david，pg数据库中有david创建的table：template0，可以直接使用下面的命令登录数据库，且不需要密码。
 
 ```
               Name               |  ***  | Access privileges
@@ -43,14 +44,24 @@ psql命令存在简写形式。如果当前Linux系统用户，同时也是Postg
 
 `psql -d template0` 或者直接 `psql template0`
 
-此时，如果PostgreSQL内部还存在与当前系统用户同名的数据库，则连数据库名都可以省略。比如，假定存在一个叫做ruanyf的数据库，则直接键入psql就可以登录该数据库。
+此时，如果PostgreSQL内部还存在与当前系统用户同名的数据库，则连数据库名都可以省略。
+
+```
+              Name               |  ***  | Access privileges
+---------------------------------+  ***  +-------------------
+ david                           |  ***  | =c/david
+
+```
+
+直接输入 `psql` 即可登入。
+
+### 添加删除用户
+
 psql以postgres用户登入，创建新的用户，
 
 ```
 sudo -U postgres psql
 ```
-
-### 添加删除用户
 
 ```sh
 # create a user named developer and password is `password`
@@ -62,15 +73,15 @@ postgres=# select rolname from pg_roles;
 =>  rolname
     ----------
     ...
-    deploy1
+    developer
     ...
 
 # edit password
-postgres=# alter user deploy1 with encrypted password 'yourpassword';
+postgres=# alter user developer with encrypted password 'yourpassword';
 => ALTER ROLE
 
 # drop user
-postgres=# drop user deploy1;
+postgres=# drop user developer;
 => DROP ROLE
 ```
 
