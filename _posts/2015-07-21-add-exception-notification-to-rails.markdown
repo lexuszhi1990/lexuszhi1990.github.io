@@ -6,9 +6,16 @@ categories: [tech, rails, exceptions]
 ---
 
 
-1. add gem
+### 1. add exception_notification gem
 
-2. in exception_notification.rb
+in Gemfile
+
+```
+# https://github.com/smartinez87/exception_notification
+gem 'exception_notification', '~> 4.1.0'
+```
+
+### 2. in app/config/initialize/exception_notification.rb
 
 ```ruby
 # Only send exception email on Production or Staging server
@@ -24,7 +31,7 @@ if (Rails.env.production? || Rails.env.staging?) && !ENV['LOCAL_PRODUCTION'] && 
 end
 ```
 
-3. on `application.rb` or other `env.rb`
+### 3. on `config/application.rb` or other `env.rb`
 
 ```
   # https://github.com/smartinez87/exception_notification#actionmailer-configuration
@@ -41,7 +48,7 @@ end
   }
 ```
 
-4. `secrets.yml`
+### 4. set the config in `secrets.yml`
 
 ```
 default: &DEFAULT
