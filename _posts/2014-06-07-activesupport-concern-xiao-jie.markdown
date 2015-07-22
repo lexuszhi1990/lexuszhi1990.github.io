@@ -16,12 +16,10 @@ categories: [tech, rails, concern]
 
 `Taggable` 是一个 `Module`，里面用来处理跟`tag`相关的逻辑。这样我们就可以把这个`Taggable`引入到跟这个相关的`models`里面。这样代码的可读性和维护性就提高了不少。
 
-<!-- more -->
-
 举一个简单的例子，比如一个项目中有很多model都需要有有判断这个 `model` 是否是 `active` 的。我们一般会给这个model加上一个`is_active`字段，然后再相应的model里面会有如下的方法。比如
 
 
-```
+```ruby
 class Post < ActiveRecord::Base
 
   # scopes
