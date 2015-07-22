@@ -9,7 +9,7 @@ published: true
 
 ### install
 
-`homebrew install sshfs`
+`brew install sshfs`
 
 ### usage
 
