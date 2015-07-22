@@ -61,15 +61,13 @@ https://wiki.postgresql.org/wiki/Apt
 
 [wiki](http://www.postgresql.org/docs/9.4/static/pgupgrade.html)
 
-upgrade
-https://gist.github.com/dideler/60c9ce184198666e5ab4
-http://nixmash.com/postgresql/upgrading-postgresql-9-1-to-9-3-in-ubuntu/
+[upgrade on ubuntu](http://nixmash.com/postgresql/upgrading-postgresql-9-1-to-9-3-in-ubuntu/)
+[upgrade code gist](https://gist.github.com/dideler/60c9ce184198666e5ab4)
 
-locals error
-http://askubuntu.com/questions/104169/i-get-this-error-while-updating-and-installing-software-perl-warning-setting
-
+[locals error](http://askubuntu.com/questions/104169/i-get-this-error-while-updating-and-installing-software-perl-warning-setting)
 
 osx 上面用homebrew按照pg的升级办法
+
 http://stackoverflow.com/questions/24379373/how-to-upgrade-postgres-from-9-3-to-9-4-without-losing-data
 
 http://dba.stackexchange.com/questions/98144/how-to-upgrade-postgresql-8-4-to-9-4
