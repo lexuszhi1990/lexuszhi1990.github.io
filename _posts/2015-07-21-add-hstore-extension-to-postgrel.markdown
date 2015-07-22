@@ -1,11 +1,11 @@
-[---
+---
 layout: post
 title: add hstore extension to postgrel
 date: 2015-07-21 11:23:23 +0800
 categories: [tech, postgres, json]
 ---
 
-### TODO： add hstore extension to postgrel
+### references
 
 http://stormatics.com/howto-handle-key-value-data-in-postgresql-the-hstore-contrib/
 http://yousefourabi.com/blog/2014/03/rails-postgresql/
