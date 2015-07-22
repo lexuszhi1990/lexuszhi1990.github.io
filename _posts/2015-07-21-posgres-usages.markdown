@@ -7,17 +7,21 @@ categories: [tech, postgres, usages]
 
 ### 启动数据库
 
-  cp /usr/local/Cellar/postgresql/9.1.4/homebrew.mxcl.postgresql.plist  ~/Library/LaunchAgents/
-  # /usr/local/Cellar/postgresql/9.4.1/homebrew.mxcl.postgresql.plist
-  launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+*start when boot up* :
 
-  *start every time* :
+```sh
+# 这里以你按照的实际目录文件为准
+cp /usr/local/Cellar/postgresql/9.4.1/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
+launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+```
 
-  `pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start`
+*start by hand* :
 
-  *restart* :
+`pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start`
 
-  `brew services restart postgresql` or `pg_ctl -D /usr/local/var/postgres -l logfile start`
+*restart* :
+
+`brew services restart postgresql` or `pg_ctl -D /usr/local/var/postgres -l logfile start`
 
 ### 登录数据库
 
@@ -82,17 +86,18 @@ kill -9 procpid对应的进程
 
 ### 控制台命令
 
-```sh
-\h：查看SQL命令的解释，比如\h select。
-\?：查看psql命令列表。
-\l：列出所有数据库。
-\c [database_name]：连接其他数据库。
-\d：列出当前数据库的所有表格。
-\d [table_name]：列出某一张表格的结构。
-\du：列出所有用户。
-\e：打开文本编辑器。
-\conninfo：列出当前数据库和连接的信息。
-```
+| 命令  | 解释 |
+| :------------- | :------------- |
+|\h：| 查看SQL命令的解释，比如\h select。|
+|\?：| 查看psql命令列表。|
+|\l：| 列出所有数据库。|
+|\c [database_name]：| 连接其他数据库。|
+|\d：|列出当前数据库的所有表格。|
+|\d [table_name]：| 列出某一张表格的结构。|
+|\du：| 列出所有用户。|
+|\e：| 打开文本编辑器。|
+|\conninfo：|列出当前数据库和连接的信息。|
+
 
 ### references
 
