@@ -5,12 +5,10 @@ date: 2015-07-21 12:14
 categories: [tech, nginx, unicorn]
 ---
 
-### nginx with unicorn
+### app_server.conf
 
-app_server.conf
-
-```
-upstream eio_app_server {
+```sh
+upstream app_server {
   # server unix:/tmp/unicorn_eio.sock fail_timeout=0 weight=5;
   server localhost:9000 fail_timeout=0  weight=5;;
 }
@@ -22,9 +20,9 @@ server {
 
   keepalive_timeout 5;
 
-  root        /Users/david/bs_repos/eio/public;
-  access_log  /Users/david/bs_repos/eio/log/nginx_access.log;
-  error_log   /Users/david/bs_repos/eio/log/nginx_error.log;
+  root        /Users/your-project-repos/public;
+  access_log  /Users/your-project-repos/log/nginx_access.log;
+  error_log   /Users/your-project-repos/log/nginx_error.log;
   rewrite_log on;
 
   location ~* ^/(images|javascripts|stylesheets|img)/  {
@@ -44,14 +42,14 @@ server {
     proxy_redirect   off;
 
     if (!-f $request_filename) {
-      proxy_pass http://eio_app_server;
+      proxy_pass http://app_server;
       break;
     }
   }
 }
 ```
 
-nginx.conf
+### nginx.conf
 
 ```
 worker_processes  1;
@@ -74,7 +72,8 @@ http {
 
 ```
 
-start rails app
+### start rails app
+
 ```
 unicorn_rails -c /your-app-dir/unicorn/development.rb -E development -D
 ```
