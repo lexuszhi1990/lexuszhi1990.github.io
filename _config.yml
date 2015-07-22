@@ -19,8 +19,8 @@ kramdown:
   input: GFM
 # markdown: rdiscount
 # markdown: redcarpet
-# highlighter: pygments
-highlighter: rouge
+highlighter: pygments
+# highlighter: rouge
 gems:
   - jekyll-sitemap
   - jekyll-archives
