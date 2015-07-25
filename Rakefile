@@ -49,10 +49,10 @@ task :post do
   title = STDIN.gets.chomp
   abort 'No title.' unless title.length > 0
 
-  print "Enter post categories(default: tech): "
+  print "Enter post categories(default: dev): "
   categories = STDIN.gets.chomp
   if categories.length == 0
-    categories = 'tech'
+    categories = 'dev'
   end
 
   title = Pinyin.t title

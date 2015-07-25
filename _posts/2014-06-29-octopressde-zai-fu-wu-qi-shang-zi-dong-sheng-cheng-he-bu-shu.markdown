@@ -3,7 +3,7 @@ layout: post
 title: "Octopress的在服务器上自动生成和部署"
 date: 2014-06-29 15:36:52 +0800
 comments: true
-categories: [tech, octopress, deploy, git]
+categories: [dev, octopress, deploy, git]
 published: true
 ---
 

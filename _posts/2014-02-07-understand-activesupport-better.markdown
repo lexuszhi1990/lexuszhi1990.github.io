@@ -3,10 +3,7 @@ layout: post
 title: "Understand mixin and activesupport better"
 date: 2014-02-07 16:00:05 +0800
 comments: true
-categories:
-- ruby
-- rails
-- tech
+categories: [dev, rails, ruby]
 ---
 
 ### mixin 是把一个模块Mixin到某个对象中，以实现实现多重继承。

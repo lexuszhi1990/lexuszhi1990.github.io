@@ -2,11 +2,12 @@
 layout: post
 title: apache config in osx
 date: 2015-04-03 16:41:42 +0800
+categories: [dev, apache]
 ---
 
 # install apache
 
-`brew install apache`, 
+`brew install apache`,
 
 ### set up mysql in osx
 

@@ -3,7 +3,7 @@ layout: post
 title: "sublime tips"
 date: 2014-07-07 14:08:18 +0800
 comments: true
-categories: [tech, sublime]
+categories: [dev, sublime]
 ---
 
 ### official web: [Sublime](http://www.sublimetext.com)

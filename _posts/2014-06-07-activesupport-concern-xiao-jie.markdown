@@ -3,7 +3,7 @@ layout: post
 title: "ActiveSupport::Concern 小结"
 date: 2014-06-07 22:23:58 +0800
 comments: true
-categories: [tech, rails, concern]
+categories: [dev, rails, concern]
 ---
 
 ### ActiveSupport::Concern 被引入到 rails

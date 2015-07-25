@@ -4,7 +4,7 @@ title: "usefull alias"
 date: 2014-02-07 20:39:47 +0800
 comments: true
 published: true
-categories: [tech, bash]
+categories: [dev, bash]
 ---
 
 ### Git Alias

@@ -3,7 +3,7 @@ layout: post
 title: "Carrierwave for Amazon S3 Storage and Heroku"
 date: 2014-02-08 20:59:13 +0800
 comments: true
-categories: [tech, carrierwave, rails]
+categories: [dev, carrierwave, rails]
 ---
 ### add gems to `Gemfile`
 ```

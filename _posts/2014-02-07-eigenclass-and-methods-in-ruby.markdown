@@ -3,9 +3,7 @@ layout: post
 title: "Eigenclass and methods in Ruby"
 date: 2014-02-07 16:04:47 +0800
 comments: true
-categories:
-- ruby
-- tech
+categories: [dev, ruby]
 ---
 
 首先创建一个MyClass类，和它的对象 my_object

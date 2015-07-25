@@ -3,10 +3,7 @@ layout: post
 title: "Responsive Web design"
 date: 2014-02-07 15:55:23 +0800
 comments: true
-categories:
-- tech
-- resposive
-- web
+categories: [dev, resposive, web]
 ---
 
 ### 定义

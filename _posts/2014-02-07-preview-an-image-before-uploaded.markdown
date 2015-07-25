@@ -3,7 +3,7 @@ layout: post
 title: "preview an image before uploaded"
 date: 2014-02-07 21:23:26 +0800
 comments: true
-categories: [tech, image preview]
+categories: [dev, image preview]
 ---
 
 use `simple_form` to upload a avatar

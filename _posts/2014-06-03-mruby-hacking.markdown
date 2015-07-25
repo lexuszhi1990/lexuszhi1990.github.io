@@ -4,7 +4,7 @@ title: "mruby-hacking"
 date: 2014-06-03 13:02:42 +0800
 comments: true
 published: false
-categories: [mruby, tech]
+categories: [dev, mruby]
 ---
 
 mruby hacking

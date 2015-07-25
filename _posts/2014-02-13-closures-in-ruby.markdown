@@ -3,7 +3,7 @@ layout: post
 title: "expore the blocks in Ruby"
 date: 2014-02-13 12:39:09 +0800
 comments: true
-categories: [tech, ruby, closure]
+categories: [dev, ruby, closure]
 ---
 
 these four articles are so good that ...

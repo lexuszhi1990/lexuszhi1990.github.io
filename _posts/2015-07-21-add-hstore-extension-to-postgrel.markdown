@@ -2,7 +2,7 @@
 layout: post
 title: add hstore extension to postgrel
 date: 2015-07-21 11:23:23 +0800
-categories: [tech, postgres, json]
+categories: [dev, postgres, json]
 ---
 
 ### references

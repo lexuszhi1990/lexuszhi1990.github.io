@@ -3,7 +3,7 @@ layout: post
 title: "Batch delete git local and remote branches"
 date: 2014-02-13 11:58:48 +0800
 comments: true
-categories: [tech, git, branch]
+categories: [dev, git, branch]
 ---
 
 ### delete the local branches

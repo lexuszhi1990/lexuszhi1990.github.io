@@ -4,7 +4,7 @@ title: "explore rack"
 date: 2014-02-07 21:30:16 +0800
 comments: true
 published: false
-categories: [tech, rack]
+categories: [dev, rack]
 ---
 
 The Rack protocol is very simple: a Rack application is simply a Ruby object with a call method. That method should accept an environment hash describing the incoming request and return a three-element array in the form of: [status, headers, body], where:
@@ -129,4 +129,3 @@ references
 - [rake-wiki](https://github.com/rack/rack/wiki)
 - [rake-offical](http://rack.github.io/)
 - [ruby-on-rack-2-the-builder](http://m.onkey.org/ruby-on-rack-2-the-builder)
-

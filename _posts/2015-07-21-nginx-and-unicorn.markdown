@@ -2,7 +2,7 @@
 layout: post
 title: nginx and unicorn
 date: 2015-07-21 12:14
-categories: [tech, nginx, unicorn]
+categories: [dev, nginx, unicorn]
 ---
 
 ### app_server.conf

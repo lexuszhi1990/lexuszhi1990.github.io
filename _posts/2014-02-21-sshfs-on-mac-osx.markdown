@@ -3,7 +3,7 @@ layout: post
 title: "sshfs on mac osx"
 date: 2014-02-21 09:58:41 +0800
 comments: true
-categories: [tech, sshfs, osx]
+categories: [dev, sshfs, osx]
 published: true
 ---
 

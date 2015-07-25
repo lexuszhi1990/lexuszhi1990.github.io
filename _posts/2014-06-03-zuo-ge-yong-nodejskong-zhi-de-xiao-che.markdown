@@ -4,7 +4,7 @@ title: "做一个用nodejs控制的小车"
 date: 2014-06-03 10:02:07 +0800
 comments: true
 published: false
-categories: [raspi, node, tech]
+categories: [dev, raspi, node]
 ---
 
 

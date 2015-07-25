@@ -3,7 +3,7 @@ layout: post
 title: "useage for logrotate"
 date: 2014-06-25 11:07:13 +0800
 comments: true
-categories: [tech, logrotate]
+categories: [dev, logrotate]
 ---
 
 ### Create new rotate config file for application log

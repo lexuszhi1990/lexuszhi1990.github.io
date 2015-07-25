@@ -3,8 +3,9 @@ layout: post
 title: "postgres小结 : 安装和升级"
 date: 2014-06-24 17:29:05 +0800
 comments: true
-categories: [tech, postgres]
+categories: [dev, postgres]
 ---
+
 ### Install pg on Mac os x
 
 ```bash

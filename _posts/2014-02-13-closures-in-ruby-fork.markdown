@@ -3,7 +3,7 @@ layout: post
 title: "closures in ruby --fork"
 date: 2014-02-13 13:04:35 +0800
 comments: true
-categories: [tech, ruby, close]
+categories: [dev, ruby, close]
 published: false
 ---
 

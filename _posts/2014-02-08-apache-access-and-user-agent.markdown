@@ -3,7 +3,7 @@ layout: post
 title: "apache access and user agent"
 date: 2014-02-08 21:03:11 +0800
 comments: true
-categories: [tech, apache, rails]
+categories: [dev, apache, rails]
 ---
 
 ### config access for for apache 2.2

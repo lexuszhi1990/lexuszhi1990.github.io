@@ -3,7 +3,7 @@ layout: post
 title: "explore ssh"
 date: 2014-02-07 21:33:53 +0800
 comments: true
-categories: [tech, ssh]
+categories: [dev, ssh]
 ---
 
 ### ssh config

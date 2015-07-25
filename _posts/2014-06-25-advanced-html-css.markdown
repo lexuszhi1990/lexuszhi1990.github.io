@@ -3,7 +3,7 @@ layout: post
 title: "advanced-html-css-cn"
 date: 2014-06-25 11:17:33 +0800
 comments: true
-categories: [tech, html, css]
+categories: [dev, html, css]
 published: false
 ---
 
