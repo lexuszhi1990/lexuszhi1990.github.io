@@ -11,8 +11,10 @@ categories: [tech, postgres, usages]
 
 ```sh
 # 这里以你按照的实际目录文件为准
-cp /usr/local/Cellar/postgresql/9.4.1/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
-launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+To have launchd start postgresql at login:
+  ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+Then to load postgresql now:
+  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 ```
 
 *start by hand* :
