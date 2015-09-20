@@ -25,6 +25,9 @@ Then to load postgresql now:
 
 `brew services restart postgresql` or `pg_ctl -D /usr/local/var/postgres -l logfile start`
 
+*rebuild the dir*
+ `initdb -D /usr/local/var/postgres`
+
 ### 登录数据库
 
 添加新用户和新数据库以后，就要以新用户的名义登录数据库，这时使用的是psql命令。
