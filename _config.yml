@@ -1,4 +1,5 @@
 # Site settings
+# http://jekyllrb.com/docs/configuration/
 title: "Tide-Hunter"
 email: lexuszhi1990@gmail.com
 description: "blog"
@@ -13,13 +14,14 @@ safe: true
 lsi: false
 
 # Build settings
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "strikethrough", "superscript"]
-
 # markdown: kramdown
 # kramdown:
 #   input: GFM
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "strikethrough", "superscript"]
+encoding:     "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 highlighter: pygments
 gems:
   - jekyll-sitemap
