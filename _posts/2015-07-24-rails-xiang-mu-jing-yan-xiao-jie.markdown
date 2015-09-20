@@ -8,9 +8,14 @@ publish: true
 
 一晃断断续续在广州工作快两年了，因为要去深圳读书，一想平时给大家做的分享很少，所以在走之前也给大家做了一次内部的技术分享。主要包括的rails各个部分以及数据库，debug，alias，前端设计相关的。
 
+先上一张七夕节和兄弟公司联谊打篮球的照片吧
+![七夕节和兄弟公司联谊打篮球]({{ site.url }}/img/bs-basketball.jpeg)
+
 [技术分享的slide: rails-dev-experices](http://www.slideshare.net/David_fu/rails-dev-experices)
 
-## rack
+### 以下是slideshow的不完全笔录：
+
+### rack
 
 Rack::Builder implements a small DSL to iteratively construct Rack applications
 
