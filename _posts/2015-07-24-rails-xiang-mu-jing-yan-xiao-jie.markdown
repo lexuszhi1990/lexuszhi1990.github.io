@@ -31,7 +31,7 @@ Request資訊收集包含有
   response
   session
 
-[rails guides about request](http://api.rubyonrails.org/classes/ActionDispatch/Request.html)
+  [rails guides about request](http://api.rubyonrails.org/classes/ActionDispatch/Request.html)
 
 Render結果
   1. render(json/xml/html)
@@ -44,10 +44,11 @@ Cookies处理
 
 Flash消息处理
 
-[ihower actioncontroller](https://ihower.tw/rails4/actioncontroller.html)
 [rails guides: action controller overview](http://guides.rubyonrails.org/action_controller_overview.html)
 
-[rails 重构经验]http://yedingding.com/2013/03/04/steps-to-refactor-controller-and-models-in-rails-projects.html
+[ihower actioncontroller](https://ihower.tw/rails4/actioncontroller.html)
+
+[rails 重构经验](http://yedingding.com/2013/03/04/steps-to-refactor-controller-and-models-in-rails-projects.html)
 
 在这个的视频中，他就提到 controller 的代码最多10行，可能有点极端，但是还是很符合rails的风格的。
 以为如果controller的代码过于冗余和复杂，项目的维护性和可读性都会大打折扣的。
@@ -62,7 +63,7 @@ Flash消息处理
 
 ### rails model
 
-这个就没什么多说的，强烈推荐 **ruby 元编程** 这本书。则可以了解下面的知识，activespport，concern， ruby类重访， include/extend。
+这个就没什么多说的，强烈推荐 **ruby 元编程** 这本书。则可以了解下面的知识，activespport，concern， ruby类重访， include/extend等等。
 
 ### asset precompile
 
@@ -84,6 +85,7 @@ Flash消息处理
 - pry
 
 [slideshow：出了问题不要猜](https://speakerdeck.com/lidaobing/chu-liao-wen-ti-bu-yao-kao-cai)
+
 [视频：出了问题不要猜](http://railscasts-china.com/episodes/do-not-guess-the-problem-lidaobing)
 
 ### effeciency
@@ -95,17 +97,17 @@ Flash消息处理
   `alias 'one-task-ended'='git-master-update && git-delete-merged-branches && csd'`
 - 为每个项目订制命令
 
-e.g.
+  e.g.
 
-```sh
-# my-project
-alias cd-my-project="cd ~/repos/my-project"
-alias my-project-server="rs -p 3200 -b 0.0.0.0"
-alias my-project-suspend="cat tmp/pids/server.pid | xargs -n 1 kill -9"
-...
-```
+  ```sh
+  # my-project
+  alias cd-my-project="cd ~/repos/my-project"
+  alias my-project-server="rs -p 3200 -b 0.0.0.0"
+  alias my-project-suspend="cat tmp/pids/server.pid | xargs -n 1 kill -9"
+  ...
+  ```
 
-2. two screams也就是双屏幕操作
+2. two screens也就是双屏幕操作
 
 ### 基本的设计概念
 
