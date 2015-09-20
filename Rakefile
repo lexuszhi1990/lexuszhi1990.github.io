@@ -16,7 +16,6 @@ namespace :site do
     })).process
   end
 
-
   desc "Generate and publish blog to gh-pages"
   task :publish => [:generate] do
     Dir.mktmpdir do |tmp|
@@ -84,4 +83,3 @@ desc "list tasks"
 task :list do
   puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:list]]).join(', ')}"
 end
-
