@@ -3,7 +3,7 @@ layout: post
 title: batch insert bentchmark
 date: 2015-07-22 11:43
 categories: [dev, rails, activerecord, insert]
-publish: true
+published: true
 ---
 
 ActiveRecord虽然让DB的操作非常简单，提供了validate，callback等非常有用的方法。但由于项目需要，有时候项目导入一下就有10K左右的record要往里面的塞，一个一个的create则消耗非常大，所以用原生的create方法则基本不适用了。

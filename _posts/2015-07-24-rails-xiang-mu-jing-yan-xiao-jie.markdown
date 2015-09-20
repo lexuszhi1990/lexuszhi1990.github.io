@@ -3,7 +3,7 @@ layout: post
 title: rails 项目经验小结
 date: 2015-07-24 22:39
 categories: [dev, ruby, rails]
-publish: true
+published: true
 ---
 
 一晃断断续续在广州工作快两年了，因为要去深圳读书，一想平时给大家做的分享很少，所以在走之前也给大家做了一次内部的技术分享。主要包括的rails各个部分以及数据库，debug，alias，前端设计相关的。

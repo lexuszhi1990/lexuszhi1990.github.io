@@ -3,7 +3,7 @@ layout: post
 title: 前端开发人员需要了解的关于rails的知识点
 date: 2015-09-20 14:08
 categories: [dev, frontend, rails]
-publish: true
+published: true
 ---
 
 虽然rails开发者经常是全栈开发者，但术业有专攻，很多事需要和前端开发人员配合，而且如果纯后端人员去调很复杂的页面，相对来说，效率很低。由于纯前端开发人员专注力主要集中在html/css 以及 js 上面，所以在项目合作配合的时候双方会觉得比较吃力。在公司同事的建议下，我就列了一个list，可以说是一个roadmap，让他们能够简单的了解rails项目结构，并能够在rails项目里面做一些controller/view层的开发。

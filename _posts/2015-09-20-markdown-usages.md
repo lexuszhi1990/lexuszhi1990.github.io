@@ -3,7 +3,7 @@ layout: post
 title: markdown usages
 date: 2015-09-20 17:01
 categories: [dev, markdown]
-publish: false
+published: false
 ---
 
 markdown: redcarpet
