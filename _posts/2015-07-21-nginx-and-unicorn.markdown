@@ -1,11 +1,58 @@
 ---
 layout: post
-title: nginx and unicorn
+title: nginx and unicorn and puma
 date: 2015-07-21 12:14
 categories: [dev, nginx, unicorn]
 ---
 
-### app_server.conf
+### app.conf for puma
+
+```sh
+upstream zhongyi_app {
+  server unix:///your-project/shared/tmp/sockets/zhongyi.server.puma.sock;
+}
+
+server {
+  listen   80;
+  charset  utf-8;
+  server_name  localhost;
+
+  root        /your-project/current/public;
+  access_log  /your-project/current/log/nginx_access.log;
+  error_log   /your-project/current/log/nginx_error.log;
+  rewrite_log on;
+
+  # https://ruby-china.org/topics/19437
+  # http://blog.csdn.net/netdxy/article/details/50670734
+  location ~ ^/(assets)/  {
+    root /your-project/current/public;
+    gzip_static on; # to serve pre-gzipped version
+    expires max;
+    add_header Cache-Control public;
+  }
+
+  try_files $uri/index.html $uri @zhongyi_app;
+
+  location @zhongyi_app {
+    proxy_pass http://zhongyi_app;
+
+    proxy_set_header Host               $host;
+    proxy_set_header X-Forwarded-Host   $host;
+    proxy_set_header X-Forwarded-Server $host;
+    proxy_set_header X-Real-IP          $remote_addr;
+    proxy_set_header X-Forward-For      $proxy_add_x_forwarded_for;
+    proxy_buffering  on;
+    proxy_redirect   off;
+  }
+
+  error_page 500 502 503 504 /500.html;
+  client_max_body_size 10M;
+  keepalive_timeout 10;
+}
+```
+
+
+### app.conf for unicorn
 
 ```sh
 upstream app_server {
@@ -25,11 +72,12 @@ server {
   error_log   /Users/your-project-repos/log/nginx_error.log;
   rewrite_log on;
 
-  location ~* ^/(images|javascripts|stylesheets|img)/  {
-    access_log    off;
-    log_not_found off;
-    expires       max;
-    break;
+  // https://ruby-china.org/topics/19437
+  location ~ ^/(assets)/  {
+    root /Users/your-project-repos/public;
+    gzip_static on; # to serve pre-gzipped version
+    expires max;
+    add_header Cache-Control public;
   }
 
   location / {
@@ -46,6 +94,10 @@ server {
       break;
     }
   }
+
+  error_page 500 502 503 504 /500.html;
+  client_max_body_size 10M;
+  keepalive_timeout 10;
 }
 ```
 
