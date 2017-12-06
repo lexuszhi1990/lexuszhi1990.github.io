@@ -26,9 +26,12 @@ plugins:
   - jekyll-paginate
 # permalink: pretty
 permalink: /:year/:month/:day/:title
-
 paginate: 10
 paginate_path: "/page/:num"
+
+# Server Config options
+livereload: true     # You no longer need to include --livereload
+reload_port: 5678    # If you don't want to use the default port
 
 # google_analytics_tracking_id: UA-47869605-1
 
