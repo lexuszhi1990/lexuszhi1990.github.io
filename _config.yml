@@ -23,9 +23,10 @@ redcarpet:
 encoding:     "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 highlighter: rouge
-gems:
+plugins:
   - jekyll-sitemap
   - jekyll-archives
+  - jekyll-paginate
 # permalink: pretty
 permalink: /:year/:month/:day/:title
 
