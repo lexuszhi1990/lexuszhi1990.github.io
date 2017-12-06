@@ -89,6 +89,16 @@ deploy:
   repo: git@github.com:lexuszhi1990/lexuszhi1990.github.io.git
   branch: master
 
+sitemap:
+    path: sitemap.xml
+baidusitemap:
+    path: baidusitemap.xm
+
+feed:
+    type: atom
+    path: atom.xml
+    limit: 100
+
 # hexo-generator-json-content
 jsonContent:
   meta: false
