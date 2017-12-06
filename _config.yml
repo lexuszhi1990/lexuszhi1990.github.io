@@ -77,11 +77,12 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 # theme: landscape
-theme: even
+# theme: even
+theme: yilia
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
   repo: git@github.com:lexuszhi1990/lexuszhi1990.github.io.git
-  branch: master
+  branch: gh-pages
