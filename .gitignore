@@ -18,3 +18,4 @@ _site
 .jekyll-assets-cache
 Gemfile.lock
 .deploy_git
+themes
