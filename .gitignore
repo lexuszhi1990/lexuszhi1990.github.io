@@ -17,3 +17,4 @@ node_modules
 _site
 .jekyll-assets-cache
 Gemfile.lock
+.deploy_git
