@@ -87,7 +87,7 @@ theme: yilia
 deploy:
   type: git
   repo: git@github.com:lexuszhi1990/lexuszhi1990.github.io.git
-  branch: gh-pages
+  branch: master
 
 # hexo-generator-json-content
 jsonContent:
