@@ -87,7 +87,7 @@ theme: even
 deploy:
   type: git
   repo: git@github.com:lexuszhi1990/lexuszhi1990.github.io.git
-  branch: master
+  branch: gh-pages
 
 # hexo-generator-json-content
 jsonContent:
