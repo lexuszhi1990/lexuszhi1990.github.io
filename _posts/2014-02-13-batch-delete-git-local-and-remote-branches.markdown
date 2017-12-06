@@ -24,9 +24,9 @@ in `irb` or `pry`
 
 ```
 # get the merged branched from remote
-remote_branches= `git branch -r --merged`.split("\n").map(&:strip).reject {|b| b =~ /(master|develop)/}
+remote_merged_branches= `git branch -r --merged`.split("\n").map(&:strip).reject {|b| b =~ /(master|develop)/}
 
-remote_branches.each do |b|
+remote_merged_branches.each do |b|
   remote, branch = b.split(/\//)
   `git push #{remote} :#{branch}`
 end
