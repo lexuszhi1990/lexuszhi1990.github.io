@@ -78,9 +78,9 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 # theme: landscape
 # https://github.com/ahonn/hexo-theme-even
-# theme: even
+theme: even
 # https://github.com/litten/hexo-theme-yilia
-theme: yilia
+# theme: yilia
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
