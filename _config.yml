@@ -122,3 +122,14 @@ jsonContent:
     excerpt: false
     categories: false
     tags: true
+
+# https://github.com/hexojs/hexo-server
+server:
+  port: 4001
+  log: true
+  ip: 0.0.0.0
+  compress: false
+  header: true
+  serveStatic:
+    extensions:
+    - html
