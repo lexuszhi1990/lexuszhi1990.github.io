@@ -4,7 +4,6 @@ title: 前端开发人员需要了解的关于rails的知识点
 date: 2015-09-20 14:08
 categories: dev
 tags: [frontend, rails, fullstack]
-published: true
 toc: true
 ---
 
