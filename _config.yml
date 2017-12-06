@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 付凌志博客
-subtitle:
-description: Don't worry, be happy
+title: 付凌志的博客
+subtitle: Don't worry, be happy
+description: 个人博客
 author: David fu
 language: zh-cn
 safe: true
@@ -88,3 +88,23 @@ deploy:
   type: git
   repo: git@github.com:lexuszhi1990/lexuszhi1990.github.io.git
   branch: gh-pages
+
+# hexo-generator-json-content
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true
