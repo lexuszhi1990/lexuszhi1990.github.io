@@ -1,0 +1,75 @@
+---
+layout: post
+title: "postgres小结 : 安装和升级"
+date: 2014-06-24 17:29:05 +0800
+comments: true
+categories: [dev, postgres]
+---
+
+### Install pg on Mac os x
+
+```bash
+  brew update
+  brew install postgresql
+  initdb /usr/local/var/postgres
+  cp /usr/local/Cellar/postgresql/9.1.4/homebrew.mxcl.postgresql.plist  ~/Library/LaunchAgents/
+  # /usr/local/Cellar/postgresql/9.4.1/homebrew.mxcl.postgresql.plist
+  launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+
+
+  # start every time
+  pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+
+  gem install pg
+```
+
+### install pg on ubuntu
+[offical guide](https://help.ubuntu.com/community/PostgreSQL)
+
+Install PostgreSQL
+
+`sudo apt-get install -y postgresql libpq-dev`
+
+`gem install pg ` occurs as
+
+ERROR: Failed to build gem native extension.
+/home/pcr/.rvm/rubies/ruby-1.9.3-p0/bin/ruby extconf.rb checking for pg_config
+原因是因为没有安装libpg-dev。
+solution: `sudo apt-get install libpg-dev`
+
+当出现 PG Peer authentication failed的时候，需要修改pg的配置。参考
+http://stackoverflow.com/questions/15306770/pg-peer-authentication-failed
+
+### some issues
+
+1. `psql`
+
+  createuser: could not connect to database postgres: could not connect to server: Permission denied
+    Is the server running locally and accepting
+    connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+
+puts `PATH=$PATH:/usr/local/Cellar/` in `.bash_profile`
+
+2. FATAL:  role "postgres" does not exist
+
+  `createuser -s -r postgres`
+
+
+install 9.4
+https://wiki.postgresql.org/wiki/Apt
+
+### 升级
+
+[wiki](http://www.postgresql.org/docs/9.4/static/pgupgrade.html)
+
+[upgrade on ubuntu](http://nixmash.com/postgresql/upgrading-postgresql-9-1-to-9-3-in-ubuntu/)
+[upgrade code gist](https://gist.github.com/dideler/60c9ce184198666e5ab4)
+
+[locals error](http://askubuntu.com/questions/104169/i-get-this-error-while-updating-and-installing-software-perl-warning-setting)
+
+osx 上面用homebrew按照pg的升级办法
+
+http://stackoverflow.com/questions/24379373/how-to-upgrade-postgres-from-9-3-to-9-4-without-losing-data
+
+http://dba.stackexchange.com/questions/98144/how-to-upgrade-postgresql-8-4-to-9-4
+
