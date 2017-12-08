@@ -1,13 +1,13 @@
 ---
 title: Responsive Web design
+categories:
+  - dev
 tags:
   - frontend
   - resposive
   - web
 comments: true
 toc: true
-categories:
-  - dev
 date: 2014-02-07 15:55:23
 ---
 

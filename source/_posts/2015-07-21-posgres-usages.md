@@ -1,11 +1,10 @@
 ---
 title: postgres basic usages
 categories:
-  - tech
-  - postgres
-  - usages
-date: 2015-07-21 11:21:22
+  - dev
 tags:
+  - postgres
+date: 2015-07-21 11:21:22
 ---
 
 

@@ -2,10 +2,10 @@
 title: nginx and unicorn and puma
 categories:
   - dev
+tags:
   - nginx
   - unicorn
 date: 2015-07-21 12:14:00
-tags:
 ---
 
 

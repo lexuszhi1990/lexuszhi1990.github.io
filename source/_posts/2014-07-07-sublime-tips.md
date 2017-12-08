@@ -3,9 +3,9 @@ title: sublime tips
 comments: true
 categories:
   - dev
+tags:
   - sublime
 date: 2014-07-07 14:08:18
-tags:
 ---
 
 

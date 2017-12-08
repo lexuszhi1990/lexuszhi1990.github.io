@@ -2,12 +2,11 @@
 title: Ubuntu 14.04 Caffe安装配置(2016/7/5)
 categories:
   - dev
-  - rails
-  - activerecord
-  - insert
+tags:
+  - caffe
+  - ubuntu
 published: true
 date: 2016-07-22 11:43:00
-tags:
 ---
 
 

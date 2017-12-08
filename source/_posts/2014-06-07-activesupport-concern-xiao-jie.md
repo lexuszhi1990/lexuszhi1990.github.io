@@ -3,10 +3,10 @@ title: 'ActiveSupport::Concern 小结'
 comments: true
 categories:
   - dev
+tags:
   - rails
   - concern
 date: 2014-06-07 22:23:58
-tags:
 ---
 
 ActiveSupport::Concern是rails框架里经常使用的一个模块，是对ruby类继承功能的增强。

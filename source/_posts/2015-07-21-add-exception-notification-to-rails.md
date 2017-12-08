@@ -2,10 +2,10 @@
 title: rails项目中添加异常邮件提醒
 categories:
   - dev
-  - rails
-  - exceptions
-date: 2015-07-21 12:15:00
 tags:
+  - rails
+  - exception notification
+date: 2015-07-21 12:15:00
 ---
 
 

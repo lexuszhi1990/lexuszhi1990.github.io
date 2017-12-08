@@ -3,10 +3,10 @@ title: Batch delete git local and remote branches
 comments: true
 categories:
   - dev
+tags:
   - git
   - branch
 date: 2014-02-13 11:58:48
-tags:
 ---
 
 

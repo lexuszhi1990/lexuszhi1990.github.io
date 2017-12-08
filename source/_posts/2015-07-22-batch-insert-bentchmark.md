@@ -1,13 +1,13 @@
 ---
-title: batch insert bentchmark
+title: 数据库批量导入性能测试
 categories:
   - dev
+tags:
   - rails
   - activerecord
   - insert
 published: true
 date: 2015-07-22 11:43:00
-tags:
 ---
 
 
