@@ -61,7 +61,7 @@
   根据这三篇文章,卸载nvida驱动的命令是：
   http://www.cnblogs.com/platero/p/4070756.html
   http://askubuntu.com/questions/206283/how-can-i-uninstall-a-nvidia-driver-completely
-  http://blog.csdn.net/luzhyi/article/details/23865713
+
 
   ```
   sudo apt-get remove --purge nvidia-*
@@ -202,6 +202,39 @@ b = tf.constant(32)
 print(sess.run(a + b))
 >>> 42
 ```
+
+### 卸载nvidia显卡驱动
+
+dpkg -l | grep -i nvidia
+
+删除 nvidia-docker daemon
+
+```
+sudo rm /etc/docker/daemon.json
+sudo pkill -SIGHUP dockerd
+```
+
+卸载 cuda
+`sudo /usr/local/cuda/bin/uninstall_cuda_9.1.pl`
+
+卸载 nvidia driver
+`sudo nvidia-uninstall`
+
+sudo apt-get –purge remove nvidia-*
+
+
+sudo apt-get remove --purge nvidia-container-runtime
+sudo apt-get remove --purge nvidia-docker2
+sudo apt-get remove --purge nvidia-settings
+sudo apt-get remove --purge nvidia-prime
+sudo apt-get remove --purge libnvidia-container1:amd64
+sudo apt-get remove --purge primus
+sudo apt-get remove --purge bbswitch-dkms
+
+
+sudo ./NVIDIA.run -no-x-check -no-nouveau-check -no-opengl-files
+
+
 
 references
 ----------
