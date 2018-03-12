@@ -1,4 +1,4 @@
-### ipython 
+### ipython
 
 [ipython official site](http://ipython.org/ "aaa")
 
