@@ -35,21 +35,21 @@ tar xzf file.tar.gz
 tar xjf file.tar.bz2
 ```
 
+### 用户管理
 
-打开终端useradd -m david
-创建 david用户 且创建 home目录
+打开终端 `useradd -m david`
+创建 `david` 用户, 且创建 home目录
 
-设置用户密码 passwd david
+设置用户密码 `passwd david`
 
-添加到sudo组 usermod -a -G sudo david
+添加到sudo组 `usermod -a -G sudo david`
 -a 添加  -G添加到组
 
-修改bash外壳
-sudo chsh /bin/bash david
+修改bash
+`sudo chsh /bin/bash david`
 
 http://jingyan.baidu.com/article/5d368d1ef58ed43f60c05727.html
 http://www.cnblogs.com/daizhuacai/archive/2013/01/17/2865132.html
-
 
 ### install opencv on mac
 
@@ -59,7 +59,6 @@ update numpy to latest
 `sudo easy_install -U numpy`
 
 http://stackoverflow.com/questions/1520379/how-to-update-numpy-on-mac-os-x-snow-leopard
-
 
 ### scp
 
@@ -79,8 +78,6 @@ scp 本地用户名 @IP 地址 : 文件名 1 远程用户名 @IP 地址 : 文件
 
 -6 强行使用 IPV6 地址 .
 
-
-
 ### cpu kernels
 
 http://blog.csdn.net/cbmsft/article/details/7219370
@@ -92,21 +89,21 @@ http://www.cnblogs.com/emanlee/p/3587571.html
 1.Physical id and core id are not necessarily consecutive but they are unique. Any cpu with the same core id are hyperthreads in the same core.
 2.Any cpu with the same physical id are threads or cores in the same physical socket.
 
-# 总核数 = 物理CPU个数 X 每颗物理CPU的核数
-# 总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
+总核数 = 物理CPU个数 X 每颗物理CPU的核数
+总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
 
-# 查看物理CPU个数
-cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l
+查看物理CPU个数
+`cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l` :
 
-# 查看每个物理CPU中core的个数(即核数)
-cat /proc/cpuinfo| grep "cpu cores"| uniq
+查看每个物理CPU中core的个数(即核数)
+`cat /proc/cpuinfo| grep "cpu cores"| uniq` :
 
-# 查看逻辑CPU的个数
-cat /proc/cpuinfo| grep "processor"| wc -l
+查看逻辑CPU的个数
+`cat /proc/cpuinfo| grep "processor"| wc -l` :
 
 
 查看当前操作系统内核信息
-# uname -a
+`uname -a` :
 Linux redcat 2.6.31-20-generic #58-Ubuntu SMP Fri Mar 12 05:23:09 UTC 2010 i686 GNU/Linux
 
 查看当前操作系统发行版信息
@@ -114,27 +111,29 @@ Linux redcat 2.6.31-20-generic #58-Ubuntu SMP Fri Mar 12 05:23:09 UTC 2010 i686 
 Ubuntu 9.10 \n \l
 
 查看cpu型号
-# cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
+`cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c` :
 2  Intel(R) Core(TM)2 Duo CPU     P8600  @ 2.40GHz
 (看到有2个逻辑CPU, 也知道了CPU型号)
 
 查看物理cpu颗数
-# cat /proc/cpuinfo | grep physical | uniq -c
+`cat /proc/cpuinfo | grep physical | uniq -c`
 2 physical id    : 0
 (说明实际上是1颗2核的CPU)
 
 查看cpu运行模式
-# getconf LONG_BIT
+`getconf LONG_BIT`
 32
 (说明当前CPU运行在32bit模式下, 但不代表CPU不支持64bit)
 
 查看cpu是否支持64bit
-# cat /proc/cpuinfo | grep flags | grep ' lm ' | wc -l
+`cat /proc/cpuinfo | grep flags | grep ' lm ' | wc -l` :
 2
 (结果大于0, 说明支持64bit计算. lm指long mode, 支持lm则是64bit)
 
-查看cpu信息概要（昨天看aix的时候刚发现的，在ubuntu上竟然也有~）：
+查看cpu信息概要（昨天看aix的时候刚发现的，在ubuntu上竟然也有~）:
 #lscpu
+
+```
 Architecture:          i686                            #架构686
 CPU(s):                2                                   #逻辑cpu颗数是2
 Thread(s) per core:    1                           #每个核心线程数是1
@@ -149,11 +148,34 @@ Virtualization:        VT-x                         #cpu支持的虚拟化技术
 L1d cache:             32K                         #一级缓存32K（google了下，这具体表示表示cpu的L1数据缓存为32k）
 L1i cache:             32K                          #一级缓存32K（具体为L1指令缓存为32K）
 L2 cache:              3072K                      #二级缓存3072K
-
+```
 
 ### locale
 
 http://my.oschina.net/u/943306/blog/345923
+
+```
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+        LANGUAGE = (unset),
+        LC_ALL = (unset),
+        LC_TIME = "zh_CN.UTF-8",
+        LC_MONETARY = "zh_CN.UTF-8",
+        LC_CTYPE = "UTF-8",
+        LC_ADDRESS = "zh_CN.UTF-8",
+        LC_TELEPHONE = "zh_CN.UTF-8",
+        LC_NAME = "zh_CN.UTF-8",
+        LC_MEASUREMENT = "zh_CN.UTF-8",
+        LC_IDENTIFICATION = "zh_CN.UTF-8",
+        LC_NUMERIC = "zh_CN.UTF-8",
+        LC_PAPER = "zh_CN.UTF-8",
+        LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory
+```
+
 
 客户机一般都会设置zh_CN.UTF-8语言，用来显示中文，而远端的vps一般就只有en_US.UTF-8
 zh_CN.UTF-8一旦带过去就会报找不到的错误，文章开头已经说的很清楚了
@@ -164,3 +186,14 @@ zh_CN.UTF-8一旦带过去就会报找不到的错误，文章开头已经说的
 然后重启远程的sshd，然后退出远程后，重新ssh上来。
 这时，远程主机不会把客户机的语言环境（zh_CN.UTF-8）带过来
 当然就不会再有报错，可惜的是，远程主机是无法正确显示中文的，问题还在，只是被影藏了。
+
+```
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+locale-gen en_US.UTF-8
+dpkg-reconfigure locales
+```
+
+
+perl -e exit
