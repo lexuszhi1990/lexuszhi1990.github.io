@@ -195,5 +195,4 @@ locale-gen en_US.UTF-8
 dpkg-reconfigure locales
 ```
 
-
-perl -e exit
+check locale : `perl -e exit`

@@ -34,17 +34,15 @@ $ git submodule update
 
 ### 删除子仓库
 
-
 ```
-oldPath="vendor/example"
-git config -f .git/config --remove-section "submodule.${oldPath}"
-git config -f .gitmodules --remove-section "submodule.${oldPath}"
+old_model="ps-lite"
+git config -f .git/config --remove-section "submodule.${old_model}"
+git config -f .gitmodules --remove-section "submodule.${old_model}"
 git add .gitmodules
-git commit -m "Removed ${oldPath}"
-git rm --cached "${oldPath}"
-rm -rf "${oldPath}"              ## remove src (optional)
-rm -rf ".git/modules/${oldPath}" ## cleanup gitdir (optional housekeeping)
-
+git commit -m "Removed ${old_model}"
+git rm --cached "${old_model}"
+rm -rf "${old_model}"              ## remove src (optional)
+rm -rf ".git/modules/${old_model}" ## cleanup gitdir (optional housekeeping)
 ```
 
 ### update and edit
