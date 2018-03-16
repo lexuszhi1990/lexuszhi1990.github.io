@@ -8,6 +8,9 @@ tags: [python]
 ---
 
 
+
+
+
 ### install python 3.6
 
 ```
