@@ -35,6 +35,20 @@ tar xzf file.tar.gz
 tar xjf file.tar.bz2
 ```
 
+备份系统：
+`tar -cvpzf /os_backup/ubuntu14_ver0.1.tar.gz --exclude=os_backup --exclude=proc --exclude=tmp --exclude=mnt --exclude=sys --exclude=lost+found / > /dev/null`
+'tar' 是用来备份的程序
+c - 新建一个备份文档
+v - 详细模式， tar程序将在屏幕上实时输出所有信息。
+p - 保存许可，并应用到所有文件。
+z - 采用‘gzip’压缩备份文件，以减小备份文件体积。
+f - 说明备份文件存放的路径， Ubuntu.tgz 是本例子中备份文件名。
+“/”是我们要备份的目录，在这里是整个文件系统。
+
+还原系统：
+`tar -xvpzf /os_backup/ubuntu14_ver0.1.tar.gz -C /your-dir`
+-C 参数是指定tar程序解压缩到的目录。
+
 ### 用户管理
 
 打开终端 `useradd -m david`
@@ -50,15 +64,6 @@ tar xjf file.tar.bz2
 
 http://jingyan.baidu.com/article/5d368d1ef58ed43f60c05727.html
 http://www.cnblogs.com/daizhuacai/archive/2013/01/17/2865132.html
-
-### install opencv on mac
-
-`brew install opencv`
-
-update numpy to latest
-`sudo easy_install -U numpy`
-
-http://stackoverflow.com/questions/1520379/how-to-update-numpy-on-mac-os-x-snow-leopard
 
 ### scp
 

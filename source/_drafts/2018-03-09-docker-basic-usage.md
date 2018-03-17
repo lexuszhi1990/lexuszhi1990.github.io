@@ -43,6 +43,18 @@ $ docker run -d \
 http://blog.csdn.net/ronnyjiang/article/details/71189392
 https://docs.docker.com/registry/deploying/
 
+### docker rm
+
+List all exited containers: `docker ps -aq -f status=exited` and remove all exited containers: `docker ps -aq -f status=exited | xargs docker rm`
+
+Remove stopped containers: `docker ps -aq --no-trunc | xargs docker rm`
+
+Remove containers created after a specific container: `docker images -q --filter dangling=true | xargs docker rmi`
+
+Remove containers created before a specific container: `docker ps --before a1bz3768ez7g -q | xargs docker rm`
+
+Use `--rm` together with `docker build` to remove intermediary images during the build process.
+
 ### docker tag
 
 `docker tag mxnet-cu80/python:1.1.0-dev mxnet-cu90/python:1.2.0-dev`
