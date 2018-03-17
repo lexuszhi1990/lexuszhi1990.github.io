@@ -56,7 +56,5 @@ Now, git uses the update command to also fetch and apply updates, but this time 
 
 references
 ----------
-
-
 - [How to remove a submodule in Git](https://forum.freecodecamp.org/t/how-to-remove-a-submodule-in-git/13228
 )

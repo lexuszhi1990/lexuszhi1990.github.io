@@ -4,8 +4,6 @@ categories:
   - dev
 tags:
   - rails
-  - activerecord
-  - insert
 published: true
 date: 2015-07-22 11:43:00
 ---
@@ -33,7 +31,7 @@ end
 
 ### 使用 **Model batch create**
 
-e.g. `Modle.create([all the objects you want create])
+e.g. `Modle.create([all the objects you want create])`
 
 ### 使用原生的sql一次性insert
 
