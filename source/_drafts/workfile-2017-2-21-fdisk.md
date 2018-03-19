@@ -1,3 +1,11 @@
+---
+layout: post
+title: "ubuntu disk management"
+date: 2018-03-09 22:13:23 +0800
+comments: true
+categories: [dev]
+tags: [python]
+---
 
 # 查看硬盘并自动挂载
 
@@ -19,6 +27,15 @@ Device     Boot     Start       End   Sectors   Size Id Type
 /dev/sda2        97658878 976771071 879112194 419.2G  5 Extended
 /dev/sda5        97658880 957243391 859584512 409.9G 83 Linux
 /dev/sda6       957245440 976771071  19525632   9.3G 82 Linux swap / Solaris
+```
+
+### 格式化
+
+```
+mkfs.xfs -i size=512 /dev/sdb1
+mkdir -p /data/brick1
+echo '/dev/sdb1 /data/brick1 xfs defaults 1 2' >> /etc/fstab
+mount -a && mount
 ```
 
 ### 设置开机自动挂载

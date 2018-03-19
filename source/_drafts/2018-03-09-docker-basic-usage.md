@@ -45,6 +45,8 @@ https://docs.docker.com/registry/deploying/
 
 ### docker rm
 
+We can review the containers on your system with `docker ps`. Adding the `-a` flag will show all containers. When you're sure you want to delete them, you can add the `-q` flag to supply the IDs to the docker stop and docker rm commands:
+
 List all exited containers: `docker ps -aq -f status=exited` and remove all exited containers: `docker ps -aq -f status=exited | xargs docker rm`
 
 Remove stopped containers: `docker ps -aq --no-trunc | xargs docker rm`
@@ -54,6 +56,23 @@ Remove containers created after a specific container: `docker images -q --filter
 Remove containers created before a specific container: `docker ps --before a1bz3768ez7g -q | xargs docker rm`
 
 Use `--rm` together with `docker build` to remove intermediary images during the build process.
+
+```
+# Remove unused images
+docker image prune
+
+# Remove stopped containers.
+docker container prune
+
+# Remove unused volumes
+docker volume prune
+
+# Remove unused networks
+docker network prune
+
+# Command to run all prunes:
+docker system prune
+```
 
 ### docker tag
 

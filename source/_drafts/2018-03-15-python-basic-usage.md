@@ -7,10 +7,6 @@ categories: [dev]
 tags: [python]
 ---
 
-
-
-
-
 ### install python 3.6
 
 ```
@@ -22,6 +18,11 @@ sudo ln -s /usr/bin/python3.5 /usr/bin/python3
 ```
 
 ### pip
+
+
+`pip install -i https://mirrors.aliyun.com/pypi/simple/ --user`
+
+`pip install --upgrade pip`
 
 
 ### Python搜索模块路径
