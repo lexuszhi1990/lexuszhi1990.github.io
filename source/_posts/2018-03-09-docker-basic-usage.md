@@ -10,6 +10,8 @@ tags: [docker]
 ### install docker
 https://github.com/NVIDIA/nvidia-docker
 
+<!-- more -->
+
 Ubuntu:
 ```
 # If you have nvidia-docker 1.0 installed: we need to remove it and all existing GPU containers

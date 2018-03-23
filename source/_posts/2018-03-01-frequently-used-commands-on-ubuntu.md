@@ -13,6 +13,8 @@ install imagemagic: `apt-get install imagemagick`
 
 缩放图像 `convert -resize 20%x20% test.JPG test-small.png`
 
+<!-- more -->
+
 ### 查看磁盘使用
 
 `df -lh`
