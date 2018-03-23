@@ -45,7 +45,8 @@ $ sudo vim /etc/modprobe.d/blacklist-nouveau.conf
 	blacklist nouveau
 	ptions nouveau modeset=0
 
-$ sudo update-initramfs –u
+# 再更新一下
+$ sudo update-initramfs -u
 ```
 
 可能需要重新启动,可用下面命令检查是否成功（无输出）。
@@ -272,7 +273,20 @@ jupyter-notebook --ip=219.223.*.*
 
 接然解压文件即可：`$ tar xvf cudnn-7.5-linux-x64-v5.0-ga.tgz`
 
-#### 使用ldconfig方法
+###
+sudo cp cuda/include/cudnn.h /usr/local/include
+sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+sudo chmod a+r /usr/local/cuda/lib64/libcudnn*
+
+
+add path and lib path
+```
+export CUDA_HOME=/usr/local/cuda
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"
+```
+
+### 使用ldconfig方法
 sudo cp cudnn.h /usr/local/include
 sudo cp libcudnn.so /usr/local/lib
 sudo cp libcudnn.so.7.0 /usr/local/lib
