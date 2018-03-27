@@ -6,8 +6,13 @@ comments: true
 categories: [dev]
 tags: [docker]
 ---
-
 ### install docker
+
+
+`sudo bash get-docker.sh --mirror Aliyun`
+
+
+### install nvidia docker
 https://github.com/NVIDIA/nvidia-docker
 
 <!-- more -->
@@ -19,8 +24,7 @@ docker volume ls -q -f driver=nvidia-docker | xargs -r -I{} -n1 docker ps -q -a 
 sudo apt-get purge -y nvidia-docker
 
 # Add the package repositories
-curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
-  sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
 curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
   sudo tee /etc/apt/sources.list.d/nvidia-docker.list
@@ -49,8 +53,8 @@ sudo tee /etc/docker/daemon.json <<EOF
             "path": "/usr/bin/nvidia-container-runtime",
             "runtimeArgs": []
         }
-    }
-    "registry-mirrors": ["<your accelerate address>"]
+    },
+    "registry-mirrors": ["http://5f2jam6c.mirror.aliyuncs.com"]
 
 }
 EOF
