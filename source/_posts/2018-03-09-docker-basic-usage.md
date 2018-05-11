@@ -20,6 +20,9 @@ ubuntu: https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
 ### install nvidia docker
 
+https://www.cnblogs.com/dwsun/p/7833580.html
+https://github.com/NVIDIA/nvidia-docker
+
 <!-- more -->
 
 Ubuntu:
@@ -43,9 +46,8 @@ sudo pkill -SIGHUP dockerd
 docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 ```
 
-https://github.com/NVIDIA/nvidia-docker
-
 ### install docker runtime
+
 https://github.com/nvidia/nvidia-container-runtime#installation
 
 `sudo apt-get install nvidia-container-runtime`
@@ -168,5 +170,3 @@ $ docker images mxnet-cu90/python:1.2.0-roialign
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 mxnet-cu90/python   1.2.0-roialign      dce634b0c63f        15 seconds ago      5.38GB
 ```
-
-docker commit -a "lingzhi.me" -m "update python dev" fee72e669051 mxnet/python:1.2.0-roialign
