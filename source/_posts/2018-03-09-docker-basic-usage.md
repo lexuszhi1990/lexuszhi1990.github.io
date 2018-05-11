@@ -8,12 +8,17 @@ tags: [docker]
 ---
 ### install docker
 
+install with official shell file:
+```
+$ curl -fsSL get.docker.com -o get-docker.sh
+$ sudo sh get-docker.sh --mirror Aliyun
+```
 
-`sudo bash get-docker.sh --mirror Aliyun`
-
+or you can install docker step by step:
+official website: https://docs.docker.com/install/
+ubuntu: https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
 ### install nvidia docker
-https://github.com/NVIDIA/nvidia-docker
 
 <!-- more -->
 
@@ -38,6 +43,8 @@ sudo pkill -SIGHUP dockerd
 docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 ```
 
+https://github.com/NVIDIA/nvidia-docker
+
 ### install docker runtime
 https://github.com/nvidia/nvidia-container-runtime#installation
 
@@ -53,12 +60,13 @@ sudo tee /etc/docker/daemon.json <<EOF
             "path": "/usr/bin/nvidia-container-runtime",
             "runtimeArgs": []
         }
-    },
-    "registry-mirrors": ["http://5f2jam6c.mirror.aliyuncs.com"]
-
+    }
 }
 EOF
 ```
+
+you can set your default registry-mirrors:
+"registry-mirrors": ["http://your-aliyun.mirror.aliyuncs.com"]
 
 restart the docker daemon
 ```
@@ -69,12 +77,14 @@ sudo systemctl restart docker
 
 ### docker registor
 
+```
 $ docker run -d \
   -p 5000:5000 \
   --restart=always \
   --name registry \
   -v /mnt/registry:/var/lib/registry \
   registry:2
+```
 
 http://blog.csdn.net/ronnyjiang/article/details/71189392
 https://docs.docker.com/registry/deploying/
@@ -123,9 +133,40 @@ docker system prune
 ### docker save & load
 
 ```
-docker save -o fedora-all.tar fedora
-docker load --input fedora.tar
+docker save busybox > busybox.tar
+docker save --output busybox.tar busybox
+docker save -o mxnet-ssd-cpu.tar mxnet-ssd-bike:v0.1.1-dev
+
+docker load < mxnet-ssd-cpu.tar
+docker load --input mxnet-ssd-cpu.tar
 ```
 
 https://docs.docker.com/engine/reference/commandline/save
-https://docs.docker.com/engine/reference/commandline/load/#examples
+https://docs.docker.com/engine/reference/commandline/load
+
+### docker commit
+
+`docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]`
+
+-a :提交的镜像作者；
+-c :使用Dockerfile指令来创建镜像；
+-m :提交时的说明文字；
+-p :在commit时，将容器暂停。
+
+```
+$ docker images mxnet-cu90/python:1.2.0-roialign
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+mxnet-cu90/python   1.2.0-roialign      ff82b60fdcd1        4 days ago          5.36GB
+
+$ docker ps | grep mxnet-cu90
+ba77f4f31eae        mxnet-cu90/python:1.2.0-roialign
+
+docker commit -a "lingzhi.me" -m "update python dev" ba77f4f31eae mxnet-cu90/python:1.2.0-roialign
+
+docker images mxnet-cu90/python:1.2.0-roialign
+$ docker images mxnet-cu90/python:1.2.0-roialign
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+mxnet-cu90/python   1.2.0-roialign      dce634b0c63f        15 seconds ago      5.38GB
+```
+
+docker commit -a "lingzhi.me" -m "update python dev" fee72e669051 mxnet/python:1.2.0-roialign
