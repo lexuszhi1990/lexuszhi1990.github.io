@@ -28,3 +28,14 @@ print(sys.path)
 2)、PTYHONPATH目录（如果已经进行了设置）
 3)、标准连接库目录（一般在/usr/local/lib/python2.X/）
 4)、任何的.pth文件的内容（如果存在的话）.新功能，允许用户把有效果的目录添加到模块搜索路径中去.pth后缀的文本文件中一行一行的地列出目录。
+
+
+### pip setup uninstall
+
+
+https://stackoverflow.com/questions/1550226/python-setup-py-uninstall
+
+```
+python setup.py install --record files.txt
+cat files.txt | xargs rm -rf
+```
