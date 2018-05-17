@@ -2,7 +2,7 @@
 title: git submodule basic usage
 comments: true
 categories: [dev]
-tags: [git, helm]
+tags: [git]
 date: 2014-07-07 14:08:18
 ---
 
