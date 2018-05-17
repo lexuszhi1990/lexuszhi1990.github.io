@@ -68,6 +68,19 @@ To connect to your database directly from outside the K8s cluster:
 
 kubectl run --namespace default pg-postgresql-client --restart=Never --rm --tty -i --image postgres --command /bin/bash
 
+```
+service:
+  type: NodePort
+  port: 5432
+  externalIPs: []
+  ## Manually set NodePort value
+  ## Requires service.type: NodePort
+  nodePort: 30432
+
+helm del --purge pg
+helm install --name pg
+```
+
 
 ### kafka
 
