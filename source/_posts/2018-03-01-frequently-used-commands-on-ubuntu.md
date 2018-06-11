@@ -319,3 +319,15 @@ a|b|c 匹配符合a字符 或是b字符 或是c字符 的字符串
 abc   匹配含有 abc 的字符串
 
 ```
+
+
+### initramfs-tools
+
+在处理时有错误发生：
+ initramfs-tools
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+dpkg --get-selections|grep linux 查看所有安装的内核，并把带 install 的卸载掉
+sudo apt-get remove linux-image-2.6.24-16-generic
+
+dpkg --get-selections|grep linux
+sudo apt-get remove linux-image-4.15.0-20-generic

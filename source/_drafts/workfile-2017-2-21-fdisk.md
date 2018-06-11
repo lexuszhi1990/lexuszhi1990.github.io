@@ -93,3 +93,27 @@ e) 挂载失败导致无法启动的解决办法
 f) (optional) 查看文件夹大小
 
 `du -h /mnt/inside-1T/ --max-depth=1`
+
+
+### gpt mount
+
+传统的对硬盘进行分区需要在终端敲sudo fdisk进行操作，但是，当挂载的硬盘的容量大于2T的时候，是无法通过sudo fdisk进行分区的，这个时候必须要进行GPT进行分区
+
+```
+sudo parted /dev/sda #进入parted
+mklabel gpt #将磁盘设置为gpt格式，
+mkpart logical 0 -1 #将磁盘所有的容量设置为GPT格式
+print #查看分区结果
+quit
+```
+
+```
+sudo fdisk -lu
+sudo mkfs -t ext4 /dev/sda1
+sudo blkid /dev/sda1
+```
+
+```
+# /etc/etc/fstab
+UUID=97dc5f3d-c2c1-40e7-be51-13fcc8085b25 /mnt/workplace  ext4    defaults        0       0
+```
