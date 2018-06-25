@@ -331,3 +331,8 @@ sudo apt-get remove linux-image-2.6.24-16-generic
 
 dpkg --get-selections|grep linux
 sudo apt-get remove linux-image-4.15.0-20-generic
+
+
+### umount: target is busyl
+
+fuser -m -v -i -k /dev/sdb1

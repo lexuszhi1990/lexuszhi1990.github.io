@@ -66,7 +66,7 @@ sudo tee /etc/docker/daemon.json <<EOF
 EOF
 ```
 
-you can set your default registry-mirrors:
+you also can set your default registry-mirrors:
 "registry-mirrors": ["http://your-aliyun.mirror.aliyuncs.com"]
 
 restart the docker daemon

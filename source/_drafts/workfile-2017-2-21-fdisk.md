@@ -98,11 +98,15 @@ f) (optional) 查看文件夹大小
 ### gpt mount
 
 传统的对硬盘进行分区需要在终端敲sudo fdisk进行操作，但是，当挂载的硬盘的容量大于2T的时候，是无法通过sudo fdisk进行分区的，这个时候必须要进行GPT进行分区
+https://unix.stackexchange.com/questions/38164/create-partition-aligned-using-parted
 
 ```
-sudo parted /dev/sda #进入parted
+sudo parted -a optimal /dev/sda #进入parted
 mklabel gpt #将磁盘设置为gpt格式，
 mkpart logical 0 -1 #将磁盘所有的容量设置为GPT格式
+mkpart primary 0% 4096MB
+mkpart logical 0% 1966080MB
+mkpart logical 0% 3999168MB
 print #查看分区结果
 quit
 ```
