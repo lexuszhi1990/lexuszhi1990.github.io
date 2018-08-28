@@ -57,10 +57,33 @@ user=nobady
 EOF
 
 运行supervisor:
- 
+
 ```
-service supervisor start  
-supervisorctl reload  
+service supervisor start
+supervisorctl reload
+```
+
+### config
+
+/etc/shadowsocks/config.json
+
+```
+    "local_address": "127.0.0.1",
+    "local_port": 1080,
+```
+
+
+
+/etc/polipo/config
+
+```
+logSyslog = false
+logFile = /var/log/polipo/polipo.log
+
+proxyAddress = "127.0.0.1"
+proxyPort = 7050
+socksParentProxy = "127.0.0.1:1080"
+socksProxyType = socks5
 ```
 
 
