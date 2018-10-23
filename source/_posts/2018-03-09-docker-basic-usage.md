@@ -55,6 +55,8 @@ add docker nvidia runtime
 ```
 sudo tee /etc/docker/daemon.json <<EOF
 {
+    "graph": "/apps/docker",
+    "registry-mirrors": ["https://hash-code.mirror.aliyuncs.com"],
     "default-runtime": "nvidia",
     "runtimes": {
         "nvidia": {
@@ -66,7 +68,6 @@ sudo tee /etc/docker/daemon.json <<EOF
 EOF
 ```
 
-you also can set your default registry-mirrors:
 "registry-mirrors": ["http://your-aliyun.mirror.aliyuncs.com"]
 
 restart the docker daemon

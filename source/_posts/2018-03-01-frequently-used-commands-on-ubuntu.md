@@ -320,7 +320,6 @@ abc   匹配含有 abc 的字符串
 
 ```
 
-
 ### initramfs-tools
 
 在处理时有错误发生：
@@ -332,7 +331,14 @@ sudo apt-get remove linux-image-2.6.24-16-generic
 dpkg --get-selections|grep linux
 sudo apt-get remove linux-image-4.15.0-20-generic
 
-
 ### umount: target is busyl
 
 fuser -m -v -i -k /dev/sdb1
+
+### format sd card(mac)
+
+`sudo diskutil eraseDisk FAT32 RASPBIAN MBRFormat /dev/disk2`
+
+https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
+
+
