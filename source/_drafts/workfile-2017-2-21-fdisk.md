@@ -105,7 +105,7 @@ sudo parted -a optimal /dev/sda #进入parted
 mklabel gpt #将磁盘设置为gpt格式，
 mkpart logical 0 -1 #将磁盘所有的容量设置为GPT格式
 mkpart primary 0% 4096MB
-mkpart logical 0% 1966080MB
+mkpart logical 0% 1799168MB
 mkpart logical 0% 3999168MB
 print #查看分区结果
 quit

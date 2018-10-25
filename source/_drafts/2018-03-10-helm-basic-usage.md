@@ -8,10 +8,26 @@ date: 2014-07-07 14:08:18
 
 ### helm install
 
+snap:
+```
+sudo snap install helm --classic
+snap run helm
+```
+
+zip file:
+```
+wget https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz
+tar zxvf helm-v2.11.0-linux-amd64.tar.gz
+mv linux-amd64/helm /usr/local/bin/helm
+```
+
+
+gcr.io/kubernetes-helm/tiller:v2.11.0
+
 ### helm command
 
 ```
-helm init --upgrade -i registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.8.1 --stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
+helm init --upgrade -i registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.11.0 --stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
 
 helm list
 
@@ -89,3 +105,49 @@ docker tag registry.cn-shanghai.aliyuncs.com/sa_dockerhub/k8szk:v2 gcr.io/google
 
 docker pull registry.cn-hangzhou.aliyuncs.com/appstore/cp-kafka:4.0.0
 docker tag registry.cn-hangzhou.aliyuncs.com/appstore/cp-kafka:4.0.0  confluentinc/cp-kafka:4.0.0
+
+
+### auth
+
+```
+kubectl create serviceaccount --namespace kube-system tiller
+kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
+```
+
+### prometheus
+
+NOTES:
+The Prometheus server can be accessed via port 80 on the following DNS name from within your cluster:
+my-prometheus-server.default.svc.cluster.local
+
+
+Get the Prometheus server URL by running these commands in the same shell:
+  export POD_NAME=$(kubectl get pods --namespace default -l "app=prometheus,component=server" -o jsonpath="{.items[0].metadata.name}")
+  kubectl --namespace default port-forward $POD_NAME 9090
+
+
+The Prometheus alertmanager can be accessed via port 80 on the following DNS name from within your cluster:
+my-prometheus-alertmanager.default.svc.cluster.local
+
+
+Get the Alertmanager URL by running these commands in the same shell:
+  export POD_NAME=$(kubectl get pods --namespace default -l "app=prometheus,component=alertmanager" -o jsonpath="{.items[0].metadata.name}")
+  kubectl --namespace default port-forward $POD_NAME 9093
+
+
+The Prometheus PushGateway can be accessed via port 9091 on the following DNS name from within your cluster:
+my-prometheus-pushgateway.default.svc.cluster.local
+
+
+Get the PushGateway URL by running these commands in the same shell:
+  export POD_NAME=$(kubectl get pods --namespace default -l "app=prometheus,component=pushgateway" -o jsonpath="{.items[0].metadata.name}")
+  kubectl --namespace default port-forward $POD_NAME 9091
+
+For more information on running Prometheus, visit:
+https://prometheus.io/
+
+
+
+https://yq.aliyun.com/articles/159601
+https://help.aliyun.com/document_detail/58587.html
