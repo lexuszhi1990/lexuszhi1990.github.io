@@ -342,3 +342,9 @@ fuser -m -v -i -k /dev/sdb1
 https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
 
 
+### remove apt-key
+
+https://askubuntu.com/questions/604988/how-to-remove-a-apt-key-which-i-have-added
+
+sudo apt-key list | grep 'Gluster'
+sudo apt-key del 6A7BD8D4
