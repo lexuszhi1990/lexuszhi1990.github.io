@@ -283,17 +283,13 @@ node/dt-node1 labeled
 ```
 
 https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/#deploying-amd-gpu-device-plugin
-
 https://github.com/GoogleCloudPlatform/container-engine-accelerators/blob/master/cmd/nvidia_gpu/README.md
 
 https://github.com/NVIDIA/k8s-device-plugin#preparing-your-gpu-nodes
-
 https://github.com/NVIDIA/nvidia-docker
-
-https://github.com/NVIDIA/nvidia-docker/wiki/Advanced-topics#default-runtime
+https://github.com/NVIDIA/nvidia-container-runtime
 
 https://developer.nvidia.com/kubernetes-gpu
-
 https://docs.nvidia.com/datacenter/kubernetes-install-guide/index.html
 
 ### troubleshot
