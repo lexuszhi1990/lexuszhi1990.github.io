@@ -1,18 +1,54 @@
 ---
 title: setup-k8s-on-ubuntu
 date: 2018-10-23 14:29:01
-tags:
+comments: true
+categories: [dev]
+tags: [docker, k8s, deep learning]
 ---
 
-### setup env
+当前深度学习模型训练中，还往往采用的是单机多卡的方式，如果主机较多的情况下，每个人单独使用固定的一台或几台服务器，GPU利用率不高，而且，训练需要较大的 batch size(如 densenet)，或者需要在短时间内训练完成，则单机多卡有可能不满足需求。
+基于kubernetes搭建训练分布式平台，对训练任务容器化，并支持GPU的自动调度。
+<!-- more -->
 
-#### disable firewall
+### 当前部署环境
 
-systemctl disable firewalld && systemctl stop firewalld
+系统版本，ubuntu 16.04:
+```
+$ uname -a
+Linux dt-node1 4.15.0-36-generic #39~16.04.1-Ubuntu SMP Tue Sep 25 08:59:23 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+```
+![](/assets/img/ubuntu-info.png)
+
+docker 版本:
+```
+$ docker version
+Client:
+ Version:           18.06.1-ce
+ API version:       1.38
+ Go version:        go1.10.3
+ Git commit:        e68fc7a
+ Built:             Tue Aug 21 17:24:56 2018
+ OS/Arch:           linux/amd64
+ Experimental:      false
+
+Server:
+ Engine:
+  Version:          18.06.1-ce
+  API version:      1.38 (minimum version 1.12)
+  Go version:       go1.10.3
+  Git commit:       e68fc7a
+  Built:            Tue Aug 21 17:23:21 2018
+  OS/Arch:          linux/amd64
+  Experimental:     false
+```
+
+### disable firewall
+
+`systemctl disable firewalld && systemctl stop firewalld`
 
 ### install bridge
 
-sudo apt-get install bridge-utils
+`sudo apt-get install bridge-utils`
 
 ### 安装docker
 ```
@@ -20,7 +56,32 @@ apt-cache madison docker-ce
 sudo apt-get install docker-ce=18.06.1~ce~3-0~ubuntu
 ```
 
-#### tag basic images for k8s 1.12.1
+### 安装kubernetes准备工作
+
+这里我们采用kubeadm安装k8s，按照[官方文档](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)即可。唯一需要注意的是k8s默认的image需要手动安装。
+
+#### 安装kubeadm kubelet kubectl
+
+这个也是安装[官方文档](https://kubernetes.io/docs/setup/independent/install-kubeadm/#check-required-ports)即可。这里采用了阿里云的source。直接执行下段命令需要`sudo -i`:
+
+```
+apt-get update && apt-get install -y apt-transport-https
+curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -
+cat <<EOF > /etc/apt/sources.list.d/kubernetes.list
+deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
+EOF
+apt-get update
+apt-get install -y kubelet kubeadm kubectl
+```
+
+当前安装的kubeadm版本：
+```
+$ kubeadm version
+kubeadm version: &version.Info{Major:"1", Minor:"12", GitVersion:"v1.12.1", GitCommit:"4ed3216f3ec431b140b1d899130a69fc671678f4
+", GitTreeState:"clean", BuildDate:"2018-10-05T16:43:08Z", GoVersion:"go1.10.4", Compiler:"gc", Platform:"linux/amd64"}
+```
+
+#### 安装 k8s 1.12.1 需要的image
 
 list the basic images used by k8s 1.12.1:
 ```
@@ -53,22 +114,7 @@ docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.2.2 k8s
 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 k8s.gcr.io/pause:3.1
 ```
 
-### 安装kubeadm kubelet kubectl
-apt-get update && apt-get install -y apt-transport-https
-curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -
-cat <<EOF > /etc/apt/sources.list.d/kubernetes.list
-deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
-EOF
-apt-get update
-apt-get install -y kubelet kubeadm kubectl
-
-```
-$ kubeadm version
-kubeadm version: &version.Info{Major:"1", Minor:"12", GitVersion:"v1.12.1", GitCommit:"4ed3216f3ec431b140b1d899130a69fc671678f4
-", GitTreeState:"clean", BuildDate:"2018-10-05T16:43:08Z", GoVersion:"go1.10.4", Compiler:"gc", Platform:"linux/amd64"}
-```
-
-### install k8s and addons
+### 安装kubernetes
 
 #### install k8s by kubeadm
 
@@ -100,6 +146,7 @@ as root:
 
 #### Installing a pod network add-on
 
+这里采用`flannel`作为内网网络的插件：
 Set `/proc/sys/net/bridge/bridge-nf-call-iptables` to 1 by running `sysctl net.bridge.bridge-nf-call-iptables=1` to pass bridged IPv4 traffic to iptables’ chains.
 
 then install `flannel`:
@@ -107,26 +154,12 @@ then install `flannel`:
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
 ```
 
-### Master Isolation
+### 添加主机到集群
 
-By default, your cluster will not schedule pods on the master for security reasons. To disable it:
-
-`kubectl taint nodes --all node-role.kubernetes.io/master-`
-
-output:
-```
-node "test-01" untainted
-taint "node-role.kubernetes.io/master:" not found
-taint "node-role.kubernetes.io/master:" not found
-```
-
-### join node
-
-basic comd:
+在`master`安装完成之后，既可以将其他主机加入到集群中，具体的命令如下：
 `kubeadm join --token <token> <master-ip>:<master-port> --discovery-token-ca-cert-hash sha256:<hash>`
 
-example:
-
+具体连接[参见](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#join-nodes):
 ```
 kubeadm join 10.196.50.212:6443 --token t38ktj.cskldrxzvpdkk7ak --discovery-token-ca-cert-hash sha256:338272a82bf284f871584090ce89e3c725e092a67af0e6f4d5b1ed857280977f
 ```
@@ -143,18 +176,105 @@ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outfor
    openssl dgst -sha256 -hex | sed 's/^.* //'
 ```
 
-https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#join-nodes
+### k8s其他配置
 
-### k8s tear down
+#### Master Isolation
 
-https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#tear-down
+By default, your cluster will not schedule pods on the master for security reasons. To disable it:
+
+`kubectl taint nodes --all node-role.kubernetes.io/master-`
+
+output:
+```
+node "test-01" untainted
+taint "node-role.kubernetes.io/master:" not found
+taint "node-role.kubernetes.io/master:" not found
+```
+
+#### k8s 删除主机
 
 ```
 kubectl drain --delete-local-data --force --ignore-daemonsets <node name>
 kubectl delete node <node name>
 ```
 
-### setup dashboard
+### 管理GPU
+
+k8s支持NVIDIA和AMD GPU的调度，参见[文档](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus)，
+
+首先需要满足以下条件：
+
+- Kubernetes nodes have to be pre-installed with NVIDIA drivers.
+- NVIDIA drivers >= 361.93
+- Kubernetes nodes have to be pre-installed with [nvidia-docker 2.0](https://github.com/NVIDIA/nvidia-docker)
+- [nvidia-container-runtime](https://github.com/nvidia/nvidia-container-runtime) must be configured as the default runtime for docker instead of runc.
+
+然后安装nvidia官方提供的[k8s插件](https://github.com/NVIDIA/k8s-device-plugin):
+
+```
+kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v1.11/nvidia-device-plugin.yml
+```
+
+安装完成之后就可以检测到GPU了：
+`kubectl describe nodes | grep -B 3 gpu` outputs:
+
+```
+$ kubectl describe nodes | grep -B 3 gpu
+ hugepages-1Gi:                  0
+ hugepages-2Mi:                  0
+ memory:                         16367236Ki
+ nvidia.com/gpu:                 2
+--
+ hugepages-1Gi:                  0
+ hugepages-2Mi:                  0
+ memory:                         16264836Ki
+ nvidia.com/gpu:                 2
+--
+  cpu                            850m (10%)  100m (1%)
+  memory                         190Mi (1%)  390Mi (2%)
+  attachable-volumes-azure-disk  0           0
+  nvidia.com/gpu                 0           0
+```
+
+Label your nodes with the accelerator type they have:
+`kubectl label nodes <node-with-p100> accelerator=nvidia-tesla-p100`
+example:
+```
+$ kubectl label nodes zs accelerator=nvidia-gtx1080ti
+node/zs labeled
+$ kubectl label nodes dt-node1 accelerator=nvidia-gtx1080
+node/dt-node1 labeled
+```
+
+最后就可以在配置文件中申请GPU：
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gpu-pod
+spec:
+  containers:
+    - name: cuda-container
+      image: nvidia/cuda:9.0-devel
+      resources:
+        limits:
+          nvidia.com/gpu: 2 # requesting 2 GPUs
+    - name: digits-container
+      image: nvidia/digits:6.0
+      resources:
+        limits:
+          nvidia.com/gpu: 2 # requesting 2 GPUs
+```
+
+nvidia详细的安装、配置、可视化在k8s gpu的文档
+- https://developer.nvidia.com/kubernetes-gpu
+- https://docs.nvidia.com/datacenter/kubernetes-install-guide/index.html
+
+### 搭建 k8s dashboard
+
+`dashbaord` 能够有一个前端页面查看、管理当前集群。
+![](/assets/img/k8s-dashboard.png)
 
 #### Create certificate(optional)
 
@@ -190,11 +310,10 @@ docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashbo
 
 
 docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/heapster-amd64:v1.5.4
-docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/heapster-influxdb-amd64:v1.5.2
-
 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/heapster-amd64:v1.5.4 k8s.gcr.io/heapster-amd64:v1.5.4
-docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/heapster-influxdb-amd64:v1.5.2 k8s.gcr.io/heapster-influxdb-amd64:v1.5.2
 
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/heapster-influxdb-amd64:v1.5.2
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/heapster-influxdb-amd64:v1.5.2 k8s.gcr.io/heapster-influxdb-amd64:v1.5.2
 ```
 
 #### Install kubernetes dashboard service
@@ -229,7 +348,7 @@ Name:         master-admin-token-459v8
 Namespace:    kube-system
 Labels:       <none>
 Annotations:  kubernetes.io/service-account.name: master-admin
-              kubernetes.io/service-account.uid: 35576d23-d758-11e8-95d8-6045cb6f3058
+              kubernetes.io/service-account.uid: your-uid
 
 Type:  kubernetes.io/service-account-token
 
@@ -237,60 +356,14 @@ Data
 ====
 ca.crt:     1025 bytes
 namespace:  11 bytes
-token:      eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJtYXN0ZXItYWRtaW4tdG9rZW4tNDU5djgiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoibWFzdGVyLWFkbWluIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMzU1NzZkMjMtZDc1OC0xMWU4LTk1ZDgtNjA0NWNiNmYzMDU4Iiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Omt1YmUtc3lzdGVtOm1hc3Rlci1hZG1pbiJ9.XyP8OtQCCZTGNP6GzXQGwFpFFKP-g7NtckI2yvDq-mp0gjjiAHlJct1Z0i3J8r0hKIqAQr7zfhZu7xcq5QFOsu9-_qcw-tpuhBRTD8A4DOULndaPcSlgHi7k4tRPnt0FqMTwzZMHYSl8bbx8hHg4e2j6Tw72CSDyxUaKTIi8komW3h72ZaOWnyzyx-BkAiav_2AZJ0txXtVh8XNSed39Eko8qUJcXixRFMu0GEp21ipDIiRDPg8iT7_kydFbcfQmWcKhaNk4GmshrgZdlWFH0jN0O3ZZCYwTy602Yeb5bpjVozWU7p2b1tWHxubn7feWkwjwC3xuTuk7EuqjmCdC9g
+token:      your-token
 ```
 
-#### reference
+#### dashboard reference
 
-https://github.com/kubernetes/dashboard
-https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
-https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html
-
-### setup gpu
-
-```
-kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v1.11/nvidia-device-plugin.yml
-```
-
-`kubectl describe nodes | grep -B 3 gpu` outputs:
-
-```
-$ kubectl describe nodes | grep -B 3 gpu
- hugepages-1Gi:                  0
- hugepages-2Mi:                  0
- memory:                         16367236Ki
- nvidia.com/gpu:                 2
---
- hugepages-1Gi:                  0
- hugepages-2Mi:                  0
- memory:                         16264836Ki
- nvidia.com/gpu:                 2
---
-  cpu                            850m (10%)  100m (1%)
-  memory                         190Mi (1%)  390Mi (2%)
-  attachable-volumes-azure-disk  0           0
-  nvidia.com/gpu                 0           0
-```
-
-Label your nodes with the accelerator type they have:
-`kubectl label nodes <node-with-p100> accelerator=nvidia-tesla-p100`
-example:
-```
-$ kubectl label nodes zs accelerator=nvidia-gtx1080ti
-node/zs labeled
-$ kubectl label nodes dt-node1 accelerator=nvidia-gtx1080
-node/dt-node1 labeled
-```
-
-https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/#deploying-amd-gpu-device-plugin
-https://github.com/GoogleCloudPlatform/container-engine-accelerators/blob/master/cmd/nvidia_gpu/README.md
-
-https://github.com/NVIDIA/k8s-device-plugin#preparing-your-gpu-nodes
-https://github.com/NVIDIA/nvidia-docker
-https://github.com/NVIDIA/nvidia-container-runtime
-
-https://developer.nvidia.com/kubernetes-gpu
-https://docs.nvidia.com/datacenter/kubernetes-install-guide/index.html
+- https://github.com/kubernetes/dashboard
+- https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+- https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html
 
 ### troubleshot
 
@@ -331,8 +404,7 @@ ip link delete flannel.1
 
 references:
 -----------------
-https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/
-https://kubernetes.io/docs/setup/independent/install-kubeadm/#check-required-ports
-https://unix.stackexchange.com/questions/224156/how-to-safely-turn-off-swap-permanently-and-reclaim-the-space-on-debian-jessie
-https://blog.csdn.net/u010827484/article/details/83025404
-https://www.bookstack.cn/read/learning-kubernetes/installation-kubeadm.md
+- https://kubernetes.io/docs/setup/independent/install-kubeadm/#check-required-ports
+- https://unix.stackexchange.com/questions/224156/how-to-safely-turn-off-swap-permanently-and-reclaim-the-space-on-debian-jessie
+- https://blog.csdn.net/u010827484/article/details/83025404
+- https://www.bookstack.cn/read/learning-kubernetes/installation-kubeadm.md
