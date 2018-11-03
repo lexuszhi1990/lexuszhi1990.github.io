@@ -5,17 +5,17 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://lingzhi.me">
+  <link rel="dns-prefetch" href="http://fulingzhi.com">
   <title>frequently-used commands on ubuntu | 付凌志的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="imagemagicinstall imagemagic: apt-get install imagemagick 查询对应图片的信息 identify logo.jpg 缩放图像 convert -resize 20%x20% test.JPG test-small.png">
 <meta property="og:type" content="article">
 <meta property="og:title" content="frequently-used commands on ubuntu">
-<meta property="og:url" content="http://lingzhi.me/2014/01/23/2018-03-01-frequently-used-commands-on-ubuntu/index.html">
+<meta property="og:url" content="http://fulingzhi.com/2014/01/23/2018-03-01-frequently-used-commands-on-ubuntu/index.html">
 <meta property="og:site_name" content="付凌志的博客">
 <meta property="og:description" content="imagemagicinstall imagemagic: apt-get install imagemagick 查询对应图片的信息 identify logo.jpg 缩放图像 convert -resize 20%x20% test.JPG test-small.png">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-05-09T08:29:44.643Z">
+<meta property="og:updated_time" content="2018-10-26T08:01:27.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="frequently-used commands on ubuntu">
 <meta name="twitter:description" content="imagemagicinstall imagemagic: apt-get install imagemagick 查询对应图片的信息 identify logo.jpg 缩放图像 convert -resize 20%x20% test.JPG test-small.png">
@@ -237,6 +237,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 将所有*.nc文件中Sam3替换成Stm32</span><br><span class="line">rename -v &apos;s/Sam3/Stm32/&apos; *.nc　　/*执行修改，并列出已重命名的文件*/</span><br><span class="line"></span><br><span class="line"># 去掉文件后缀名(比如去掉.bak)</span><br><span class="line">rename &apos;s/\.bak$//&apos; *.bak</span><br><span class="line"></span><br><span class="line"># 将文件名改为小写</span><br><span class="line">rename &apos;y/A-Z/a-z/&apos; *</span><br><span class="line"></span><br><span class="line"># 去掉文件名的空格</span><br><span class="line">rename &apos;s/[ ]+//g&apos; *</span><br><span class="line"></span><br><span class="line"># 文件开头加入字符串(比如jelline)</span><br><span class="line">rename &apos;s/^/jelline/&apos; *</span><br><span class="line"></span><br><span class="line"># 文件末尾加入字符串(比如jelline)</span><br><span class="line">rename &apos;s/$/jelline/&apos; *</span><br></pre></td></tr></table></figure>
 <p>正则表达式中的一些常用模式pattern[2]：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">x? 　匹配 0 次或一次 x 字符串</span><br><span class="line"></span><br><span class="line">x* 　匹配 0 次或多次 x 字符串，但匹配可能的最少次数</span><br><span class="line"></span><br><span class="line">x+ 　匹配 1 次或多次 x 字符串，但匹配可能的最少次数</span><br><span class="line"></span><br><span class="line">.* 　匹配 0 次或一次的任何字符</span><br><span class="line"></span><br><span class="line">.+ 　匹配 1 次或多次的任何字符</span><br><span class="line"></span><br><span class="line">&#123;m&#125;　匹配刚好是 m 个 的指定字符串</span><br><span class="line"></span><br><span class="line">&#123;m,n&#125;匹配在 m个 以上 n个 以下 的指定字符串</span><br><span class="line"></span><br><span class="line">&#123;m,&#125; 匹配 m个 以上 的指定字符串</span><br><span class="line"></span><br><span class="line">[] 　匹配符合 [] 内的字符</span><br><span class="line"></span><br><span class="line">[^]　匹配不符合 [] 内的字符</span><br><span class="line"></span><br><span class="line">[0-9]匹配所有数字字符</span><br><span class="line"></span><br><span class="line">[a-z]匹配所有小写字母字符</span><br><span class="line"></span><br><span class="line">[^0-9]匹配所有非数字字符</span><br><span class="line"></span><br><span class="line">[^a-z]匹配所有非小写字母字符</span><br><span class="line"></span><br><span class="line">^ 　　匹配字符开头的字符</span><br><span class="line"></span><br><span class="line">$ 　　匹配字符结尾的字符</span><br><span class="line"></span><br><span class="line">\d　　匹配一个数字的字符，和 [0-9] 语法一样</span><br><span class="line"></span><br><span class="line">\d+ 　匹配多个数字字符串，和 [0-9]+ 语法一样</span><br><span class="line"></span><br><span class="line">\D　　非数字，其他同 \d</span><br><span class="line"></span><br><span class="line">\D+　 非数字，其他同 \d+</span><br><span class="line"></span><br><span class="line">\w 　 英文字母或数字的字符串，和 [a-zA-Z0-9] 语法一样</span><br><span class="line"></span><br><span class="line">\w+ 　和 [a-zA-Z0-9]+ 语法一样</span><br><span class="line"></span><br><span class="line">\W 　 非英文字母或数字的字符串，和 [^a-zA-Z0-9] 语法一样</span><br><span class="line"></span><br><span class="line">\W+   和 [^a-zA-Z0-9]+ 语法一样</span><br><span class="line"></span><br><span class="line">\s    空格，和 [\n\t\r\f] 语法一样</span><br><span class="line"></span><br><span class="line">\s+   和 [\n\t\r\f]+ 一样</span><br><span class="line"></span><br><span class="line">\S    非空格，和 [^\n\t\r\f] 语法一样</span><br><span class="line"></span><br><span class="line">\S+   和 [^\n\t\r\f]+ 语法一样</span><br><span class="line"></span><br><span class="line">\b    匹配以英文字母,数字为边界的字符串</span><br><span class="line"></span><br><span class="line">\B    匹配不以英文字母,数值为边界的字符串</span><br><span class="line"></span><br><span class="line">a|b|c 匹配符合a字符 或是b字符 或是c字符 的字符串</span><br><span class="line"></span><br><span class="line">abc   匹配含有 abc 的字符串</span><br></pre></td></tr></table></figure>
+<h3 id="initramfs-tools"><a href="#initramfs-tools" class="headerlink" title="initramfs-tools"></a>initramfs-tools</h3><p>在处理时有错误发生：<br> initramfs-tools<br>E: Sub-process /usr/bin/dpkg returned an error code (1)<br>dpkg –get-selections|grep linux 查看所有安装的内核，并把带 install 的卸载掉<br>sudo apt-get remove linux-image-2.6.24-16-generic</p>
+<p>dpkg –get-selections|grep linux<br>sudo apt-get remove linux-image-4.15.0-20-generic</p>
+<h3 id="umount-target-is-busyl"><a href="#umount-target-is-busyl" class="headerlink" title="umount: target is busyl"></a>umount: target is busyl</h3><p>fuser -m -v -i -k /dev/sdb1</p>
+<h3 id="format-sd-card-mac"><a href="#format-sd-card-mac" class="headerlink" title="format sd card(mac)"></a>format sd card(mac)</h3><p><code>sudo diskutil eraseDisk FAT32 RASPBIAN MBRFormat /dev/disk2</code></p>
+<p><a href="https://www.raspberrypi.org/documentation/installation/installing-images/mac.md" target="_blank" rel="noopener">https://www.raspberrypi.org/documentation/installation/installing-images/mac.md</a></p>
+<h3 id="remove-apt-key"><a href="#remove-apt-key" class="headerlink" title="remove apt-key"></a>remove apt-key</h3><p><a href="https://askubuntu.com/questions/604988/how-to-remove-a-apt-key-which-i-have-added" target="_blank" rel="noopener">https://askubuntu.com/questions/604988/how-to-remove-a-apt-key-which-i-have-added</a></p>
+<p>sudo apt-key list | grep ‘Gluster’<br>sudo apt-key del 6A7BD8D4</p>
 
       
 
@@ -306,7 +313,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://lingzhi.me/2014/01/23/2018-03-01-frequently-used-commands-on-ubuntu/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://fulingzhi.com/2014/01/23/2018-03-01-frequently-used-commands-on-ubuntu/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -507,6 +514,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">branch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ruby</a>
               </li>
              
@@ -519,23 +534,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">branch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">rails</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">concern</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,6 +566,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mxnet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">deep_leaning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
@@ -575,11 +590,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mxnet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">deep_leaning</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,11 +598,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂文</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂文</a>
+                <a href="javascript:void(0)" class="js-tag color4">deep learning</a>
               </li>
             
             <div class="clearfix"></div>

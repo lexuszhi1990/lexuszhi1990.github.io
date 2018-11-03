@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://fulingzhi.com">
-  <title>付凌志的博客</title>
+  <title>setup-k8s-on-ubuntu | 付凌志的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="付凌志的博客">
-<meta property="og:url" content="http://fulingzhi.com/page/2/index.html">
+  <meta name="description" content="当前深度学习模型训练中，还往往采用的是单机多卡的方式，如果主机较多的情况下，每个人单独使用固定的一台或几台服务器，GPU利用率不高，而且，训练需要较大的 batch size(如 densenet)，或者需要在短时间内训练完成，则单机多卡有可能不满足需求。基于kubernetes搭建训练分布式平台，对训练任务容器化，并支持GPU的自动调度。">
+<meta name="keywords" content="docker,k8s,deep learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="setup-k8s-on-ubuntu">
+<meta property="og:url" content="http://fulingzhi.com/2018/10/23/2018-11-2-setup-k8s-on-ubuntu/index.html">
 <meta property="og:site_name" content="付凌志的博客">
-<meta property="og:description" content="个人博客">
+<meta property="og:description" content="当前深度学习模型训练中，还往往采用的是单机多卡的方式，如果主机较多的情况下，每个人单独使用固定的一台或几台服务器，GPU利用率不高，而且，训练需要较大的 batch size(如 densenet)，或者需要在短时间内训练完成，则单机多卡有可能不满足需求。基于kubernetes搭建训练分布式平台，对训练任务容器化，并支持GPU的自动调度。">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="http://fulingzhi.com/assets/img/ubuntu-info.png">
+<meta property="og:image" content="http://fulingzhi.com/assets/img/k8s-dashboard.png">
+<meta property="og:updated_time" content="2018-11-02T03:21:26.989Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="付凌志的博客">
-<meta name="twitter:description" content="个人博客">
+<meta name="twitter:title" content="setup-k8s-on-ubuntu">
+<meta name="twitter:description" content="当前深度学习模型训练中，还往往采用的是单机多卡的方式，如果主机较多的情况下，每个人单独使用固定的一台或几台服务器，GPU利用率不高，而且，训练需要较大的 batch size(如 densenet)，或者需要在短时间内训练完成，则单机多卡有可能不满足需求。基于kubernetes搭建训练分布式平台，对训练任务容器化，并支持GPU的自动调度。">
+<meta name="twitter:image" content="http://fulingzhi.com/assets/img/ubuntu-info.png">
   
     <link rel="alternative" href="/atom.xml" title="付凌志的博客" type="application/atom+xml">
   
@@ -160,32 +165,98 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-    <article id="post-2014-02-07-wo-he-na-xie-nian" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-2018-11-2-setup-k8s-on-ubuntu" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/05/01/2014-02-07-wo-he-na-xie-nian/">我和那些年</a>
+    <h1 class="article-title" itemprop="name">
+      setup-k8s-on-ubuntu
     </h1>
   
 
         
-        <a href="/2012/05/01/2014-02-07-wo-he-na-xie-nian/" class="archive-article-date">
-  	<time datetime="2012-04-30T16:35:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2012-05-01</time>
+        <a href="/2018/10/23/2018-11-2-setup-k8s-on-ubuntu/" class="archive-article-date">
+  	<time datetime="2018-10-23T06:29:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>忘了哪一天，我打开迅雷，看到右上角图标一张图片，我觉得感觉很好，一如既往的台湾青春片的风格，像极了《艋舺》的剧照，我抱着好奇的心情点击了图标，发现并不能看，只是有预告片，然后发现网上大部分都是小说，猛然发现有方文山做的序，于是兴趣大增，立马下了在手机上面看了。很快就看完了，觉得不错，丝毫没想到以后还会再去看一遍电影，也没有想到这部电影会在以后火的一塌糊涂。那些年，我们一起追的女孩 似乎已经引发了当下的一种思潮，或者勾起了一代人青春年代的集体回忆。空间动态时常会有各种各样的感慨，有的是自己写的，有的是转的，有的看起来时自己写的，一看才知道是转的。</p>
-        
-          <a class="article-more-a" href="/2012/05/01/2014-02-07-wo-he-na-xie-nian/#more">more >></a>
-        
+        <p>当前深度学习模型训练中，还往往采用的是单机多卡的方式，如果主机较多的情况下，每个人单独使用固定的一台或几台服务器，GPU利用率不高，而且，训练需要较大的 batch size(如 densenet)，或者需要在短时间内训练完成，则单机多卡有可能不满足需求。<br>基于kubernetes搭建训练分布式平台，对训练任务容器化，并支持GPU的自动调度。<br><a id="more"></a></p>
+<h3 id="当前部署环境"><a href="#当前部署环境" class="headerlink" title="当前部署环境"></a>当前部署环境</h3><p>系统版本，ubuntu 16.04:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ uname -a</span><br><span class="line">Linux dt-node1 4.15.0-36-generic #39~16.04.1-Ubuntu SMP Tue Sep 25 08:59:23 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure></p>
+<p><img src="/assets/img/ubuntu-info.png" alt=""></p>
+<p>docker 版本:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ docker version</span><br><span class="line">Client:</span><br><span class="line"> Version:           18.06.1-ce</span><br><span class="line"> API version:       1.38</span><br><span class="line"> Go version:        go1.10.3</span><br><span class="line"> Git commit:        e68fc7a</span><br><span class="line"> Built:             Tue Aug 21 17:24:56 2018</span><br><span class="line"> OS/Arch:           linux/amd64</span><br><span class="line"> Experimental:      false</span><br><span class="line"></span><br><span class="line">Server:</span><br><span class="line"> Engine:</span><br><span class="line">  Version:          18.06.1-ce</span><br><span class="line">  API version:      1.38 (minimum version 1.12)</span><br><span class="line">  Go version:       go1.10.3</span><br><span class="line">  Git commit:       e68fc7a</span><br><span class="line">  Built:            Tue Aug 21 17:23:21 2018</span><br><span class="line">  OS/Arch:          linux/amd64</span><br><span class="line">  Experimental:     false</span><br></pre></td></tr></table></figure></p>
+<h3 id="disable-firewall"><a href="#disable-firewall" class="headerlink" title="disable firewall"></a>disable firewall</h3><p><code>systemctl disable firewalld &amp;&amp; systemctl stop firewalld</code></p>
+<h3 id="install-bridge"><a href="#install-bridge" class="headerlink" title="install bridge"></a>install bridge</h3><p><code>sudo apt-get install bridge-utils</code></p>
+<h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-cache madison docker-ce</span><br><span class="line">sudo apt-get install docker-ce=18.06.1~ce~3-0~ubuntu</span><br></pre></td></tr></table></figure>
+<h3 id="安装kubernetes准备工作"><a href="#安装kubernetes准备工作" class="headerlink" title="安装kubernetes准备工作"></a>安装kubernetes准备工作</h3><p>这里我们采用kubeadm安装k8s，按照<a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/" target="_blank" rel="noopener">官方文档</a>即可。唯一需要注意的是k8s默认的image需要手动安装。</p>
+<h4 id="安装kubeadm-kubelet-kubectl"><a href="#安装kubeadm-kubelet-kubectl" class="headerlink" title="安装kubeadm kubelet kubectl"></a>安装kubeadm kubelet kubectl</h4><p>这个也是安装<a href="https://kubernetes.io/docs/setup/independent/install-kubeadm/#check-required-ports" target="_blank" rel="noopener">官方文档</a>即可。这里采用了阿里云的source。直接执行下段命令需要<code>sudo -i</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apt-get update &amp;&amp; apt-get install -y apt-transport-https</span><br><span class="line">curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -</span><br><span class="line">cat &lt;&lt;EOF &gt; /etc/apt/sources.list.d/kubernetes.list</span><br><span class="line">deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main</span><br><span class="line">EOF</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install -y kubelet kubeadm kubectl</span><br></pre></td></tr></table></figure>
+<p>当前安装的kubeadm版本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubeadm version</span><br><span class="line">kubeadm version: &amp;version.Info&#123;Major:&quot;1&quot;, Minor:&quot;12&quot;, GitVersion:&quot;v1.12.1&quot;, GitCommit:&quot;4ed3216f3ec431b140b1d899130a69fc671678f4</span><br><span class="line">&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2018-10-05T16:43:08Z&quot;, GoVersion:&quot;go1.10.4&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="安装-k8s-1-12-1-需要的image"><a href="#安装-k8s-1-12-1-需要的image" class="headerlink" title="安装 k8s 1.12.1 需要的image"></a>安装 k8s 1.12.1 需要的image</h4><p>list the basic images used by k8s 1.12.1:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ kubeadm config images list --kubernetes-version=v1.12.1</span><br><span class="line">k8s.gcr.io/kube-apiserver:v1.12.1</span><br><span class="line">k8s.gcr.io/kube-controller-manager:v1.12.1</span><br><span class="line">k8s.gcr.io/kube-scheduler:v1.12.1</span><br><span class="line">k8s.gcr.io/kube-proxy:v1.12.1</span><br><span class="line">k8s.gcr.io/pause:3.1</span><br><span class="line">k8s.gcr.io/etcd:3.2.24</span><br><span class="line">k8s.gcr.io/coredns:1.2.2</span><br></pre></td></tr></table></figure></p>
+<p>pull from aliyun and tag:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.12.1</span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.12.1</span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.12.1</span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.12.1</span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/etcd:3.2.24</span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.2.2</span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1</span><br><span class="line"></span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.12.1 k8s.gcr.io/kube-proxy:v1.12.1</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.12.1 k8s.gcr.io/kube-apiserver:v1.12.1</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.12.1 k8s.gcr.io/kube-controller-manager:v1.12.1</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.12.1 k8s.gcr.io/kube-scheduler:v1.12.1</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/etcd:3.2.24 k8s.gcr.io/etcd:3.2.24</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.2.2 k8s.gcr.io/coredns:1.2.2</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 k8s.gcr.io/pause:3.1</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装kubernetes"><a href="#安装kubernetes" class="headerlink" title="安装kubernetes"></a>安装kubernetes</h3><h4 id="install-k8s-by-kubeadm"><a href="#install-k8s-by-kubeadm" class="headerlink" title="install k8s by kubeadm"></a>install k8s by kubeadm</h4><p>cmd:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm init --kubernetes-version=v1.12.1 --pod-network-cidr=10.244.0.0/16</span><br></pre></td></tr></table></figure></p>
+<p>outputs:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Your Kubernetes master has initialized successfully!</span><br><span class="line"></span><br><span class="line">To start using your cluster, you need to run the following as a regular user:</span><br><span class="line"></span><br><span class="line">  mkdir -p $HOME/.kube</span><br><span class="line">  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</span><br><span class="line">  sudo chown $(id -u):$(id -g) $HOME/.kube/config</span><br><span class="line"></span><br><span class="line">You should now deploy a pod network to the cluster.</span><br><span class="line">Run &quot;kubectl apply -f [podnetwork].yaml&quot; with one of the options listed at:</span><br><span class="line">  https://kubernetes.io/docs/concepts/cluster-administration/addons/</span><br><span class="line"></span><br><span class="line">You can now join any number of machines by running the following on each node</span><br><span class="line">as root:</span><br><span class="line"></span><br><span class="line">  kubeadm join 10.196.50.212:6443 --token qvye1k.iyd56f8kv5n7mgbx --discovery-token-ca-cert-hash sha256:cf2a7146a553384bcba8f33e43920034c67ed22056b7a3a7fa822610e3420659</span><br></pre></td></tr></table></figure></p>
+<h4 id="Installing-a-pod-network-add-on"><a href="#Installing-a-pod-network-add-on" class="headerlink" title="Installing a pod network add-on"></a>Installing a pod network add-on</h4><p>这里采用<code>flannel</code>作为内网网络的插件：<br>Set <code>/proc/sys/net/bridge/bridge-nf-call-iptables</code> to 1 by running <code>sysctl net.bridge.bridge-nf-call-iptables=1</code> to pass bridged IPv4 traffic to iptables’ chains.</p>
+<p>then install <code>flannel</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml</span><br></pre></td></tr></table></figure></p>
+<h3 id="添加主机到集群"><a href="#添加主机到集群" class="headerlink" title="添加主机到集群"></a>添加主机到集群</h3><p>在<code>master</code>安装完成之后，既可以将其他主机加入到集群中，具体的命令如下：<br><code>kubeadm join --token &lt;token&gt; &lt;master-ip&gt;:&lt;master-port&gt; --discovery-token-ca-cert-hash sha256:&lt;hash&gt;</code></p>
+<p>具体连接<a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#join-nodes" target="_blank" rel="noopener">参见</a>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm join 10.196.50.212:6443 --token t38ktj.cskldrxzvpdkk7ak --discovery-token-ca-cert-hash sha256:338272a82bf284f871584090ce89e3c725e092a67af0e6f4d5b1ed857280977f</span><br></pre></td></tr></table></figure></p>
+<p>If you do not have the token, you can get it by running the following command on the master node:<br><code>kubeadm token list</code></p>
+<p>By default, tokens expire after 24 hours. If you are joining a node to the cluster after the current token has expired, you can create a new token by running the following command on the master node:<br><code>kubeadm token create</code></p>
+<p>If you don’t have the value of –discovery-token-ca-cert-hash, you can get it by running the following command chain on the master node:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | \</span><br><span class="line">   openssl dgst -sha256 -hex | sed &apos;s/^.* //&apos;</span><br></pre></td></tr></table></figure></p>
+<h3 id="k8s其他配置"><a href="#k8s其他配置" class="headerlink" title="k8s其他配置"></a>k8s其他配置</h3><h4 id="Master-Isolation"><a href="#Master-Isolation" class="headerlink" title="Master Isolation"></a>Master Isolation</h4><p>By default, your cluster will not schedule pods on the master for security reasons. To disable it:</p>
+<p><code>kubectl taint nodes --all node-role.kubernetes.io/master-</code></p>
+<p>output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node &quot;test-01&quot; untainted</span><br><span class="line">taint &quot;node-role.kubernetes.io/master:&quot; not found</span><br><span class="line">taint &quot;node-role.kubernetes.io/master:&quot; not found</span><br></pre></td></tr></table></figure></p>
+<h4 id="k8s-删除主机"><a href="#k8s-删除主机" class="headerlink" title="k8s 删除主机"></a>k8s 删除主机</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl drain --delete-local-data --force --ignore-daemonsets &lt;node name&gt;</span><br><span class="line">kubectl delete node &lt;node name&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="管理GPU"><a href="#管理GPU" class="headerlink" title="管理GPU"></a>管理GPU</h3><p>k8s支持NVIDIA和AMD GPU的调度，参见<a href="https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus" target="_blank" rel="noopener">文档</a>，</p>
+<p>首先需要满足以下条件：</p>
+<ul>
+<li>Kubernetes nodes have to be pre-installed with NVIDIA drivers.</li>
+<li>NVIDIA drivers &gt;= 361.93</li>
+<li>Kubernetes nodes have to be pre-installed with <a href="https://github.com/NVIDIA/nvidia-docker" target="_blank" rel="noopener">nvidia-docker 2.0</a></li>
+<li><a href="https://github.com/nvidia/nvidia-container-runtime" target="_blank" rel="noopener">nvidia-container-runtime</a> must be configured as the default runtime for docker instead of runc.</li>
+</ul>
+<p>然后安装nvidia官方提供的<a href="https://github.com/NVIDIA/k8s-device-plugin" target="_blank" rel="noopener">k8s插件</a>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v1.11/nvidia-device-plugin.yml</span><br></pre></td></tr></table></figure>
+<p>安装完成之后就可以检测到GPU了：<br><code>kubectl describe nodes | grep -B 3 gpu</code> outputs:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl describe nodes | grep -B 3 gpu</span><br><span class="line"> hugepages-1Gi:                  0</span><br><span class="line"> hugepages-2Mi:                  0</span><br><span class="line"> memory:                         16367236Ki</span><br><span class="line"> nvidia.com/gpu:                 2</span><br><span class="line">--</span><br><span class="line"> hugepages-1Gi:                  0</span><br><span class="line"> hugepages-2Mi:                  0</span><br><span class="line"> memory:                         16264836Ki</span><br><span class="line"> nvidia.com/gpu:                 2</span><br><span class="line">--</span><br><span class="line">  cpu                            850m (10%)  100m (1%)</span><br><span class="line">  memory                         190Mi (1%)  390Mi (2%)</span><br><span class="line">  attachable-volumes-azure-disk  0           0</span><br><span class="line">  nvidia.com/gpu                 0           0</span><br></pre></td></tr></table></figure>
+<p>Label your nodes with the accelerator type they have:<br><code>kubectl label nodes &lt;node-with-p100&gt; accelerator=nvidia-tesla-p100</code><br>example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl label nodes zs accelerator=nvidia-gtx1080ti</span><br><span class="line">node/zs labeled</span><br><span class="line">$ kubectl label nodes dt-node1 accelerator=nvidia-gtx1080</span><br><span class="line">node/dt-node1 labeled</span><br></pre></td></tr></table></figure></p>
+<p>最后就可以在配置文件中申请GPU：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Pod</span><br><span class="line">metadata:</span><br><span class="line">  name: gpu-pod</span><br><span class="line">spec:</span><br><span class="line">  containers:</span><br><span class="line">    - name: cuda-container</span><br><span class="line">      image: nvidia/cuda:9.0-devel</span><br><span class="line">      resources:</span><br><span class="line">        limits:</span><br><span class="line">          nvidia.com/gpu: 2 # requesting 2 GPUs</span><br><span class="line">    - name: digits-container</span><br><span class="line">      image: nvidia/digits:6.0</span><br><span class="line">      resources:</span><br><span class="line">        limits:</span><br><span class="line">          nvidia.com/gpu: 2 # requesting 2 GPUs</span><br></pre></td></tr></table></figure>
+<p>nvidia详细的安装、配置、可视化在k8s gpu的文档</p>
+<ul>
+<li><a href="https://developer.nvidia.com/kubernetes-gpu" target="_blank" rel="noopener">https://developer.nvidia.com/kubernetes-gpu</a></li>
+<li><a href="https://docs.nvidia.com/datacenter/kubernetes-install-guide/index.html" target="_blank" rel="noopener">https://docs.nvidia.com/datacenter/kubernetes-install-guide/index.html</a></li>
+</ul>
+<h3 id="搭建-k8s-dashboard"><a href="#搭建-k8s-dashboard" class="headerlink" title="搭建 k8s dashboard"></a>搭建 k8s dashboard</h3><p><code>dashbaord</code> 能够有一个前端页面查看、管理当前集群。<br><img src="/assets/img/k8s-dashboard.png" alt=""></p>
+<h4 id="Create-certificate-optional"><a href="#Create-certificate-optional" class="headerlink" title="Create certificate(optional)"></a>Create certificate(optional)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir certs &amp;&amp; cd certs/</span><br><span class="line"></span><br><span class="line">openssl genrsa -des3 -passout pass:x -out dashboard.pass.key 2048</span><br><span class="line">openssl rsa -passin pass:x -in dashboard.pass.key -out dashboard.key</span><br><span class="line">rm dashboard.pass.key</span><br><span class="line">openssl req -new -key dashboard.key -out dashboard.csr</span><br><span class="line">openssl x509 -req -sha256 -days 365 -in dashboard.csr -signkey dashboard.key -out dashboard.crt</span><br></pre></td></tr></table></figure>
+<p>lists certs:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ll</span><br><span class="line">-rw-rw-r-- 1 zs zs 1.1K Oct 24 13:36 dashboard.crt</span><br><span class="line">-rw-rw-r-- 1 zs zs  956 Oct 24 13:36 dashboard.csr</span><br><span class="line">-rw-rw-r-- 1 zs zs 1.7K Oct 24 13:30 dashboard.key</span><br></pre></td></tr></table></figure></p>
+<p>generate secret:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl create secret generic kubernetes-dashboard-certs --from-file=. -n kube-system</span><br><span class="line">secret/kubernetes-dashboard-certs created</span><br></pre></td></tr></table></figure></p>
+<h4 id="download-image"><a href="#download-image" class="headerlink" title="download image"></a>download image</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.10.0</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.10.0 k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/heapster-amd64:v1.5.4</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/heapster-amd64:v1.5.4 k8s.gcr.io/heapster-amd64:v1.5.4</span><br><span class="line"></span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/heapster-influxdb-amd64:v1.5.2</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/heapster-influxdb-amd64:v1.5.2 k8s.gcr.io/heapster-influxdb-amd64:v1.5.2</span><br></pre></td></tr></table></figure>
+<h4 id="Install-kubernetes-dashboard-service"><a href="#Install-kubernetes-dashboard-service" class="headerlink" title="Install kubernetes dashboard service"></a>Install kubernetes dashboard service</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml</span><br></pre></td></tr></table></figure>
+<h4 id="Modify-kubernetes-dashboard-service"><a href="#Modify-kubernetes-dashboard-service" class="headerlink" title="Modify kubernetes dashboard service"></a>Modify kubernetes dashboard service</h4><p>change “ClusterIP” to “NodePort”:<br><code>kubectl -n kube-system edit service kubernetes-dashboard</code></p>
+<h4 id="Check-port-on-which-Dashboard-was-exposed"><a href="#Check-port-on-which-Dashboard-was-exposed" class="headerlink" title="Check port on which Dashboard was exposed"></a>Check port on which Dashboard was exposed</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl -n kube-system get service kubernetes-dashboard</span><br><span class="line">NAME                   TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)         AGE</span><br><span class="line">kubernetes-dashboard   NodePort   10.111.48.97   &lt;none&gt;        443:30386/TCP   6m31s</span><br></pre></td></tr></table></figure>
+<h4 id="create-user"><a href="#create-user" class="headerlink" title="create user"></a>create user</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl create -f developer_account.yaml</span><br><span class="line">serviceaccount/master-admin created</span><br><span class="line">clusterrolebinding.rbac.authorization.k8s.io/master-admin created</span><br><span class="line"></span><br><span class="line"># zs @ zs in /apps/workspace/certs [14:44:08]</span><br><span class="line">$ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep master-admin | awk &apos;&#123;print $1&#125;&apos;)</span><br><span class="line">Name:         master-admin-token-459v8</span><br><span class="line">Namespace:    kube-system</span><br><span class="line">Labels:       &lt;none&gt;</span><br><span class="line">Annotations:  kubernetes.io/service-account.name: master-admin</span><br><span class="line">              kubernetes.io/service-account.uid: your-uid</span><br><span class="line"></span><br><span class="line">Type:  kubernetes.io/service-account-token</span><br><span class="line"></span><br><span class="line">Data</span><br><span class="line">====</span><br><span class="line">ca.crt:     1025 bytes</span><br><span class="line">namespace:  11 bytes</span><br><span class="line">token:      your-token</span><br></pre></td></tr></table></figure>
+<h4 id="dashboard-reference"><a href="#dashboard-reference" class="headerlink" title="dashboard reference"></a>dashboard reference</h4><ul>
+<li><a href="https://github.com/kubernetes/dashboard" target="_blank" rel="noopener">https://github.com/kubernetes/dashboard</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/" target="_blank" rel="noopener">https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/</a></li>
+<li><a href="https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html</a></li>
+</ul>
+<h3 id="troubleshot"><a href="#troubleshot" class="headerlink" title="troubleshot"></a>troubleshot</h3><h4 id="dnscore-1-2-2-CrashLoopBackOff"><a href="#dnscore-1-2-2-CrashLoopBackOff" class="headerlink" title="dnscore 1.2.2 CrashLoopBackOff"></a>dnscore 1.2.2 CrashLoopBackOff</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kube-system   coredns-68fb79bcf6-6s5bp                0/1     CrashLoopBackOff   6          10m</span><br><span class="line">kube-system   coredns-68fb79bcf6-hckxq                0/1     CrashLoopBackOff   6          10m</span><br></pre></td></tr></table></figure>
+<p>“replacing proxy . /etc/resolv.conf with the ip address of your upstream DNS, for example proxy . 8.8.8.8.”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl edit cm coredns -n kube-system</span><br><span class="line"></span><br><span class="line">kubectl get pods -n kube-system -oname |grep coredns |xargs kubectl delete -n kube-system</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://stackoverflow.com/a/52911772" target="_blank" rel="noopener">https://stackoverflow.com/a/52911772</a><br><a href="https://coredns.io/plugins/loop/#troubleshooting" target="_blank" rel="noopener">https://coredns.io/plugins/loop/#troubleshooting</a></p>
+<h4 id="network-failed-to-set-bridge-addr-“cni0”-already-has-an-IP-address-different-from-10-244-0-1-24"><a href="#network-failed-to-set-bridge-addr-“cni0”-already-has-an-IP-address-different-from-10-244-0-1-24" class="headerlink" title="network: failed to set bridge addr: “cni0” already has an IP address different from 10.244.0.1/24"></a>network: failed to set bridge addr: “cni0” already has an IP address different from 10.244.0.1/24</h4><p><a href="https://github.com/kubernetes/kubernetes/issues/57280#issuecomment-356431256" target="_blank" rel="noopener">https://github.com/kubernetes/kubernetes/issues/57280#issuecomment-356431256</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">kubeadm reset</span><br><span class="line">systemctl stop kubelet</span><br><span class="line">systemctl stop docker</span><br><span class="line">rm -rf /var/lib/cni/</span><br><span class="line">rm -rf /var/lib/kubelet/*</span><br><span class="line">rm -rf /etc/cni/</span><br><span class="line">ifconfig cni0 down</span><br><span class="line">ifconfig flannel.1 down</span><br><span class="line">ifconfig docker0 down</span><br><span class="line">ip link delete cni0</span><br><span class="line">ip link delete flannel.1</span><br></pre></td></tr></table></figure>
+<h2 id="references"><a href="#references" class="headerlink" title="references:"></a>references:</h2><ul>
+<li><a href="https://kubernetes.io/docs/setup/independent/install-kubeadm/#check-required-ports" target="_blank" rel="noopener">https://kubernetes.io/docs/setup/independent/install-kubeadm/#check-required-ports</a></li>
+<li><a href="https://unix.stackexchange.com/questions/224156/how-to-safely-turn-off-swap-permanently-and-reclaim-the-space-on-debian-jessie" target="_blank" rel="noopener">https://unix.stackexchange.com/questions/224156/how-to-safely-turn-off-swap-permanently-and-reclaim-the-space-on-debian-jessie</a></li>
+<li><a href="https://blog.csdn.net/u010827484/article/details/83025404" target="_blank" rel="noopener">https://blog.csdn.net/u010827484/article/details/83025404</a></li>
+<li><a href="https://www.bookstack.cn/read/learning-kubernetes/installation-kubeadm.md" target="_blank" rel="noopener">https://www.bookstack.cn/read/learning-kubernetes/installation-kubeadm.md</a></li>
+</ul>
+
       
 
       
@@ -198,7 +269,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂文</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">k8s</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">deep learning</a>
         		</li>
       		
 		</ul>
@@ -210,7 +289,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/prose//" class="article-tag-list-link color1">prose</a>
+        			<a href="/categories/dev//" class="article-tag-list-link color4">dev</a>
         		</li>
       		
 		</ul>
@@ -218,16 +297,75 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2012/05/01/2014-02-07-wo-he-na-xie-nian/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://fulingzhi.com/2018/10/23/2018-11-2-setup-k8s-on-ubuntu/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/09/2018-03-09-docker-basic-usage/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">docker basic usage</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -247,94 +385,31 @@
 
 
 
-
-
-    <article id="post-2014-02-07-wo-suo-zhi-de-da-xue" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/02/14/2014-02-07-wo-suo-zhi-de-da-xue/">我所知的大学</a>
-    </h1>
+  
   
 
-        
-        <a href="/2012/02/14/2014-02-07-wo-suo-zhi-de-da-xue/" class="archive-article-date">
-  	<time datetime="2012-02-13T16:50:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2012-02-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>想好像很久没写日志了。我已经大三了。已经从一个懵懂很傻很天真的大一小白成了大三的老兵。高中多少都幻想过大学的美好生活，其实当刚刚入学的激情慢慢淡去之后，大学的生活和枯燥的高中并无差别。《肖申克的救赎》有这样一段话：“监狱里的高墙实在是很有趣。刚入狱的时候，你痛恨周围的高墙；慢慢地，你习惯了生活在其中；最终你会发现自己不得不依靠它而生存。 这就是体制化。”我想这不仅是那个监狱的写照， 更是我们现在当下校园的写照。</p>
-        
-          <a class="article-more-a" href="/2012/02/14/2014-02-07-wo-suo-zhi-de-da-xue/#more">more >></a>
-        
-      
+  
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂文</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'true'; // required: replace example with your forum shortname
 
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/prose//" class="article-tag-list-link color1">prose</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+  
 
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2012/02/14/2014-02-07-wo-suo-zhi-de-da-xue/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
+  
 
 
           </div>
@@ -356,8 +431,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

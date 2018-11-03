@@ -4,8 +4,50 @@
 
     
   <url>
-    <loc>http://lingzhi.me/2018/03/09/2018-03-09-docker-basic-usage/</loc>
-    <lastmod>2018-05-11T07:53:47.690Z</lastmod>
+    <loc>http://fulingzhi.com/2018/10/23/2018-11-2-setup-k8s-on-ubuntu/</loc>
+    <lastmod>2018-11-02T03:21:26.989Z</lastmod>
+    <data>
+        <display>
+        <title>setup-k8s-on-ubuntu</title>
+        <pubTime>2018-10-23T06:29:01.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>k8s</tag>
+         
+        <tag>deep learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="dev" url="http://fulingzhi.com/categories/dev/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fulingzhi.com/2014/01/23/2018-03-01-frequently-used-commands-on-ubuntu/</loc>
+    <lastmod>2018-10-26T08:01:27.247Z</lastmod>
+    <data>
+        <display>
+        <title>frequently-used commands on ubuntu</title>
+        <pubTime>2014-01-23T13:07:30.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="dev" url="http://fulingzhi.com/categories/dev/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fulingzhi.com/2018/03/09/2018-03-09-docker-basic-usage/</loc>
+    <lastmod>2018-10-23T06:23:33.719Z</lastmod>
     <data>
         <display>
         <title>docker basic usage</title>
@@ -16,7 +58,7 @@
          
            
              
-              <breadCrumb title="dev" url="http://lingzhi.me/categories/dev/"/>
+              <breadCrumb title="dev" url="http://fulingzhi.com/categories/dev/"/>
           
         </display>
     </data>
@@ -24,47 +66,7 @@
 
     
   <url>
-    <loc>http://lingzhi.me/2014/01/23/2018-03-01-frequently-used-commands-on-ubuntu/</loc>
-    <lastmod>2018-05-09T08:29:44.643Z</lastmod>
-    <data>
-        <display>
-        <title>frequently-used commands on ubuntu</title>
-        <pubTime>2014-01-23T13:07:30.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="dev" url="http://lingzhi.me/categories/dev/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://lingzhi.me/2018/04/02/jupyter-basic-usage/</loc>
-    <lastmod>2018-04-06T13:33:23.074Z</lastmod>
-    <data>
-        <display>
-        <title>jupyter-basic-usage</title>
-        <pubTime>2018-04-02T01:41:51.000Z</pubTime>
-        
-        <tag>docker</tag>
-         
-        <tag>python</tag>
-         
-         
-           
-             
-              <breadCrumb title="dev" url="http://lingzhi.me/categories/dev/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://lingzhi.me/2012/05/01/2014-02-07-wo-he-na-xie-nian/</loc>
+    <loc>http://fulingzhi.com/2012/05/01/2014-02-07-wo-he-na-xie-nian/</loc>
     <lastmod>2018-03-16T19:02:38.549Z</lastmod>
     <data>
         <display>
@@ -76,7 +78,7 @@
          
            
              
-              <breadCrumb title="prose" url="http://lingzhi.me/categories/prose/"/>
+              <breadCrumb title="prose" url="http://fulingzhi.com/categories/prose/"/>
           
         </display>
     </data>
@@ -89,7 +91,7 @@
     
     
   <url>
-    <loc>http://lingzhi.me/2012/02/14/2014-02-07-wo-suo-zhi-de-da-xue/</loc>
+    <loc>http://fulingzhi.com/2012/02/14/2014-02-07-wo-suo-zhi-de-da-xue/</loc>
     <lastmod>2018-03-16T18:09:54.763Z</lastmod>
     <data>
         <display>
@@ -101,7 +103,7 @@
          
            
              
-              <breadCrumb title="prose" url="http://lingzhi.me/categories/prose/"/>
+              <breadCrumb title="prose" url="http://fulingzhi.com/categories/prose/"/>
           
         </display>
     </data>

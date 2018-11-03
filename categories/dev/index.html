@@ -5,13 +5,13 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://lingzhi.me">
+  <link rel="dns-prefetch" href="http://fulingzhi.com">
   <title>Category: dev | 付凌志的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="个人博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="付凌志的博客">
-<meta property="og:url" content="http://lingzhi.me/categories/dev/index.html">
+<meta property="og:url" content="http://fulingzhi.com/categories/dev/index.html">
 <meta property="og:site_name" content="付凌志的博客">
 <meta property="og:description" content="个人博客">
 <meta property="og:locale" content="zh-cn">
@@ -162,32 +162,30 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-jupyter-basic-usage" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2018-11-2-setup-k8s-on-ubuntu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/02/jupyter-basic-usage/">jupyter-basic-usage</a>
+      <a class="article-title" href="/2018/10/23/2018-11-2-setup-k8s-on-ubuntu/">setup-k8s-on-ubuntu</a>
     </h1>
   
 
         
-        <a href="/2018/04/02/jupyter-basic-usage/" class="archive-article-date">
-  	<time datetime="2018-04-02T01:41:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
+        <a href="/2018/10/23/2018-11-2-setup-k8s-on-ubuntu/" class="archive-article-date">
+  	<time datetime="2018-10-23T06:29:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>%matplotlib inline</p>
-<p>%load_ext autoreload<br>%autoreload 2</p>
-<h3 id="jupyterhub"><a href="#jupyterhub" class="headerlink" title="jupyterhub"></a>jupyterhub</h3><p>docker run -it –rm -p 8888:8888 -v /home/david/jupyter-notes:/home/jovyan/david -v /data/david/cocoapi:/mnt/cocoapi -v /data/fashion/data/keypoint:/mnt/data jupyter/scipy-notebook bash</p>
-<p>pip install opencv-python -i <a href="https://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">https://mirrors.aliyun.com/pypi/simple/</a></p>
-<p>jupyter notebook –ip=0.0.0.0 –port=8000</p>
-
+        <p>当前深度学习模型训练中，还往往采用的是单机多卡的方式，如果主机较多的情况下，每个人单独使用固定的一台或几台服务器，GPU利用率不高，而且，训练需要较大的 batch size(如 densenet)，或者需要在短时间内训练完成，则单机多卡有可能不满足需求。<br>基于kubernetes搭建训练分布式平台，对训练任务容器化，并支持GPU的自动调度。<br>
+        
+          <a class="article-more-a" href="/2018/10/23/2018-11-2-setup-k8s-on-ubuntu/#more">more >></a>
+        
       
 
       
@@ -204,7 +202,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">k8s</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">deep learning</a>
         		</li>
       		
 		</ul>
@@ -225,7 +227,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/02/jupyter-basic-usage/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/10/23/2018-11-2-setup-k8s-on-ubuntu/">展开全文 >></a>
         </p>
       
 
@@ -549,6 +551,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">branch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ruby</a>
               </li>
              
@@ -561,23 +571,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">branch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">rails</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">concern</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -601,6 +603,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mxnet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">deep_leaning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
@@ -617,11 +627,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mxnet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">deep_leaning</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -629,11 +635,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂文</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂文</a>
+                <a href="javascript:void(0)" class="js-tag color4">deep learning</a>
               </li>
             
             <div class="clearfix"></div>
