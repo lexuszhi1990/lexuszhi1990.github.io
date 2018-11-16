@@ -121,20 +121,16 @@ NOTES:
 The Prometheus server can be accessed via port 80 on the following DNS name from within your cluster:
 my-prometheus-server.default.svc.cluster.local
 
-
 Get the Prometheus server URL by running these commands in the same shell:
   export POD_NAME=$(kubectl get pods --namespace default -l "app=prometheus,component=server" -o jsonpath="{.items[0].metadata.name}")
   kubectl --namespace default port-forward $POD_NAME 9090
 
-
 The Prometheus alertmanager can be accessed via port 80 on the following DNS name from within your cluster:
 my-prometheus-alertmanager.default.svc.cluster.local
-
 
 Get the Alertmanager URL by running these commands in the same shell:
   export POD_NAME=$(kubectl get pods --namespace default -l "app=prometheus,component=alertmanager" -o jsonpath="{.items[0].metadata.name}")
   kubectl --namespace default port-forward $POD_NAME 9093
-
 
 The Prometheus PushGateway can be accessed via port 9091 on the following DNS name from within your cluster:
 my-prometheus-pushgateway.default.svc.cluster.local
@@ -147,7 +143,33 @@ Get the PushGateway URL by running these commands in the same shell:
 For more information on running Prometheus, visit:
 https://prometheus.io/
 
-
-
 https://yq.aliyun.com/articles/159601
 https://help.aliyun.com/document_detail/58587.html
+
+### redis
+
+    export REDIS_PASSWORD=$(kubectl get secret --namespace default sanguine-mite-redis -o jsonpath="{.data.redis-password}" | base64 --decode)
+
+To connect to your Redis server:
+
+1. Run a Redis pod that you can use as a client:
+
+   kubectl run --namespace default sanguine-mite-redis-client --rm --tty -i \
+    --env REDIS_PASSWORD=$REDIS_PASSWORD \
+   --image docker.io/bitnami/redis:4.0.11 -- bash
+
+2. Connect using the Redis CLI:
+   redis-cli -h sanguine-mite-redis-master -a $REDIS_PASSWORD
+   redis-cli -h sanguine-mite-redis-slave -a $REDIS_PASSWORD
+
+To connect to your database from outside the cluster execute the following commands:
+
+    kubectl port-forward --namespace default svc/sanguine-mite-redis 6379:6379 &
+    redis-cli -h 127.0.0.1 -p 6379 -a $REDIS_PASSWORD
+
+
+### Error: no available release name found
+
+$ kubectl create serviceaccount --namespace kube-system tiller
+$ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+$ helm init --service-account tiller

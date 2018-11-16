@@ -51,6 +51,7 @@ Server:
 `sudo apt-get install bridge-utils`
 
 ### 安装docker
+
 ```
 apt-cache madison docker-ce
 sudo apt-get install docker-ce=18.06.1~ce~3-0~ubuntu
@@ -305,6 +306,18 @@ secret/kubernetes-dashboard-certs created
 #### download image
 
 ```
+
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.11.0
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.11.0 gcr.io/kubernetes-helm/tiller:v2.11.0
+
+
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-state-metrics:v1.2.0
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-state-metrics:v1.2.0 gcr.io/google_containers/kube-state-metrics:v1.2.0
+
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/addon-resizer:1.7
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/addon-resizer:1.7 gcr.io/google_containers/addon-resizer:1.7
+
+
 docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.10.0
 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.10.0 k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.0
 
@@ -337,6 +350,30 @@ kubernetes-dashboard   NodePort   10.111.48.97   <none>        443:30386/TCP   6
 
 #### create user
 
+developer_account.yaml:
+```
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: master-admin
+  namespace: kube-system
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: master-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: master-admin
+  namespace: kube-system
+```
+
 ```
 $ kubectl create -f developer_account.yaml
 serviceaccount/master-admin created
@@ -364,6 +401,7 @@ token:      your-token
 - https://github.com/kubernetes/dashboard
 - https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 - https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html
+- https://github.com/kubernetes/dashboard/wiki/Creating-sample-user
 
 ### troubleshot
 
@@ -401,6 +439,38 @@ ifconfig docker0 down
 ip link delete cni0
 ip link delete flannel.1
 ```
+
+#### The range of valid ports is 30000-32767
+
+https://github.com/kubernetes/kubeadm/issues/122
+
+```
+vi /etc/kubernetes/manifests/kube-apiserver.yaml
+add `--service-node-port-range=80-32767` then save
+systemctl restart kubelet
+```
+
+#### 设置 dashboard 登入失效时间
+
+Dashboard的Token失效时间可以通过 token-ttl 参数来设置，修改创建Dashboard的yaml文件，并重新创建即可。
+
+```
+kubectl edit deployment kubernetes-dashboard -n kube-system
+
+ports:
+- containerPort: 8443
+  protocol: TCP
+args:
+  - --auto-generate-certificates
+  - --token-ttl=43200
+```
+
+https://github.com/kubernetes/dashboard/issues/2882
+
+#### delete all Evicted pod
+
+`kubectl get pod -n kube-system | grep Evicted | awk '{print $1}'  | xargs kubectl delete pod -n kube-system`
+
 
 references:
 -----------------

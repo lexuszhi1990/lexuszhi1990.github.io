@@ -36,6 +36,8 @@ mkdir -p /data/gluster-brick1/gv0
 
 sudo gluster volume create gv0 replica 2 zs:/apps/gluster-brick1/gv0 dt-node1:/data/gluster-brick1/gv0
 
+sudo gluster volume create gv0 replica 2 zs:/apps/gluster-brick1/gv0 abc:/apps/gluster-brick1/gv0
+
 sudo gluster volume create gv0 2 zs:/apps/gluster-brick1/gv0 dt-node1:/data/gluster-brick1/gv0
 ```
 
@@ -51,6 +53,14 @@ sudo setfattr -x trusted.gfid /apps/gluster-brick1/gv0
 sudo setfattr -x trusted.glusterfs.volume-id /apps/gluster-brick1/gv0
 sudo rm -rf /apps/gluster-brick1/gv0/.glusterfs/
 ```
+
+Brick1: zs:/apps/gluster-brick1/gv0
+Brick2: dt-node1:/data/gluster-brick1/gv0
+Brick3: abc:/apps/gluster-brick1/gv0
+
+sudo setfattr -x trusted.gfid /apps/gluster-brick1/gv0
+sudo setfattr -x trusted.glusterfs.volume-id /apps/gluster-brick1/gv0
+sudo rm -rf /apps/gluster-brick1/gv0/.glusterfs/
 
 references:
 ------------
