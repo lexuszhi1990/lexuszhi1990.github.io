@@ -170,3 +170,32 @@ $ docker images mxnet-cu90/python:1.2.0-roialign
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 mxnet-cu90/python   1.2.0-roialign      dce634b0c63f        15 seconds ago      5.38GB
 ```
+
+
+### docker registry
+
+
+```
+registry:
+  restart: always
+  image: registry:2
+  ports:
+    - 5000:5000
+  environment:
+    REGISTRY_HTTP_TLS_CERTIFICATE: /certs/domain.crt
+    REGISTRY_HTTP_TLS_KEY: /certs/domain.key
+  volumes:
+    - /apps/docker-registry/data:/var/lib/registry
+    - /apps/docker-registry/certs:/certs
+```
+
+```
+# /etc/docker/daemon.json
+{
+  "insecure-registries" : ["registry.itzgeek.local:5000"]
+}
+```
+
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-a-private-docker-registry-on-ubuntu-14-04
+https://docs.docker.com/registry/deploying/
