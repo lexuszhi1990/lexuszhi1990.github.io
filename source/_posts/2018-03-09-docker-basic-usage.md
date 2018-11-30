@@ -171,11 +171,10 @@ REPOSITORY          TAG                 IMAGE ID            CREATED             
 mxnet-cu90/python   1.2.0-roialign      dce634b0c63f        15 seconds ago      5.38GB
 ```
 
-
 ### docker registry
 
-
 ```
+# docker-compose.yml
 registry:
   restart: always
   image: registry:2
@@ -197,5 +196,22 @@ registry:
 ```
 
 
-https://www.digitalocean.com/community/tutorials/how-to-set-up-a-private-docker-registry-on-ubuntu-14-04
+https://www.itzgeek.com/how-tos/linux/centos-how-tos/how-to-setup-docker-private-registry-on-centos-7-ubuntu-16-04.html
 https://docs.docker.com/registry/deploying/
+
+
+### Control Docker with systemd
+
+https://docs.docker.com/config/daemon/systemd/
+
+```
+[Service]
+Environment="HTTP_PROXY=http://127.0.0.1:7050/" "NO_PROXY=localhost,127.0.0.1"
+```
+
+or
+
+```
+[Service]
+Environment="HTTP_PROXY=sock5://127.0.0.1:1080/" "NO_PROXY=localhost,127.0.0.1"
+```
