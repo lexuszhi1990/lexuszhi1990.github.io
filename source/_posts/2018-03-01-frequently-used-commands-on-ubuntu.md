@@ -348,3 +348,66 @@ https://askubuntu.com/questions/604988/how-to-remove-a-apt-key-which-i-have-adde
 
 sudo apt-key list | grep 'Gluster'
 sudo apt-key del 6A7BD8D4
+
+
+### dd 磁盘速度测试
+
+HDD写性能：
+```
+dd if=/dev/zero of=/home/train/test.dbf bs=8k count=2000000 conv=fdatasync
+2000000+0 records in
+2000000+0 records out
+16384000000 bytes (16 GB, 15 GiB) copied, 71.7024 s, 229 MB/s
+```
+
+HDD读性能：
+
+dd if=/home/train/test.dbf of=/dev/null bs=8k count=2000000 iflag=direct
+
+http://elf8848.iteye.com/blog/2089055
+
+
+|type|read speed|write speed|
+|----|----------|-----------|
+|SSD|291.11 MB/s|252 MB/s|
+|hdd|119.88 MB/s|80.2 MB/s|
+
+```
+train@train22:/data/brick2/workspace$ sudo hdparm -Tt /dev/sda
+
+/dev/sda:
+ Timing cached reads:   19484 MB in  2.00 seconds = 9749.91 MB/sec
+ Timing buffered disk reads: 874 MB in  3.00 seconds = 291.11 MB/sec
+train@train22:/data/brick2/workspace$ sudo hdparm -Tt /dev/sdc1
+
+/dev/sdc1:
+ Timing cached reads:   18798 MB in  2.00 seconds = 9407.60 MB/sec
+ Timing buffered disk reads: 360 MB in  3.00 seconds = 119.88 MB/sec
+
+
+SSD write:
+train@train22:~$ dd if=/dev/zero of=/home/train/test.dbf bs=8k count=2000000 conv=fdatasync
+2000000+0 records in
+2000000+0 records out
+16384000000 bytes (16 GB, 15 GiB) copied, 65.0601 s, 252 MB/s
+
+
+train@train22:/data/brick2/workspace$ dd if=/dev/zero of=/data/brick2/test3.dbf bs=8k count=2000000  conv=fdatasync
+2000000+0 records in
+2000000+0 records out
+16384000000 bytes (16 GB, 15 GiB) copied, 204.218 s, 80.2 MB/s
+
+iflag=direct
+```
+
+### ubuntu 挂载 samba 磁盘
+
+1.下载samba相应组件：
+`sudo apt-get install cifs-utils`
+
+2.查看共享目录：
+`smbclient -L 192.168.0.103 -N`
+
+3.挂载
+(username=服务器的名字，密码=服务器密码，IP地址＝自己服务器的IP)
+`sudo mount -t cifs -o username=用户名,password=密码 //IP地址/Code /home/liyan/smb_code`
