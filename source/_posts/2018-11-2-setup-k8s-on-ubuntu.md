@@ -82,15 +82,15 @@ kubeadm version: &version.Info{Major:"1", Minor:"12", GitVersion:"v1.12.1", GitC
 ", GitTreeState:"clean", BuildDate:"2018-10-05T16:43:08Z", GoVersion:"go1.10.4", Compiler:"gc", Platform:"linux/amd64"}
 ```
 
-#### 安装 k8s 1.12.1 需要的image
+#### 安装 k8s 1.12.3 需要的image
 
-list the basic images used by k8s 1.12.1:
+list the basic images used by k8s 1.12.3:
 ```
-$ kubeadm config images list --kubernetes-version=v1.12.1
-k8s.gcr.io/kube-apiserver:v1.12.1
-k8s.gcr.io/kube-controller-manager:v1.12.1
-k8s.gcr.io/kube-scheduler:v1.12.1
-k8s.gcr.io/kube-proxy:v1.12.1
+$ kubeadm config images list --kubernetes-version=v1.12.3
+k8s.gcr.io/kube-apiserver:v1.12.3
+k8s.gcr.io/kube-controller-manager:v1.12.3
+k8s.gcr.io/kube-scheduler:v1.12.3
+k8s.gcr.io/kube-proxy:v1.12.3
 k8s.gcr.io/pause:3.1
 k8s.gcr.io/etcd:3.2.24
 k8s.gcr.io/coredns:1.2.2
@@ -98,18 +98,18 @@ k8s.gcr.io/coredns:1.2.2
 
 pull from aliyun and tag:
 ```
-docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.12.1
-docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.12.1
-docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.12.1
-docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.12.1
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.12.3
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.12.3
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.12.3
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.12.3
 docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/etcd:3.2.24
 docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.2.2
 docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1
 
-docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.12.1 k8s.gcr.io/kube-proxy:v1.12.1
-docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.12.1 k8s.gcr.io/kube-apiserver:v1.12.1
-docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.12.1 k8s.gcr.io/kube-controller-manager:v1.12.1
-docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.12.1 k8s.gcr.io/kube-scheduler:v1.12.1
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.12.3 k8s.gcr.io/kube-proxy:v1.12.3
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.12.3 k8s.gcr.io/kube-apiserver:v1.12.3
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.12.3 k8s.gcr.io/kube-controller-manager:v1.12.3
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.12.3 k8s.gcr.io/kube-scheduler:v1.12.3
 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/etcd:3.2.24 k8s.gcr.io/etcd:3.2.24
 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.2.2 k8s.gcr.io/coredns:1.2.2
 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 k8s.gcr.io/pause:3.1
@@ -121,8 +121,9 @@ docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 k8s.gcr
 
 cmd:
 ```
-kubeadm init --kubernetes-version=v1.12.1 --pod-network-cidr=10.244.0.0/16
+kubeadm init --kubernetes-version=v1.12.1 --pod-network-cidr=10.244.0.0/16 --hostname-override
 ```
+kubeadm init --kubernetes-version=v1.12.3 --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.1.21
 
 outputs:
 ```
@@ -130,9 +131,9 @@ Your Kubernetes master has initialized successfully!
 
 To start using your cluster, you need to run the following as a regular user:
 
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 You should now deploy a pod network to the cluster.
 Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
@@ -213,7 +214,7 @@ k8s支持NVIDIA和AMD GPU的调度，参见[文档](https://kubernetes.io/docs/t
 然后安装nvidia官方提供的[k8s插件](https://github.com/NVIDIA/k8s-device-plugin):
 
 ```
-kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v1.11/nvidia-device-plugin.yml
+  kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v1.11/nvidia-device-plugin.yml
 ```
 
 安装完成之后就可以检测到GPU了：
@@ -272,6 +273,12 @@ nvidia详细的安装、配置、可视化在k8s gpu的文档
 - https://developer.nvidia.com/kubernetes-gpu
 - https://docs.nvidia.com/datacenter/kubernetes-install-guide/index.html
 
+monitoring gpus:
+```
+kubectl apply -f gpu-state-export-daemonset.yaml
+kubectl label node abc hardware-type=NVIDIAGPU
+```
+
 ### 搭建 k8s dashboard
 
 `dashbaord` 能够有一个前端页面查看、管理当前集群。
@@ -299,14 +306,13 @@ $ ll
 
 generate secret:
 ```
-$ kubectl create secret generic kubernetes-dashboard-certs --from-file=. -n kube-system
+$ kubectl create secret generic kubernetes-dashboard-certs --4om-file=. -n kube-system
 secret/kubernetes-dashboard-certs created
 ```
 
 #### download image
 
 ```
-
 docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.11.0
 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.11.0 gcr.io/kubernetes-helm/tiller:v2.11.0
 
@@ -317,11 +323,6 @@ docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-state-metric
 docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/addon-resizer:1.7
 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/addon-resizer:1.7 gcr.io/google_containers/addon-resizer:1.7
 
-
-docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.10.0
-docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.10.0 k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.0
-
-
 docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/heapster-amd64:v1.5.4
 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/heapster-amd64:v1.5.4 k8s.gcr.io/heapster-amd64:v1.5.4
 
@@ -330,6 +331,13 @@ docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/heapster-influxdb
 ```
 
 #### Install kubernetes dashboard service
+
+downloand and tag image:
+```
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.10.0
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.10.0 k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.0
+```
+
 
 ```
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
@@ -379,7 +387,7 @@ $ kubectl create -f developer_account.yaml
 serviceaccount/master-admin created
 clusterrolebinding.rbac.authorization.k8s.io/master-admin created
 
-# zs @ zs in /apps/workspace/certs [14:44:08]
+# master @ node
 $ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep master-admin | awk '{print $1}')
 Name:         master-admin-token-459v8
 Namespace:    kube-system
@@ -403,9 +411,19 @@ token:      your-token
 - https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html
 - https://github.com/kubernetes/dashboard/wiki/Creating-sample-user
 
+### prometheus/grafana
+
+
+```
+helm install --name my-prom stable/prometheus --namespace monitoring --values prometheus-helm-values.yaml
+helm install --name my-grafana stable/grafana --namespace monitoring --values grafana-helm-values.yaml
+```
+
 ### troubleshot
 
 #### dnscore 1.2.2 CrashLoopBackOff
+
+`kubectl get pod -n kube-system`:
 
 ```
 kube-system   coredns-68fb79bcf6-6s5bp                0/1     CrashLoopBackOff   6          10m
@@ -427,7 +445,7 @@ https://coredns.io/plugins/loop/#troubleshooting
 https://github.com/kubernetes/kubernetes/issues/57280#issuecomment-356431256
 
 ```
-kubeadm reset
+kubeadm reset -f
 systemctl stop kubelet
 systemctl stop docker
 rm -rf /var/lib/cni/
@@ -438,6 +456,8 @@ ifconfig flannel.1 down
 ifconfig docker0 down
 ip link delete cni0
 ip link delete flannel.1
+systemctl start docker
+systemctl start kubelet
 ```
 
 #### The range of valid ports is 30000-32767
@@ -475,6 +495,5 @@ https://github.com/kubernetes/dashboard/issues/2882
 references:
 -----------------
 - https://kubernetes.io/docs/setup/independent/install-kubeadm/#check-required-ports
-- https://unix.stackexchange.com/questions/224156/how-to-safely-turn-off-swap-permanently-and-reclaim-the-space-on-debian-jessie
 - https://blog.csdn.net/u010827484/article/details/83025404
 - https://www.bookstack.cn/read/learning-kubernetes/installation-kubeadm.md

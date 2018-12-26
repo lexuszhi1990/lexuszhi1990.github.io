@@ -107,13 +107,19 @@ docker pull registry.cn-hangzhou.aliyuncs.com/appstore/cp-kafka:4.0.0
 docker tag registry.cn-hangzhou.aliyuncs.com/appstore/cp-kafka:4.0.0  confluentinc/cp-kafka:4.0.0
 
 
-### auth
+### auth(configmaps is forbidden: User)
+
+Error: configmaps is forbidden: User "system:serviceaccount:kube-system:default" cannot list resource "configmaps" in API group "" in the namespace "kube-system"
 
 ```
 kubectl create serviceaccount --namespace kube-system tiller
 kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
 ```
+
+or
+
+`$ helm init --service-account tiller`
 
 ### prometheus
 

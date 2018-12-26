@@ -29,6 +29,10 @@ netstat -apn|grep 80
 
 lsof -i:21
 
+### 根据进程号查看对应的信息
+
+netstat -anop | grep PID
+
 ### 解压缩
 
 extract files
@@ -137,8 +141,7 @@ Ubuntu 9.10 \n \l
 2
 (结果大于0, 说明支持64bit计算. lm指long mode, 支持lm则是64bit)
 
-查看cpu信息概要（昨天看aix的时候刚发现的，在ubuntu上竟然也有~）:
-#lscpu
+查看cpu信息概要`lscpu`:
 
 ```
 Architecture:          i686                            #架构686
@@ -255,69 +258,37 @@ rename 's/$/jelline/' *
 
 ```
 x? 　匹配 0 次或一次 x 字符串
-
 x* 　匹配 0 次或多次 x 字符串，但匹配可能的最少次数
-
 x+ 　匹配 1 次或多次 x 字符串，但匹配可能的最少次数
-
 .* 　匹配 0 次或一次的任何字符
-
 .+ 　匹配 1 次或多次的任何字符
-
 {m}　匹配刚好是 m 个 的指定字符串
-
 {m,n}匹配在 m个 以上 n个 以下 的指定字符串
-
 {m,} 匹配 m个 以上 的指定字符串
-
 [] 　匹配符合 [] 内的字符
-
 [^]　匹配不符合 [] 内的字符
-
 [0-9]匹配所有数字字符
-
 [a-z]匹配所有小写字母字符
-
 [^0-9]匹配所有非数字字符
-
 [^a-z]匹配所有非小写字母字符
-
 ^ 　　匹配字符开头的字符
-
 $ 　　匹配字符结尾的字符
-
 \d　　匹配一个数字的字符，和 [0-9] 语法一样
-
 \d+ 　匹配多个数字字符串，和 [0-9]+ 语法一样
-
 \D　　非数字，其他同 \d
-
 \D+　 非数字，其他同 \d+
-
 \w 　 英文字母或数字的字符串，和 [a-zA-Z0-9] 语法一样
-
 \w+ 　和 [a-zA-Z0-9]+ 语法一样
-
 \W 　 非英文字母或数字的字符串，和 [^a-zA-Z0-9] 语法一样
-
 \W+   和 [^a-zA-Z0-9]+ 语法一样
-
 \s    空格，和 [\n\t\r\f] 语法一样
-
 \s+   和 [\n\t\r\f]+ 一样
-
 \S    非空格，和 [^\n\t\r\f] 语法一样
-
 \S+   和 [^\n\t\r\f]+ 语法一样
-
 \b    匹配以英文字母,数字为边界的字符串
-
 \B    匹配不以英文字母,数值为边界的字符串
-
 a|b|c 匹配符合a字符 或是b字符 或是c字符 的字符串
-
 abc   匹配含有 abc 的字符串
-
 ```
 
 ### initramfs-tools
@@ -411,3 +382,65 @@ iflag=direct
 3.挂载
 (username=服务器的名字，密码=服务器密码，IP地址＝自己服务器的IP)
 `sudo mount -t cifs -o username=用户名,password=密码 //IP地址/Code /home/liyan/smb_code`
+
+
+https://www.cnblogs.com/lcword/p/8242207.html
+
+
+### 彻底删除 swap 分区
+
+```
+# Turn off the particular swap partition and / or all of the swaps:
+swapoff --all
+
+# Make 100% sure the particular swap partition partition is off:
+cat /proc/swaps
+
+# Comment out / remove the swap partition's UUID
+vi /etc/fstab
+
+# Comment out / remove the previously identified swap partition's UUID, e.g.:
+vi /etc/initramfs-tools/conf.d/resume
+
+# delete swap partition
+fdisk /dev/sdX
+```
+
+https://unix.stackexchange.com/questions/224156/how-to-safely-turn-off-swap-permanently-and-reclaim-the-space-on-debian-jessie
+
+
+### 查询apt可用的软件版本
+
+`apt-cache madison docker-ce`
+
+
+### ip related command
+
+apt install -y iproute iproute-doc # ip
+apt install -y net-tools # ifconfig
+apt install -y iputils-ping # ping
+apt install -y traceroute # traceroute
+
+
+### 网络性能评估工具 iperf
+
+|命令行选项|描述|
+|---------|---|
+|-i, --interval|设置每次报告之间的时间间隔，单位为秒。如果设置为非零值，就会按照此时间间隔输出测试报告。默认值为零|
+|-l, --len|设置读写缓冲区的长度。TCP方式默认为8KB，UDP方式默认为1470字节。|
+|-p, --port #|设置端口，与服务器端的监听端口一致。默认是5001端口，与ttcp的一样。|
+|-u, --udp|使用UDP方式而不是TCP方式。参看-b选项。|
+|-w, --window #[KM]|设置套接字缓冲区为指定大小。对于TCP方式，此设置为TCP窗口大小。|
+|-P, --parallel|线程数。指定客户端与服务端之间使用的线程数。默认是1线程。需要客户端与服务器端同时使用此参数。|
+|-b, --bandwidth|UDP模式使用的带宽，单位bits/sec。此选项与-u选项相关。默认值是1 Mbit/sec。|
+|-d, --dualtest|运行双测试模式。这将使服务器端反向连接到客户端，使用-L 参数中指定的端口（或默认使用客户端连接到服务器端的端口）。这些在操作的同时就立即完成了。|
+|-r, --tradeoff|往复测试模式。当客户端到服务器端的测试结束时，服务器端通过-l选项指定的端口（或默认为客户端连接到服务器端的端口），反向连接至客户端。当客户端连接终止时，反向连接随即开始。如果需要同时进行双向测试，请尝试-d参数。|
+|-t, --time|设置传输的总时间。Iperf在指定的时间内，重复的发送指定长度的数据包。默认是10秒钟。参考-l与-n选项。|
+
+server:
+`iperf –s`
+
+client:
+`iperf -u -c 192.168.1.21 -b 4000000M -t 60 -i 10`
+
+

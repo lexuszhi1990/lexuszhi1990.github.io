@@ -113,7 +113,7 @@ quit
 
 ```
 sudo fdisk -lu
-sudo mkfs -t ext4 /dev/sda1
+sudo mkfs.ext4 -F /dev/sda1
 sudo blkid /dev/sda1
 ```
 
